@@ -124,5 +124,5 @@ public enum Opcode : ushort
     FinishTutorialGuideCsReq = 1650,
     FinishTutorialGuideScRsp = 1609,
     PlayerHeartbeatCsReq = 81,
-    PlayerHeartbeatScReq = 28
+    PlayerHeartbeatScReq = 28,
 }

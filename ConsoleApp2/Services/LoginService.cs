@@ -12,7 +12,6 @@ namespace Server.Services
             Serilog.Core.Constants.SourceContextPropertyName,
             nameof(LoginService));
 
-        //1
         [Handler(Opcode.PlayerGetTokenCsReq, SessionState.Ignored)]
         public static async Task OnPlayerGetToken(Session connection, byte[] payload)
         {
@@ -27,7 +26,6 @@ namespace Server.Services
             await connection.SendAsync(Opcode.PlayerGetTokenScRsp, a);
         }
 
-        //2
         [Handler(Opcode.PlayerLoginCsReq)]  
         public static async Task OnPlayerLogin(Session connection, byte[] _)
         {
@@ -35,7 +33,7 @@ namespace Server.Services
                 Opcode.PlayerLoginScRsp,
                 new PlayerLoginScRsp
                 {
-                    BGONHENALMD = new BEPIDFNIMLN { NickName = "Hang", Level = 50, HCoin = 99999, SCoin = 9999999, WorldLevel = 4 },
+                    BGONHENALMD = new BEPIDFNIMLN { NickName = "Hang", Level = 70, HCoin = 10000, SCoin = 10000, WorldLevel = 6 },
                     Stamina = 180,
                     GHFMCFENPNF = "3967187-V1.0Live",
                     RegisterCPS = "hoyoverse_PC",
@@ -44,16 +42,20 @@ namespace Server.Services
                     ServerTimestampMs = (ulong)DateTimeOffset.Now.ToUnixTimeSeconds()
                 }
             );
+            await connection.SendAsync(Opcode.ClientDownloadDataScNotify, new ClientDownloadDataScNotify());
+            await connection.SendAsync(Opcode.UpdateFeatureSwitchScNotify, new UpdateFeatureSwitchScNotify());
+            await connection.SendAsync(Opcode.SyncServerSceneChangeNotify, new SyncServerSceneChangeNotify());
+            await connection.SendAsync(Opcode.DailyTaskDataScNotify, new DailyTaskDataScNotify());
+            await connection.SendAsync(Opcode.RaidInfoNotify, new RaidInfoNotify());
+            await connection.SendAsync(Opcode.BattlePassInfoNotify, new BattlePassInfoNotify { BattlePassData = 1, PurchaseType = BpTierType.Premium2 });
         }
 
-        //3
         [Handler(Opcode.GetLevelRewardTakenListCsReq)]
         public static async Task OnGetLevelRewardTakenList(Session session, byte[] _)
         {
             await session.SendAsync(Opcode.GetLevelRewardTakenListScRsp, new GetLevelRewardTakenListScRsp { });
         }
 
-        //4
         [Handler(Opcode.GetMissionStatusCsReq)]
         public static async Task OnGetMissionStatus(Session session, byte[] payload)
         {
@@ -61,30 +63,56 @@ namespace Server.Services
             if (getM == null) return;
 
             var a = new GetMissionStatusScRsp();
-            foreach (var _sub in getM.SubMissions)
-            {
-                a.SubMissionStatusList.Add(new MissionData { Id = _sub, CurrentProgress = 0, Status = MissionStatus.MissionFinish });
-                Logger.Debug($"Sub == {_sub}");
+            foreach (var _sub in getM.SubMissions) {
+                a.SubMissionStatusList.Add(new MissionData { Id = _sub, Status = MissionStatus.MissionFinish });
             }
-            foreach (var _event in getM.EventMissions)
-            {
-                a.MissionEventStatusList.Add(new MissionData { Id = _event, CurrentProgress = 0, Status = MissionStatus.MissionFinish });
-                Logger.Debug($"EventMissy == {_event}");
+            foreach (var _event in getM.EventMissions) {
+                a.MissionEventStatusList.Add(new MissionData { Id = _event, Status = MissionStatus.MissionFinish });
             }
-            foreach (var _unfinish in getM.UnFinishedMissions)
-            {
-                a.FinishedMainMissionIdList.Add(_unfinish);
-                Logger.Debug($"UnfinishedMissy == {_unfinish}");
+            foreach (var _unfinish in getM.UnFinishedMissions) {
+                if (_unfinish != 8000102) {
+                    a.FinishedMainMissionIdList.Add(_unfinish);
+                }
+                else {
+                    a.UnfinishedMainMissionIdList.Add(8000102);
+                }
             }
 
             await session.SendAsync(Opcode.GetMissionStatusScRsp, a);
         }
 
-        //5
+        [Handler(Opcode.GetRogueScoreRewardInfoCsReq)]
+        public static async Task OnGetRogueScoreRewardInfo(Session session, byte[] _)
+        {
+            var b = new GetRogueScoreRewardInfoScRsp
+            {
+                ELBKFCDJPGF = new IMLOGEMOJMI
+                {
+                    HasTakenInitialScore = true,
+                    PoolID = 23,
+                    PoolRefreshed = true
+                }
+            };
+            await session.SendAsync(Opcode.GetRogueScoreRewardInfoScRsp, b);
+        }
+
         [Handler(Opcode.GetGachaInfoCsReq)]
         public static async Task OnGetGachaInfo(Session session, byte[] _)
         {
-            await session.SendAsync(Opcode.GetGachaInfoScRsp, new GetGachaInfoScRsp());
+            var gachaInfo = new GetGachaInfoScRsp {
+                RandomNum = 91 
+            };
+
+            gachaInfo.MGFPBBAKOMI.Add(new GLIBDFCOMJJ {
+                GachaID = 2004,
+                HistoryURL = "https://google.com",
+                EndTimeStamp = DateTimeOffset.Now.ToUnixTimeSeconds() * 2
+            });
+
+            gachaInfo.MGFPBBAKOMI[0].EDBGNPCFHBB.AddRange(new uint[] { 1001, 1202, 1204, 1206 }); //4 stars list
+            gachaInfo.MGFPBBAKOMI[0].NFGHMBCIJCD.AddRange(new uint[] { 1204 }); //5 stars list
+
+            await session.SendAsync(Opcode.GetGachaInfoScRsp, gachaInfo);
         }
 
         //6
