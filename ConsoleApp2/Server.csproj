@@ -7,14 +7,12 @@
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ServerGarbageCollection>true</ServerGarbageCollection>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Network\UDP\**" />
     <Compile Remove="tests\**" />
-    <EmbeddedResource Remove="Network\UDP\**" />
     <EmbeddedResource Remove="tests\**" />
-    <None Remove="Network\UDP\**" />
     <None Remove="tests\**" />
   </ItemGroup>
 

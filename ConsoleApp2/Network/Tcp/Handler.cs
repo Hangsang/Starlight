@@ -1,6 +1,7 @@
 ﻿using DotNetty.Handlers.Timeout;
 using Server.Interfaces;
 using Server.Packet;
+using System.Net;
 
 namespace Server.Network.TCP
 {
@@ -15,28 +16,20 @@ namespace Server.Network.TCP
             session.Register(connection);
         }
 
-        public void ChannelInactive(Connection session)
+        public void ChannelRead(Connection session, object output)
         {
-            session.Channel.CloseAsync();
-
-            if (session is IDisposable disposableSession)
-            {
-                disposableSession.Dispose();
-            }
-        }
-
-        public async Task ChannelRead(Connection session, object output)
-        {
-            if (session.mConnection.mKicked || !session.Channel.Active)
+            if (session == null || !session.Channel.Active)
                 return;
 
-            if (output is HsrPacket message)
-            {
+            if (session.mConnection == null || session.mConnection.mKicked)
+                return;
+
+            if (output is HsrPacket message) {
                 NetworkProcessor.Invoke(message, session);
             }
             else
             {
-                await session.mConnection.DisconnectAsync();
+                session.Channel.CloseAsync();
                 if (session.mConnection is IDisposable disposableConnection)
                 {
                     disposableConnection.Dispose();
@@ -51,6 +44,8 @@ namespace Server.Network.TCP
 
             Console.WriteLine(exception.Message);
             session?.Channel.CloseAsync();
+            session = null;
+            session.mConnection = null;
         }
     }
 }

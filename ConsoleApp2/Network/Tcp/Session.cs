@@ -12,7 +12,6 @@ namespace Server.Network.TCP
 
         public string Address => mConnection.RemoteAddress;
         public bool mKicked = false;
-        public uint mUID { get; set; }
 
         internal void Register(Connection channel)
         {

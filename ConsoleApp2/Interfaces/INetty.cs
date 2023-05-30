@@ -6,9 +6,7 @@ namespace Server.Interfaces
     {
         void ChannelActive(Connection session);
 
-        void ChannelInactive(Connection session);
-
-        Task ChannelRead(Connection session, object output);
+        void ChannelRead(Connection session, object output);
 
         void ExceptionCaught(Connection session, Exception exception);
     }

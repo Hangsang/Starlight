@@ -20,19 +20,14 @@ namespace Server.Network
             mNettyHandler.ChannelActive(mChannel);
         }
 
-        public override void ChannelInactive(IChannelHandlerContext context)
-        {
-            mNettyHandler.ChannelInactive(mChannel);
-        }
-
-        public override void ChannelReadComplete(IChannelHandlerContext context)
-        {
-            context.Flush();
-        }
-
         public override void ChannelRead(IChannelHandlerContext ctx, object output)
         {
             mNettyHandler.ChannelRead(mChannel, output);
+        }
+        
+        public override void ChannelReadComplete(IChannelHandlerContext ctx)
+        {
+            ctx.Flush();
         }
 
         public override void ExceptionCaught(IChannelHandlerContext context, Exception exception)

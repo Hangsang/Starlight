@@ -21,13 +21,15 @@ public class Bootstrap
         Worker = new MultithreadEventLoopGroup(Environment.ProcessorCount * 2);
         mBootstrap = new ServerBootstrap().Group(Boss, Worker);
         mBootstrap.Channel<TcpServerSocketChannel>();
-        mBootstrap.ChildHandler(new ActionChannelInitializer<IChannel>(channel => {
+        mBootstrap.ChildHandler(new ActionChannelInitializer<IChannel>(channel =>
+        {
             var session = new Connection(channel);
             channel.Pipeline.AddLast(new MessageDecoder(session));
             channel.Pipeline.AddLast(new NettyHandler(_netty, session));
             channel.Pipeline.AddLast(new ReadTimeoutHandler(TimeSpan.FromSeconds(30)));
         }))
           .ChildOption(ChannelOption.TcpNodelay, true);
+
     }
 
     private ServerBootstrap mBootstrap { get; set; }

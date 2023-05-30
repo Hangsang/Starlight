@@ -18,7 +18,7 @@ namespace Server.Network.TCP
 
         internal IChannel Channel { get; }
 
-        internal Session mConnection { get; private set; }
+        internal Session mConnection { get; set; }
 
         public string Id => Channel.Id.AsLongText();
 
