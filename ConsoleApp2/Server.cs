@@ -14,6 +14,8 @@ public class Server
 
     public static async Task Main()
     {
+        Console.Title = "Honkai: Star Rail - Game Server";
+
         Log.Logger = new LoggerConfiguration()
             .Enrich.With<ContextEnricher>()
             .WriteTo.Async(console => console.Console(outputTemplate: "[{Level:u3}] |{SrcContext}| {Message}{NewLine}{Exception}"))

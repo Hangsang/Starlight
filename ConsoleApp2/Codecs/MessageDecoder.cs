@@ -5,6 +5,8 @@ using Serilog;
 using Server.Network.TCP;
 using Server.Packet;
 using Server.Unsorted;
+using System;
+using System.Buffers;
 
 namespace Server.Codecs
 {
@@ -31,6 +33,8 @@ namespace Server.Codecs
 
         protected override void Decode(IChannelHandlerContext context, IByteBuffer message, List<object> output)
         {
+            byte[] buffer = null;
+
             try
             {
                 if (mTcpConnection.mConnection.mKicked || !context.Channel.Active)
@@ -47,11 +51,11 @@ namespace Server.Codecs
                 if (message.ReadableBytes != DATA_BEGIN_LENGTH + metaLen + bodyLen + sizeof(uint))
                     return;
 
-                var buffer = new byte[bodyLen];
+                buffer = ArrayPool<byte>.Shared.Rent(bodyLen);
                 message.GetBytes(DATA_BEGIN_LENGTH + metaLen, buffer, 0, bodyLen);
 
                 var hsrHeader = new HsrHeader { HeadMagic = headMagic, CmdId = (ushort)cmdId, MetaLen = metaLen, BodyLen = (uint)bodyLen };
-                var wholeData = new HsrPacket(hsrHeader, buffer, 0);
+                var wholeData = new HsrPacket(hsrHeader, buffer.AsMemory(0, bodyLen), 0);
                 output.Add(wholeData);
             }
             catch (Exception ex)
@@ -59,6 +63,12 @@ namespace Server.Codecs
                 Logger.Error(ex, "Exception occurred during decoding");
                 mTcpConnection?.mConnection?.DisconnectAsync();
             }
+            finally
+            {
+                if (buffer != null) // Make sure buffer is not null before returning it to the array pool
+                    ArrayPool<byte>.Shared.Return(buffer);
+            }
         }
+
     }
 }

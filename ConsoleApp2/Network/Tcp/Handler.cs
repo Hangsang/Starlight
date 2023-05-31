@@ -16,6 +16,10 @@ namespace Server.Network.TCP
             session.Register(connection);
         }
 
+        public void ChannelInactive(Connection session)
+        {
+        }
+
         public void ChannelRead(Connection session, object output)
         {
             if (session == null || !session.Channel.Active)

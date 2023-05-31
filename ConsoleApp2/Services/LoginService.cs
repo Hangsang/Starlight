@@ -14,9 +14,9 @@ namespace Server.Services
             nameof(LoginService));
 
         [Handler(Opcode.PlayerGetTokenCsReq, SessionState.Ignored)]
-        public static async Task OnPlayerGetToken(Session connection, byte[] payload)
+        public static async Task OnPlayerGetToken(Session connection, Memory<byte> payload)
         {
-            var cplrtoken = PlayerGetTokenCsReq.Parser.ParseFrom(payload);
+            var cplrtoken = PlayerGetTokenCsReq.Parser.ParseFrom(payload.Span);
             if (cplrtoken == null) return;
 
             var a = new PlayerGetTokenScRsp { UID = 1 };
@@ -28,7 +28,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.PlayerLoginCsReq)]
-        public static async Task OnPlayerLogin(Session connection, byte[] _)
+        public static async Task OnPlayerLogin(Session connection, Memory<byte> _)
         {
             await connection.SendAsync(
                 Opcode.PlayerLoginScRsp,
@@ -53,15 +53,15 @@ namespace Server.Services
         }
         
         [Handler(Opcode.GetLevelRewardTakenListCsReq)]
-        public static async Task OnGetLevelRewardTakenList(Session session, byte[] _)
+        public static async Task OnGetLevelRewardTakenList(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetLevelRewardTakenListScRsp, new GetLevelRewardTakenListScRsp());
         }
 
         [Handler(Opcode.GetMissionStatusCsReq)]
-        public static async Task OnGetMissionStatus(Session session, byte[] payload)
+        public static async Task OnGetMissionStatus(Session session, Memory<byte> payload)
         {
-            var getM = GetMissionStatusCsReq.Parser.ParseFrom(payload);
+            var getM = GetMissionStatusCsReq.Parser.ParseFrom(payload.Span);
             if (getM == null) return;
 
             var a = new GetMissionStatusScRsp();
@@ -82,7 +82,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetRogueScoreRewardInfoCsReq)]
-        public static async Task OnGetRogueScoreRewardInfo(Session session, byte[] _)
+        public static async Task OnGetRogueScoreRewardInfo(Session session, Memory<byte> _)
         {
             var b = new GetRogueScoreRewardInfoScRsp
             {
@@ -97,7 +97,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetGachaInfoCsReq)]
-        public static async Task OnGetGachaInfo(Session session, byte[] _)
+        public static async Task OnGetGachaInfo(Session session, Memory<byte> _)
         {
             var gachaInfo = new GetGachaInfoScRsp
             {
@@ -118,13 +118,13 @@ namespace Server.Services
         }
 
         [Handler(Opcode.QueryProductInfoCsReq)]
-        public static async Task OnQueryProductInfo(Session session, byte[] _)
+        public static async Task OnQueryProductInfo(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.QueryProductInfoScRsp, new QueryProductInfoScRsp());
         }
 
         [Handler(Opcode.GetQuestDataCsReq)]
-        public static async Task OnQuestData(Session session, byte[] _)
+        public static async Task OnQuestData(Session session, Memory<byte> _)
         {
             var a = new GetQuestDataScRsp();
             a.OEOJNINIGMB.Add(new FHBEBAPKNKM
@@ -4475,7 +4475,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetDailyActiveInfoCsReq)]
-        public static async Task OnGetDailyActiveInfo(Session session, byte[] _)
+        public static async Task OnGetDailyActiveInfo(Session session, Memory<byte> _)
         {
             var a = new GetDailyActiveInfoScRsp();
             await session.SendAsync(Opcode.GetDailyActiveInfoScRsp, a);
@@ -4483,7 +4483,7 @@ namespace Server.Services
 
         //9
         [Handler(Opcode.GetSpringRecoverDataCsReq)]
-        public static async Task OnGetSpringRecoverData(Session session, byte[] _)
+        public static async Task OnGetSpringRecoverData(Session session, Memory<byte> _)
         {
             var spring = new GetSpringRecoverDataScRsp
             {
@@ -4505,7 +4505,7 @@ namespace Server.Services
 
         //11
         [Handler(Opcode.GetPlayerBoardDataCsReq)]
-        public static async Task OnGetPlayerBoardData(Session session, byte[] _)
+        public static async Task OnGetPlayerBoardData(Session session, Memory<byte> _)
         {
             var boardRsp = new GetPlayerBoardDataScRsp();
             await session.SendAsync(Opcode.GetPlayerBoardDataScRsp, boardRsp);
@@ -4513,7 +4513,7 @@ namespace Server.Services
 
         //12
         [Handler(Opcode.GetAvatarDataCsReq)]
-        public static async Task OnGetAvatarData(Session session, byte[] _)
+        public static async Task OnGetAvatarData(Session session, Memory<byte> _)
         {
             var av = new GetAvatarDataScRsp
             {
@@ -4563,7 +4563,7 @@ namespace Server.Services
 
         //13
         [Handler(Opcode.GetAllLineupDataCsReq)]
-        public static async Task OnGetAllLineupData(Session session, byte[] _)
+        public static async Task OnGetAllLineupData(Session session, Memory<byte> _)
         {
             var line = new GetAllLineupDataScRsp();
             line.JKMFKKCEOIL.Add(new LLNCPDNOJJL
@@ -4619,37 +4619,37 @@ namespace Server.Services
 
         //14
         [Handler(Opcode.GetMissionEventDataCsReq)]
-        public static async Task OnGetMissionEventData(Session session, byte[] _)
+        public static async Task OnGetMissionEventData(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetMissionEventDataScRsp, new GetMissionEventDataScRsp());
         }
 
         //15
         [Handler(Opcode.GetChallengeCsReq)]
-        public static async Task OnGetChallenge(Session session, byte[] _)
+        public static async Task OnGetChallenge(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetChallengeScRsp, new GetChallengeScRsp());
         }
 
         //16
         [Handler(Opcode.GetRogueInfoCsReq)]
-        public static async Task OnGetRogueInfo(Session session, byte[] _)
+        public static async Task OnGetRogueInfo(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetRogueInfoScRsp, new GetRogueInfoScRsp());
         }
 
         //17
         [Handler(Opcode.GetExpeditionDataCsReq)]
-        public static async Task OnGetExpeditionData(Session session, byte[] _)
+        public static async Task OnGetExpeditionData(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetExpeditionDataScRsp, new GetExpeditionDataScRsp());
         }
 
         //18
         [Handler(Opcode.SyncClientResVersionCsReq)]
-        public static async Task OnSyncClientResVersion(Session session, byte[] payload)
+        public static async Task OnSyncClientResVersion(Session session, Memory<byte> payload)
         {
-            var p = SyncClientResVersionCsReq.Parser.ParseFrom(payload);
+            var p = SyncClientResVersionCsReq.Parser.ParseFrom(payload.Span);
             if (p == null) return;
             var v = new LNLMFFDHMOE
             {
@@ -4659,7 +4659,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetBagCsReq)]
-        public static async Task OnGetBag(Session session, byte[] _)
+        public static async Task OnGetBag(Session session, Memory<byte> _)
         {
             var bagRsp = new GetBagScRsp();
             bagRsp.GMPOJOGNPDI.Add(new KFCHDBDIPLK
@@ -4675,21 +4675,21 @@ namespace Server.Services
 
         //19
         [Handler(Opcode.GetLoginActivityCsReq)]
-        public static async Task OnGetLoginActivity(Session session, byte[] _)
+        public static async Task OnGetLoginActivity(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetLoginActivityScRsp, new GetLoginActivityScRsp());
         }
 
         //20
         [Handler(Opcode.GetRaidInfoCsReq)]
-        public static async Task OnGetRaidInfo(Session session, byte[] _)
+        public static async Task OnGetRaidInfo(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetRaidInfoScRsp, new GetRaidInfoScRsp());
         }
 
         //21
         [Handler(Opcode.GetCurSceneInfoCsReq)]
-        public static async Task OnGetCurSceneInfo(Session session, byte[] _)
+        public static async Task OnGetCurSceneInfo(Session session, Memory<byte> _)
         {
             var s = new GetCurSceneInfoScRsp
             {
@@ -4725,7 +4725,7 @@ namespace Server.Services
 
         //22
         [Handler(Opcode.GetCurLineupDataCsReq)]
-        public static async Task OnGetCurLineupData(Session session, byte[] _)
+        public static async Task OnGetCurLineupData(Session session, Memory<byte> _)
         {
             var lineupRsp = new GetCurLineupDataScRsp();
             await session.SendAsync(Opcode.GetCurLineupDataScRsp, lineupRsp);
@@ -4733,28 +4733,28 @@ namespace Server.Services
 
         //23
         [Handler(Opcode.GetCurBattleInfoCsReq)]
-        public static async Task OnGetCurBattleInfo(Session session, byte[] _)
+        public static async Task OnGetCurBattleInfo(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetCurBattleInfoScRsp, new GetCurBattleInfoScRsp());
         }
 
         //24
         [Handler(Opcode.GetNpcStatusCsReq)]
-        public static async Task OnGetNpcStatus(Session session, byte[] _)
+        public static async Task OnGetNpcStatus(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetNpcStatusScRsp, new GetNpcStatusScRsp());
         }
 
         //25
         [Handler(Opcode.GetNpcMessageGroupCsReq)]
-        public static async Task OnGetNpcMessageGroup(Session session, byte[] _)
+        public static async Task OnGetNpcMessageGroup(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetNpcMessageGroupScRsp, new GetNpcMessageGroupScRsp());
         }
 
         //26
         [Handler(Opcode.GetTutorialCsReq)]
-        public static async Task OnGetTutorial(Session session, byte[] _)
+        public static async Task OnGetTutorial(Session session, Memory<byte> _)
         {
             var tutorial = new GetTutorialScRsp();
             var tutorialIds = new uint[] {1001, 1002, 1003, 1004, 1005, 1007, 1008, 1010, 2000, 2001, 2002, 2003, 2004, 2008, 2010, 2011, 2012, 2013, 3001, 3002,
@@ -4777,7 +4777,7 @@ namespace Server.Services
 
         //27
         [Handler(Opcode.GetTutorialGuideCsReq)]
-        public static async Task OnGetTutorialGuide(Session session, byte[] _)
+        public static async Task OnGetTutorialGuide(Session session, Memory<byte> _)
         {
             var tutorial = new GetTutorialGuideScRsp();
             await session.SendAsync(Opcode.GetTutorialGuideScRsp, tutorial);
@@ -4785,9 +4785,9 @@ namespace Server.Services
 
         //28
         [Handler(Opcode.UnlockTutorialGuideCsReq)]
-        public static async Task OnUnlockTutorialGuide(Session session, byte[] payload)
+        public static async Task OnUnlockTutorialGuide(Session session, Memory<byte> payload)
         {
-            var unlockTut = UnlockTutorialGuideCsReq.Parser.ParseFrom(payload);
+            var unlockTut = UnlockTutorialGuideCsReq.Parser.ParseFrom(payload.Span);
             if (unlockTut == null) return;
 
             var b = new UnlockTutorialGuideScRsp
@@ -4801,9 +4801,9 @@ namespace Server.Services
 
         //29
         [Handler(Opcode.FinishTutorialGuideCsReq)]
-        public static async Task OnFinishTutorialGuide(Session session, byte[] payload)
+        public static async Task OnFinishTutorialGuide(Session session, Memory<byte> payload)
         {
-            var finishTutGuide = FinishTutorialGuideCsReq.Parser.ParseFrom(payload);
+            var finishTutGuide = FinishTutorialGuideCsReq.Parser.ParseFrom(payload.Span);
             if (finishTutGuide == null) return;
 
             var _b = new FinishTutorialGuideScRsp
@@ -4819,15 +4819,18 @@ namespace Server.Services
         }
 
         [Handler(Opcode.PlayerHeartbeatCsReq)]
-        public static async Task OnPlayerHeartbeat(Session session, byte[] payload)
+        public static async Task OnPlayerHeartbeat(Session session, Memory<byte> payload)
         {
-            await session.SendAsync(Opcode.PlayerHeartbeatScRsp, new LNLHNPDBEAD());
+            var a = AKFEAADNDBM.Parser.ParseFrom(payload.Span);
+            if (a == null) return;
+            Logger.Information($"Received HeartBeat C2S by {session.Address}");
+            await session.SendAsync(Opcode.PlayerHeartbeatScRsp, new LNLHNPDBEAD { NowMsTimeStamp = a.FGNIIAHNCCM, FOFKDPCKJOP = (ulong)DateTimeOffset.Now.ToUnixTimeSeconds(), IDLEBBNEPGA = new AAIBPJCPOIL() });
         }
 
         [Handler(Opcode.DoGachaReq)]
-        public static async Task OnDoGacha(Session session, byte[] payload)
+        public static async Task OnDoGacha(Session session, Memory<byte> payload)
         {
-            var doGachaReq = DoGachaCsReq.Parser.ParseFrom(payload);
+            var doGachaReq = DoGachaCsReq.Parser.ParseFrom(payload.Span);
             if (doGachaReq == null) return;
             var doGacha = new DoGachaScRsp
             {

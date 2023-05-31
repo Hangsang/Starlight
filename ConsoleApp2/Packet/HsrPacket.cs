@@ -2,7 +2,7 @@
 
 public class HsrPacket
 {
-    public HsrPacket(HsrHeader header, byte[] data, uint tailMagic)
+    public HsrPacket(HsrHeader header, Memory<byte> data, uint tailMagic)
     {
         HsrHeader = header;
         Data = data;
@@ -10,6 +10,6 @@ public class HsrPacket
     }
 
     public HsrHeader HsrHeader { get; set; }
-    public byte[] Data { get; set; }
+    public Memory<byte> Data { get; set; }
     public uint TailMagic { get; set; }
 }

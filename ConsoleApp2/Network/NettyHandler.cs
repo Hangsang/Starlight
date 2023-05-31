@@ -20,6 +20,11 @@ namespace Server.Network
             mNettyHandler.ChannelActive(mChannel);
         }
 
+        public override void ChannelInactive(IChannelHandlerContext context)
+        {
+            mNettyHandler.ChannelInactive(mChannel);
+        }
+
         public override void ChannelRead(IChannelHandlerContext ctx, object output)
         {
             mNettyHandler.ChannelRead(mChannel, output);

@@ -24,7 +24,7 @@ namespace Server.Network.TCP
             await mConnection.Channel.DisconnectAsync();
         }
 
-        public async Task SendAsync(Opcode opcode, IMessage message, bool sendBytes = false)
+        public async Task SendAsync(Opcode opcode, IMessage message)
         {
             if (!mConnection.IsWritable || !mConnection.IsActive || mKicked)
                 return;
@@ -34,13 +34,14 @@ namespace Server.Network.TCP
                 var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
                 var size = message.CalculateSize();
 
-                mPooledBuffer.WriteBytes(new byte[] { 0x9D, 0x74, 0xC7, 0x14 });
+                mPooledBuffer.WriteShort(0x9D74);
+                mPooledBuffer.WriteShort(0xC714);
                 mPooledBuffer.WriteShort((ushort)opcode);
                 mPooledBuffer.WriteShort(0);
                 mPooledBuffer.WriteInt(size);
                 mPooledBuffer.WriteBytes(message.ToByteArray());
-
-                mPooledBuffer.WriteBytes(new byte[] { 0xD7, 0xA1, 0x52, 0xC8 });
+                mPooledBuffer.WriteShort(0xD7A1);
+                mPooledBuffer.WriteShort(0x52C8);
 
                 await mConnection.Channel.WriteAndFlushAsync(mPooledBuffer);
             }
