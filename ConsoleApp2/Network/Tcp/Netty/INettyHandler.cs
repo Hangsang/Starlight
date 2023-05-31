@@ -2,11 +2,11 @@
 using Server.Interfaces;
 using Server.Network.TCP;
 
-namespace Server.Network
+namespace Server.Network.Tcp.Netty
 {
-    public class NettyHandler : ChannelHandlerAdapter
+    public class INettyHandler : ChannelHandlerAdapter
     {
-        public NettyHandler(INetty nettyHandler, Connection channel)
+        public INettyHandler(INetty nettyHandler, Connection channel)
         {
             mNettyHandler = nettyHandler;
             mChannel = channel;

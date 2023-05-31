@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Server.Interfaces;
+using Server.Network.Tcp.Netty;
 using Server.Network.TCP;
 using Server.Unsorted;
 using Server.Utils;
@@ -30,7 +31,7 @@ public class Server
 
         ServiceProvider = new ServiceCollection()
             .AddSingleton<Bootstrap>()
-            .AddSingleton<INetty, TcpHandler>()
+            .AddSingleton<INetty, NettyServerHandler>()
             .BuildServiceProvider();
 
         Bootstrap = GetServices<Bootstrap>();

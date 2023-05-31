@@ -1,14 +1,15 @@
 ﻿using Serilog;
 using Server.Interfaces;
+using Server.Network.TCP;
 using Server.Packet;
 
-namespace Server.Network.TCP
+namespace Server.Network.Tcp.Netty
 {
-    public class TcpHandler : INetty
+    public class NettyServerHandler : INetty
     {
         private static readonly ILogger Logger = Log.ForContext(
             Serilog.Core.Constants.SourceContextPropertyName,
-            nameof(TcpHandler));
+            nameof(NettyServerHandler));
 
         public void ChannelActive(Connection session)
         {
@@ -31,7 +32,7 @@ namespace Server.Network.TCP
 
             if (output is HsrPacket message)
             {
-                NetworkProcessor.Invoke(message, session);
+                PacketProcessor.Invoke(message, session);
             }
             else
             {

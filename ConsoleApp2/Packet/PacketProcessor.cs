@@ -1,15 +1,14 @@
 ﻿using Serilog;
 using Server.Network.TCP;
-using Server.Packet;
 using Server.Unsorted;
 
-namespace Server.Network
+namespace Server.Packet
 {
-    public class NetworkProcessor
+    internal class PacketProcessor
     {
         private static readonly ILogger Logger = Log.ForContext(
             Serilog.Core.Constants.SourceContextPropertyName,
-            "Processor");
+            "PacketProcessor");
 
         public static void Invoke(HsrPacket message, Connection session)
         {
