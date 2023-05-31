@@ -23,10 +23,10 @@ namespace Server.Network.TCP
 
         public void ChannelRead(Connection session, object output)
         {
-            if (session == null || !session.Channel.Active)
+            if (session == null)
                 return;
 
-            if (session.mConnection == null || session.mConnection.mKicked)
+            if (session.mConnection == null || session.mConnection.mKicked || !session.Channel.Active)
                 return;
 
             if (output is HsrPacket message)
