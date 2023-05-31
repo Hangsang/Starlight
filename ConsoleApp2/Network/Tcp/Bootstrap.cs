@@ -30,7 +30,6 @@ public class Bootstrap
         }))
           .ChildOption(ChannelOption.TcpNodelay, true)
           .ChildOption(ChannelOption.SoKeepalive, true);
-
     }
 
     private ServerBootstrap mBootstrap { get; set; }

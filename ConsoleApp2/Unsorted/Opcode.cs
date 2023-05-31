@@ -138,5 +138,4 @@ public enum Opcode : ushort
     GetAuthKeyScRsp = 56,
     DoGachaReq = 1919,
     DoGachaScRsp = 1997,
-
 }

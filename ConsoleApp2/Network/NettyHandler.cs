@@ -29,7 +29,7 @@ namespace Server.Network
         {
             mNettyHandler.ChannelRead(mChannel, output);
         }
-        
+
         public override void ChannelReadComplete(IChannelHandlerContext ctx)
         {
             ctx.Flush();

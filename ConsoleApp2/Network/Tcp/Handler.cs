@@ -1,7 +1,5 @@
-﻿using DotNetty.Handlers.Timeout;
-using Server.Interfaces;
+﻿using Server.Interfaces;
 using Server.Packet;
-using System.Net;
 
 namespace Server.Network.TCP
 {
@@ -18,6 +16,9 @@ namespace Server.Network.TCP
 
         public void ChannelInactive(Connection session)
         {
+            session?.Channel?.CloseAsync();
+            session = null;
+            session.mConnection = null;
         }
 
         public void ChannelRead(Connection session, object output)
@@ -28,7 +29,8 @@ namespace Server.Network.TCP
             if (session.mConnection == null || session.mConnection.mKicked)
                 return;
 
-            if (output is HsrPacket message) {
+            if (output is HsrPacket message)
+            {
                 NetworkProcessor.Invoke(message, session);
             }
             else
@@ -43,11 +45,8 @@ namespace Server.Network.TCP
 
         public void ExceptionCaught(Connection session, Exception exception)
         {
-            if (exception is ReadTimeoutException)
-                Console.WriteLine($"Read timeout excp by {session?.RemoteAddress}");
-
             Console.WriteLine(exception.Message);
-            session?.Channel.CloseAsync();
+            session?.Channel?.CloseAsync();
             session = null;
             session.mConnection = null;
         }

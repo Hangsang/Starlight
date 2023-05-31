@@ -1,6 +1,4 @@
-﻿using DotNetty.Buffers;
-using DotNetty.Common.Utilities;
-using Google.Protobuf;
+﻿using Google.Protobuf;
 using Server.Unsorted;
 using System.Net;
 
@@ -10,7 +8,7 @@ namespace Server.Network.TCP
     {
         public Connection mConnection;
 
-        public string Address => mConnection.RemoteAddress;
+        public EndPoint Address => mConnection.RemoteAddress;
         public bool mKicked = false;
 
         internal void Register(Connection channel)

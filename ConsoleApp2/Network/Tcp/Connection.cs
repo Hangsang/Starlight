@@ -1,6 +1,5 @@
 ﻿using DotNetty.Transport.Channels;
 using Serilog;
-using System.Collections.Concurrent;
 using System.Net;
 
 namespace Server.Network.TCP
@@ -25,9 +24,7 @@ namespace Server.Network.TCP
         public bool IsActive => Channel.Active;
         public bool IsWritable => Channel.IsWritable;
 
-        //public EndPoint RemoteAddress => Channel.RemoteAddress;
-        public string RemoteAddress => ((IPEndPoint) Channel.RemoteAddress).Address.MapToIPv4().ToString();
-        public string LocalAddress => ((IPEndPoint)Channel.LocalAddress).Address.MapToIPv4().ToString();
+        public EndPoint RemoteAddress => Channel.RemoteAddress;
 
         public void Register(Session connection)
         {

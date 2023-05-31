@@ -6,6 +6,8 @@ using static Server.Unsorted.Constants;
 
 namespace Server.Network.UDP;
 
+// !!! DONT USE !!!
+
 public class UdpServerHandler : SimpleChannelInboundHandler<DatagramPacket>
 {
     private const int HANDSHAKE_LEN = 0x14;

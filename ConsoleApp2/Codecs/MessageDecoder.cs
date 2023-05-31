@@ -5,7 +5,6 @@ using Serilog;
 using Server.Network.TCP;
 using Server.Packet;
 using Server.Unsorted;
-using System;
 using System.Buffers;
 
 namespace Server.Codecs
@@ -25,6 +24,12 @@ namespace Server.Codecs
         private const int DATA_BEGIN_LENGTH = 12;
 
         private readonly Connection mTcpConnection;
+        private byte[] mBuffer;
+
+        //static readonly List<Opcode> BANNED_PACKETS;
+        private static readonly List<Opcode> READABLE_PACKETS = new()
+        { Opcode.PlayerGetTokenCsReq, Opcode.GetMissionStatusCsReq, Opcode.SyncClientResVersionCsReq,
+          Opcode.UnlockTutorialGuideCsReq, Opcode.FinishTutorialGuideCsReq, Opcode.PlayerHeartbeatCsReq, Opcode.DoGachaReq };
 
         public MessageDecoder(Connection connection)
         {
@@ -33,8 +38,6 @@ namespace Server.Codecs
 
         protected override void Decode(IChannelHandlerContext context, IByteBuffer message, List<object> output)
         {
-            byte[] buffer = null;
-
             try
             {
                 if (mTcpConnection.mConnection.mKicked || !context.Channel.Active)
@@ -45,17 +48,24 @@ namespace Server.Codecs
                     return;
 
                 var cmdId = (Opcode)message.GetUnsignedShort(CMD_BEGIN_LENGTH);
+                if (!READABLE_PACKETS.Contains(cmdId)) //Not necessary to read the whole data
+                {
+                    var justCmd = new HsrPacket(new HsrHeader { CmdId = (ushort)cmdId }, Memory<byte>.Empty, 0);
+                    output.Add(justCmd);
+                    return;
+                }
+
                 var metaLen = message.GetUnsignedShort(METALEN_BEGIN_LENGTH);
                 var bodyLen = message.GetInt(BODYLEN_BEGIN_LENGTH);
 
                 if (message.ReadableBytes != DATA_BEGIN_LENGTH + metaLen + bodyLen + sizeof(uint))
                     return;
 
-                buffer = ArrayPool<byte>.Shared.Rent(bodyLen);
-                message.GetBytes(DATA_BEGIN_LENGTH + metaLen, buffer, 0, bodyLen);
+                mBuffer = ArrayPool<byte>.Shared.Rent(bodyLen);
+                message.GetBytes(DATA_BEGIN_LENGTH + metaLen, mBuffer, 0, bodyLen);
 
                 var hsrHeader = new HsrHeader { HeadMagic = headMagic, CmdId = (ushort)cmdId, MetaLen = metaLen, BodyLen = (uint)bodyLen };
-                var wholeData = new HsrPacket(hsrHeader, buffer.AsMemory(0, bodyLen), 0);
+                var wholeData = new HsrPacket(hsrHeader, mBuffer.AsMemory(0, bodyLen), 0);
                 output.Add(wholeData);
             }
             catch (Exception ex)
@@ -65,10 +75,9 @@ namespace Server.Codecs
             }
             finally
             {
-                if (buffer != null) // Make sure buffer is not null before returning it to the array pool
-                    ArrayPool<byte>.Shared.Return(buffer);
+                if (mBuffer != null)
+                    ArrayPool<byte>.Shared.Return(mBuffer);
             }
         }
-
     }
 }
