@@ -30,7 +30,7 @@ public class Server
 
         ServiceProvider = new ServiceCollection()
             .AddSingleton<Bootstrap>()
-            .AddSingleton<INetty, Handler>()
+            .AddSingleton<INetty, TcpHandler>()
             .BuildServiceProvider();
 
         Bootstrap = GetServices<Bootstrap>();

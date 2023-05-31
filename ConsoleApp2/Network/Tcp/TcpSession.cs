@@ -5,16 +5,14 @@ using System.Net;
 
 namespace Server.Network.TCP
 {
-    public class Session
+    public class TcpSession
     {
         private static readonly ILogger Logger = Log.ForContext(
             Serilog.Core.Constants.SourceContextPropertyName,
-            nameof(Session));
+            nameof(TcpSession));
 
         public Connection mConnection;
-
         public EndPoint Address => mConnection.RemoteAddress;
-
         public bool mKicked = false;
 
         internal void Register(Connection channel)
@@ -72,6 +70,20 @@ namespace Server.Network.TCP
                 Logger.Error(ex.Message);
                 await DisconnectAsync();
             }
+        }
+
+        public async Task KickAsync()
+        {
+            var kick = new PlayerKickoutScNotify {
+                JIOKMHDOPJP = new EGHHJDHHBKM {
+                    FCONOFEKJMH = DateTimeOffset.Now.ToUnixTimeMilliseconds() * 2,
+                    KJHDCEDJACN = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
+                    AMKAMCCPGHH = 2,
+                    FGNMJDDGHNA = 2
+                }
+            };
+            await SendAsync(Opcode.PlayerKickOutScNotify, kick);
+            mConnection.DeRegister();
         }
     }
 }

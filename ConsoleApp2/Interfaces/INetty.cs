@@ -8,8 +8,8 @@ namespace Server.Interfaces
 
         void ChannelInactive(Connection session);
 
-        void ChannelRead(Connection session, object output);
+        Task ChannelRead(Connection session, object output);
 
-        void ExceptionCaught(Connection session, Exception exception);
+        Task ExceptionCaught(Connection session, Exception exception);
     }
 }

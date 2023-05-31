@@ -17,7 +17,7 @@ namespace Server.Network.TCP
 
         internal IChannel Channel { get; }
 
-        internal Session mConnection { get; set; }
+        internal TcpSession mConnection { get; set; }
 
         public string Id => Channel.Id.AsLongText();
 
@@ -26,7 +26,7 @@ namespace Server.Network.TCP
 
         public EndPoint RemoteAddress => Channel.RemoteAddress;
 
-        public void Register(Session connection)
+        public void Register(TcpSession connection)
         {
             if (mConnection != null)
                 return;
@@ -34,6 +34,16 @@ namespace Server.Network.TCP
             mConnection = connection;
             connection.Register(this);
             Logger.Information($"New connection by {RemoteAddress}");
+        }
+
+        public void DeRegister()
+        {
+            if (mConnection == null)
+                return;
+
+            Logger.Information($"{RemoteAddress} disconnected");
+            Channel.CloseAsync();
+            mConnection = null;
         }
     }
 }

@@ -1,0 +1,40 @@
+﻿using Serilog;
+using Server.Attributes;
+using Server.Network.TCP;
+using Server.Unsorted;
+
+namespace Server.Services
+{
+    public class PlayerService
+    {
+        private static readonly ILogger Logger = Log.ForContext(
+            Serilog.Core.Constants.SourceContextPropertyName,
+            nameof(PlayerService));
+
+        [Handler(Opcode.GetPlayerBoardDataCsReq)]
+        public static async Task OnGetPlayerBoardData(TcpSession session, Memory<byte> _)
+        {
+            var boardRsp = new GetPlayerBoardDataScRsp();
+            await session.SendAsync(Opcode.GetPlayerBoardDataScRsp, boardRsp);
+        }
+
+        [Handler(Opcode.GetDailyActiveInfoCsReq)]
+        public static async Task OnGetDailyActiveInfo(TcpSession session, Memory<byte> _)
+        {
+            var a = new GetDailyActiveInfoScRsp();
+            await session.SendAsync(Opcode.GetDailyActiveInfoScRsp, a);
+        }
+
+        [Handler(Opcode.PlayerHeartbeatCsReq)]
+        public static async Task OnPlayerHeartbeat(TcpSession session, Memory<byte> payload)
+        {
+            var a = AKFEAADNDBM.Parser.ParseFrom(payload.Span);
+            if (a == null) return;
+#if DEBUG
+            Logger.Debug($"Received HeartBeat C2S by {session.Address}");
+#endif
+            await session.SendAsync(Opcode.PlayerHeartbeatScRsp,
+                new LNLHNPDBEAD { NowMsTimeStamp = a.FGNIIAHNCCM, FOFKDPCKJOP = (ulong)DateTimeOffset.Now.ToUnixTimeSeconds(), IDLEBBNEPGA = new AAIBPJCPOIL() });
+        }
+    }
+}
