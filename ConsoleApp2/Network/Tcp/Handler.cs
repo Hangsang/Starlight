@@ -17,8 +17,8 @@ namespace Server.Network.TCP
         public void ChannelInactive(Connection session)
         {
             session?.Channel?.CloseAsync();
-            session = null;
             session.mConnection = null;
+            session = null;
         }
 
         public void ChannelRead(Connection session, object output)
@@ -45,10 +45,9 @@ namespace Server.Network.TCP
 
         public void ExceptionCaught(Connection session, Exception exception)
         {
-            Console.WriteLine(exception.Message);
             session?.Channel?.CloseAsync();
-            session = null;
             session.mConnection = null;
+            session = null;
         }
     }
 }

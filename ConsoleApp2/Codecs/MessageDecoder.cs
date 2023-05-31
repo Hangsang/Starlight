@@ -6,6 +6,7 @@ using Server.Network.TCP;
 using Server.Packet;
 using Server.Unsorted;
 using System.Buffers;
+using System.Diagnostics;
 
 namespace Server.Codecs
 {
@@ -38,6 +39,9 @@ namespace Server.Codecs
 
         protected override void Decode(IChannelHandlerContext context, IByteBuffer message, List<object> output)
         {
+            Stopwatch sw = new();
+            sw.Start();
+
             try
             {
                 if (mTcpConnection.mConnection.mKicked || !context.Channel.Active)
@@ -70,7 +74,7 @@ namespace Server.Codecs
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Exception occurred during decoding");
+                Logger.Error(ex, "Exception occurred during message decoding");
                 mTcpConnection?.mConnection?.DisconnectAsync();
             }
             finally
@@ -78,6 +82,9 @@ namespace Server.Codecs
                 if (mBuffer != null)
                     ArrayPool<byte>.Shared.Return(mBuffer);
             }
+
+            Logger.Information($"{sw.Elapsed.TotalMilliseconds}");
+            sw.Stop();
         }
     }
 }

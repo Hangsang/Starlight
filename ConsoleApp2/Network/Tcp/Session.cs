@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf;
+using Serilog;
 using Server.Unsorted;
 using System.Net;
 
@@ -6,9 +7,14 @@ namespace Server.Network.TCP
 {
     public class Session
     {
+        private static readonly ILogger Logger = Log.ForContext(
+            Serilog.Core.Constants.SourceContextPropertyName,
+            nameof(Session));
+
         public Connection mConnection;
 
         public EndPoint Address => mConnection.RemoteAddress;
+
         public bool mKicked = false;
 
         internal void Register(Connection channel)
@@ -18,7 +24,7 @@ namespace Server.Network.TCP
 
         public async Task DisconnectAsync()
         {
-            this.mKicked = true;
+            mKicked = true;
             await mConnection.Channel.DisconnectAsync();
         }
 
@@ -45,7 +51,7 @@ namespace Server.Network.TCP
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.Error(ex.Message);
                 await DisconnectAsync();
             }
         }
@@ -63,7 +69,7 @@ namespace Server.Network.TCP
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.Error(ex.Message);
                 await DisconnectAsync();
             }
         }
