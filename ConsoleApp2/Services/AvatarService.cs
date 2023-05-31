@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(AvatarService));
 
         [Handler(Opcode.GetAvatarDataCsReq)]
-        public static async Task OnGetAvatarData(TcpSession session, Memory<byte> _)
+        public static async Task OnGetAvatarData(Session session, Memory<byte> _)
         {
             var av = new GetAvatarDataScRsp
             {

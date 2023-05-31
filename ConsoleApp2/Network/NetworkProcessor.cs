@@ -20,11 +20,14 @@ namespace Server.Network
                 var (attribute, @delegate) = MessageManager.Instance.GetMessageInformation((Opcode)opcode);
                 if (attribute == null)
                 {
-                    //Logger.Warning($"Received unhandled message {opcode}(0x{opcode:X})!");
+#if DEBUG
+                    Logger.Debug($"Received unhandled message {opcode}(0x{opcode:X})!");
+#endif
                     return;
                 }
-
-                //Logger.Information($"Received message {opcode}(0x{opcode:X})!");
+#if DEBUG
+                Logger.Debug($"Received message {opcode}(0x{opcode:X})!");
+#endif
                 @delegate.Invoke(session.mConnection, message.Data);
                 return;
             }

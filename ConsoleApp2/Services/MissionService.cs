@@ -12,13 +12,12 @@ namespace Server.Services
             nameof(MissionService));
 
         [Handler(Opcode.GetMissionStatusCsReq)]
-        public static async Task OnGetMissionStatus(TcpSession session, Memory<byte> payload)
+        public static async Task OnGetMissionStatus(Session session, Memory<byte> payload)
         {
             var request = GetMissionStatusCsReq.Parser.ParseFrom(payload.Span);
             if (request == null)
             {
                 Logger.Error("Could not parse data of GetMissionStatusCsReq");
-                await session.DisconnectAsync();
                 return;
             }
 
@@ -40,7 +39,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetMissionEventDataCsReq)]
-        public static async Task OnGetMissionEventData(TcpSession session, Memory<byte> _)
+        public static async Task OnGetMissionEventData(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetMissionEventDataScRsp, new GetMissionEventDataScRsp());
         }

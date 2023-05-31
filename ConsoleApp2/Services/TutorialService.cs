@@ -12,20 +12,20 @@ namespace Server.Services
             nameof(TutorialService));
 
         [Handler(Opcode.GetTutorialCsReq)]
-        public static async Task OnGetTutorial(TcpSession session, Memory<byte> _)
+        public static async Task OnGetTutorial(Session session, Memory<byte> _)
         {
             //Guide menu shit
         }
 
         [Handler(Opcode.GetTutorialGuideCsReq)]
-        public static async Task OnGetTutorialGuide(TcpSession session, Memory<byte> _)
+        public static async Task OnGetTutorialGuide(Session session, Memory<byte> _)
         {
             var tutorial = new GetTutorialGuideScRsp();
             await session.SendAsync(Opcode.GetTutorialGuideScRsp, tutorial);
         }
 
         [Handler(Opcode.UnlockTutorialGuideCsReq)]
-        public static async Task OnUnlockTutorialGuide(TcpSession session, Memory<byte> payload)
+        public static async Task OnUnlockTutorialGuide(Session session, Memory<byte> payload)
         {
             var unlockTut = UnlockTutorialGuideCsReq.Parser.ParseFrom(payload.Span);
             if (unlockTut == null) return;
@@ -40,7 +40,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.FinishTutorialGuideCsReq)]
-        public static async Task OnFinishTutorialGuide(TcpSession session, Memory<byte> payload)
+        public static async Task OnFinishTutorialGuide(Session session, Memory<byte> payload)
         {
             var finishTutGuide = FinishTutorialGuideCsReq.Parser.ParseFrom(payload.Span);
             if (finishTutGuide == null) return;

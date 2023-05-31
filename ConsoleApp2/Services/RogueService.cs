@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(RogueService));
 
         [Handler(Opcode.GetRogueScoreRewardInfoCsReq)]
-        public static async Task OnGetRogueScoreRewardInfo(TcpSession session, Memory<byte> _)
+        public static async Task OnGetRogueScoreRewardInfo(Session session, Memory<byte> _)
         {
             var b = new GetRogueScoreRewardInfoScRsp
             {
@@ -27,7 +27,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetRogueInfoCsReq)]
-        public static async Task OnGetRogueInfo(TcpSession session, Memory<byte> _)
+        public static async Task OnGetRogueInfo(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetRogueInfoScRsp, new GetRogueInfoScRsp());
         }

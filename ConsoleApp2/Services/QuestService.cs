@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(QuestService));
 
         [Handler(Opcode.GetQuestDataCsReq)] //ToDo: cache -> write
-        public static async Task OnQuestData(TcpSession session, Memory<byte> _)
+        public static async Task OnQuestData(Session session, Memory<byte> _)
         {
             var a = new GetQuestDataScRsp();
             a.OEOJNINIGMB.Add(new FHBEBAPKNKM

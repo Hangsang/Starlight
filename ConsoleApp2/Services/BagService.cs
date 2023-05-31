@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(BagService));
 
         [Handler(Opcode.GetBagCsReq)]
-        public static async Task OnGetBag(TcpSession session, Memory<byte> _)
+        public static async Task OnGetBag(Session session, Memory<byte> _)
         {
             var bagRsp = new GetBagScRsp();
             bagRsp.GMPOJOGNPDI.Add(new KFCHDBDIPLK

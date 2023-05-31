@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(MiscService));
 
         [Handler(Opcode.SyncClientResVersionCsReq)]
-        public static async Task OnSyncClientResVersion(TcpSession session, Memory<byte> payload)
+        public static async Task OnSyncClientResVersion(Session session, Memory<byte> payload)
         {
             var p = SyncClientResVersionCsReq.Parser.ParseFrom(payload.Span);
             if (p == null) return;

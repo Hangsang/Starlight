@@ -52,7 +52,7 @@ namespace Server.Unsorted
 
                     var parameterInfo = method.GetParameters();
 
-                    var connectionParameter = Expression.Parameter(typeof(TcpSession));
+                    var connectionParameter = Expression.Parameter(typeof(Session));
                     var bufferParameter = Expression.Parameter(typeof(Memory<byte>));
 
                     var call = Expression.Call(method,
@@ -91,7 +91,7 @@ namespace Server.Unsorted
         }
         */
 
-        public delegate void HandlerDelegate(TcpSession session, Memory<byte> payload);
+        public delegate void HandlerDelegate(Session session, Memory<byte> payload);
     }
 
     public abstract class Singleton<T> where T : class

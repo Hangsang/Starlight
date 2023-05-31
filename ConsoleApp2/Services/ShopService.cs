@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(ShopService));
 
         [Handler(Opcode.QueryProductInfoCsReq)]
-        public static async Task OnQueryProductInfo(TcpSession session, Memory<byte> _)
+        public static async Task OnQueryProductInfo(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.QueryProductInfoScRsp, new QueryProductInfoScRsp());
 

@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(GachaService));
 
         [Handler(Opcode.GetGachaInfoCsReq)] //ToDo: From config
-        public static async Task OnGetGachaInfo(TcpSession session, Memory<byte> _)
+        public static async Task OnGetGachaInfo(Session session, Memory<byte> _)
         {
             var gachaInfo = new GetGachaInfoScRsp
             {
@@ -33,7 +33,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.DoGachaReq)] //ToDo: proper gacha pull system
-        public static async Task OnDoGacha(TcpSession session, Memory<byte> payload)
+        public static async Task OnDoGacha(Session session, Memory<byte> payload)
         {
             var doGachaReq = DoGachaCsReq.Parser.ParseFrom(payload.Span);
             if (doGachaReq == null) return;

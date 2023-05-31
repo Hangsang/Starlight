@@ -10,6 +10,6 @@ namespace Server.Interfaces
 
         Task ChannelRead(Connection session, object output);
 
-        Task ExceptionCaught(Connection session, Exception exception);
+        void ExceptionCaught(Connection session, Exception exception);
     }
 }

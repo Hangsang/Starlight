@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(LineupService));
 
         [Handler(Opcode.GetAllLineupDataCsReq)]
-        public static async Task OnGetAllLineupData(TcpSession session, Memory<byte> _)
+        public static async Task OnGetAllLineupData(Session session, Memory<byte> _)
         {
             var line = new GetAllLineupDataScRsp();
             line.JKMFKKCEOIL.Add(new LLNCPDNOJJL
@@ -67,7 +67,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetCurLineupDataCsReq)]
-        public static async Task OnGetCurLineupData(TcpSession session, Memory<byte> _)
+        public static async Task OnGetCurLineupData(Session session, Memory<byte> _)
         {
             var lineupRsp = new GetCurLineupDataScRsp();
             await session.SendAsync(Opcode.GetCurLineupDataScRsp, lineupRsp);

@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(SceneService));
 
         [Handler(Opcode.GetSpringRecoverDataCsReq)]
-        public static async Task OnGetSpringRecoverData(TcpSession session, Memory<byte> _)
+        public static async Task OnGetSpringRecoverData(Session session, Memory<byte> _)
         {
             var spring = new GetSpringRecoverDataScRsp
             {
@@ -33,7 +33,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetCurSceneInfoCsReq)]
-        public static async Task OnGetCurSceneInfo(TcpSession session, Memory<byte> _)
+        public static async Task OnGetCurSceneInfo(Session session, Memory<byte> _)
         {
             var s = new GetCurSceneInfoScRsp
             {
@@ -69,7 +69,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetCurBattleInfoCsReq)]
-        public static async Task OnGetCurBattleInfo(TcpSession session, Memory<byte> _)
+        public static async Task OnGetCurBattleInfo(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetCurBattleInfoScRsp, new GetCurBattleInfoScRsp());
         }

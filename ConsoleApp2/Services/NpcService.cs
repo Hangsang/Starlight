@@ -12,13 +12,13 @@ namespace Server.Services
             nameof(NpcService));
 
         [Handler(Opcode.GetNpcStatusCsReq)]
-        public static async Task OnGetNpcStatus(TcpSession session, Memory<byte> _)
+        public static async Task OnGetNpcStatus(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetNpcStatusScRsp, new GetNpcStatusScRsp());
         }
 
         [Handler(Opcode.GetNpcMessageGroupCsReq)]
-        public static async Task OnGetNpcMessageGroup(TcpSession session, Memory<byte> _)
+        public static async Task OnGetNpcMessageGroup(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetNpcMessageGroupScRsp, new GetNpcMessageGroupScRsp());
         }

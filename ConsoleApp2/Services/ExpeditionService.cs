@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(ExpeditionService));
 
         [Handler(Opcode.GetExpeditionDataCsReq)]
-        public static async Task OnGetExpeditionData(TcpSession session, Memory<byte> _)
+        public static async Task OnGetExpeditionData(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetExpeditionDataScRsp, new GetExpeditionDataScRsp());
         }

@@ -12,7 +12,7 @@ namespace Server.Network.TCP
 
         public void ChannelActive(Connection session)
         {
-            var connection = new TcpSession();
+            var connection = new Session();
             session.Register(connection);
         }
 
@@ -35,16 +35,15 @@ namespace Server.Network.TCP
             }
             else
             {
-                Logger.Error($"Error occurred at dotnetty channelread function by {session.RemoteAddress}");
                 await session.mConnection.KickAsync();
                 return;
             }
         }
 
-        public async Task ExceptionCaught(Connection session, Exception exception)
+        public void ExceptionCaught(Connection session, Exception exception)
         {
-            Logger.Error($"Exception at dotnetty handler class by {session.RemoteAddress}");
-            await session.mConnection.KickAsync();
+            Logger.Error($"Exception in NettyServerHandler {session.RemoteAddress}");
+            session?.mConnection.KickAsync();
             return;
         }
     }

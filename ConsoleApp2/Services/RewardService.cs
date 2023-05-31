@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(RewardService));
 
         [Handler(Opcode.GetLevelRewardTakenListCsReq)]
-        public static async Task OnGetLevelRewardTakenList(TcpSession session, Memory<byte> _)
+        public static async Task OnGetLevelRewardTakenList(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetLevelRewardTakenListScRsp, new GetLevelRewardTakenListScRsp());
         }

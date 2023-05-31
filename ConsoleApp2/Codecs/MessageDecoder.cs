@@ -71,7 +71,7 @@ namespace Server.Codecs
             catch (Exception ex)
             {
                 Logger.Error(ex, "Exception occurred during message decoding");
-                mTcpConnection?.mConnection?.DisconnectAsync();
+                mTcpConnection.DeRegister();
             }
             finally
             {

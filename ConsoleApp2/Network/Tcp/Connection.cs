@@ -17,7 +17,7 @@ namespace Server.Network.TCP
 
         internal IChannel Channel { get; }
 
-        internal TcpSession mConnection { get; set; }
+        internal Session mConnection { get; set; }
 
         public string Id => Channel.Id.AsLongText();
 
@@ -26,7 +26,7 @@ namespace Server.Network.TCP
 
         public EndPoint RemoteAddress => Channel.RemoteAddress;
 
-        public void Register(TcpSession connection)
+        public void Register(Session connection)
         {
             if (mConnection != null)
                 return;

@@ -5,11 +5,11 @@ using System.Net;
 
 namespace Server.Network.TCP
 {
-    public class TcpSession
+    public class Session
     {
         private static readonly ILogger Logger = Log.ForContext(
             Serilog.Core.Constants.SourceContextPropertyName,
-            nameof(TcpSession));
+            nameof(Session));
 
         public Connection mConnection;
         public EndPoint Address => mConnection.RemoteAddress;
@@ -18,12 +18,6 @@ namespace Server.Network.TCP
         internal void Register(Connection channel)
         {
             mConnection = channel;
-        }
-
-        public async Task DisconnectAsync()
-        {
-            mKicked = true;
-            await mConnection.Channel.DisconnectAsync();
         }
 
         public async Task SendAsync(Opcode opcode, IMessage message)
@@ -50,7 +44,6 @@ namespace Server.Network.TCP
             catch (Exception ex)
             {
                 Logger.Error(ex.Message);
-                await DisconnectAsync();
             }
         }
 
@@ -67,15 +60,16 @@ namespace Server.Network.TCP
             }
             catch (Exception ex)
             {
-                Logger.Error(ex.Message);
-                await DisconnectAsync();
+                Logger.Error(ex.Message); ;
             }
         }
 
         public async Task KickAsync()
         {
-            var kick = new PlayerKickoutScNotify {
-                JIOKMHDOPJP = new EGHHJDHHBKM {
+            var kick = new PlayerKickoutScNotify
+            {
+                JIOKMHDOPJP = new EGHHJDHHBKM
+                {
                     FCONOFEKJMH = DateTimeOffset.Now.ToUnixTimeMilliseconds() * 2,
                     KJHDCEDJACN = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
                     AMKAMCCPGHH = 2,
@@ -83,7 +77,14 @@ namespace Server.Network.TCP
                 }
             };
             await SendAsync(Opcode.PlayerKickOutScNotify, kick);
+            mKicked = true;
             mConnection.DeRegister();
+        }
+
+        public async Task DisconnectAsync()
+        {
+            mKicked = true;
+            await mConnection.Channel.DisconnectAsync();
         }
     }
 }

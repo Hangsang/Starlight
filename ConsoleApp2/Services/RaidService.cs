@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(RaidService));
 
         [Handler(Opcode.GetRaidInfoCsReq)]
-        public static async Task OnGetRaidInfo(TcpSession session, Memory<byte> _)
+        public static async Task OnGetRaidInfo(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetRaidInfoScRsp, new GetRaidInfoScRsp());
         }

@@ -13,7 +13,7 @@ namespace Server.Services
             nameof(LoginService));
 
         [Handler(Opcode.PlayerGetTokenCsReq, SessionState.Ignored)]
-        public static async Task OnPlayerGetToken(TcpSession connection, Memory<byte> payload)
+        public static async Task OnPlayerGetToken(Session connection, Memory<byte> payload)
         {
             var cplrtoken = PlayerGetTokenCsReq.Parser.ParseFrom(payload.Span);
             if (cplrtoken == null) return;
@@ -27,7 +27,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.PlayerLoginCsReq)]
-        public static async Task OnPlayerLogin(TcpSession connection, Memory<byte> _)
+        public static async Task OnPlayerLogin(Session connection, Memory<byte> _)
         {
             await connection.SendAsync(
                 Opcode.PlayerLoginScRsp,
@@ -52,7 +52,7 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetLoginActivityCsReq)]
-        public static async Task OnGetLoginActivity(TcpSession session, Memory<byte> _)
+        public static async Task OnGetLoginActivity(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetLoginActivityScRsp, new GetLoginActivityScRsp());
         }

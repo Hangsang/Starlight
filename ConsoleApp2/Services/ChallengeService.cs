@@ -12,7 +12,7 @@ namespace Server.Services
             nameof(ChallengeService));
 
         [Handler(Opcode.GetChallengeCsReq)]
-        public static async Task OnGetChallenge(TcpSession session, Memory<byte> _)
+        public static async Task OnGetChallenge(Session session, Memory<byte> _)
         {
             await session.SendAsync(Opcode.GetChallengeScRsp, new GetChallengeScRsp());
         }

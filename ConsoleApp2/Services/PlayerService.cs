@@ -12,21 +12,21 @@ namespace Server.Services
             nameof(PlayerService));
 
         [Handler(Opcode.GetPlayerBoardDataCsReq)]
-        public static async Task OnGetPlayerBoardData(TcpSession session, Memory<byte> _)
+        public static async Task OnGetPlayerBoardData(Session session, Memory<byte> _)
         {
             var boardRsp = new GetPlayerBoardDataScRsp();
             await session.SendAsync(Opcode.GetPlayerBoardDataScRsp, boardRsp);
         }
 
         [Handler(Opcode.GetDailyActiveInfoCsReq)]
-        public static async Task OnGetDailyActiveInfo(TcpSession session, Memory<byte> _)
+        public static async Task OnGetDailyActiveInfo(Session session, Memory<byte> _)
         {
             var a = new GetDailyActiveInfoScRsp();
             await session.SendAsync(Opcode.GetDailyActiveInfoScRsp, a);
         }
 
         [Handler(Opcode.PlayerHeartbeatCsReq)]
-        public static async Task OnPlayerHeartbeat(TcpSession session, Memory<byte> payload)
+        public static async Task OnPlayerHeartbeat(Session session, Memory<byte> payload)
         {
             var a = AKFEAADNDBM.Parser.ParseFrom(payload.Span);
             if (a == null) return;
