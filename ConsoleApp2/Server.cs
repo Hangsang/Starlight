@@ -1,10 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using Server.Database.MongoDb;
+using Server.Database.MongoDb.Repositories;
 using Server.Interfaces;
 using Server.Network.Tcp.Netty;
 using Server.Network.TCP;
 using Server.Unsorted;
 using Server.Utils;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Server;
 
@@ -29,6 +32,23 @@ public class Server
 
         var Logger = Log.ForContext(Serilog.Core.Constants.SourceContextPropertyName, nameof(Server));
 
+        Driver.Start($"mongodb://127.0.0.1:27017", Log.ForContext(Serilog.Core.Constants.SourceContextPropertyName, "MongoDB"));
+
+        var a = await PlayerRepository.CountAll();
+        if (a == 0)
+        {
+            await PlayerRepository.InsertOne(new Database.MongoDb.Entities.PlayerEntity
+            {
+                UID = 1,
+                PlayerBasicInfo = new BEPIDFNIMLN
+                {
+                    NickName = "Hang"
+                }
+            });
+        }
+
+        MessageManager.Instance.Initialize();
+
         ServiceProvider = new ServiceCollection()
             .AddSingleton<Bootstrap>()
             .AddSingleton<INetty, NettyServerHandler>()
@@ -37,9 +57,8 @@ public class Server
         Bootstrap = GetServices<Bootstrap>();
         await Bootstrap.BindAsync();
 
-        MessageManager.Instance.Initialize();
-
-        while (true) Console.ReadLine();
+        while (true)
+            Console.ReadLine();
     }
 
     private static T GetServices<T>()

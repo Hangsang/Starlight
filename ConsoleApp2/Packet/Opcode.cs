@@ -127,5 +127,6 @@ public enum Opcode : ushort
     ComposeLimitNumCompleteScNotify = 566,
     GetLoginActivityScRsp = 2633,
     GetLoginActivityCsReq = 2652,
-    PlayerKickOutScNotify = 60
+    PlayerKickOutScNotify = 60,
+    SyncServerSceneChangeNotify = 1434
 }

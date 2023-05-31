@@ -44,7 +44,7 @@ namespace Server.Services
             s.SceneInfo.PlaneID = 20003;
             s.SceneInfo.OMGOOLPICCA.AddRange(new uint[] { 0, 1, 2, 3, 4, 5, 6, 7, 8 });
 
-            await session.SendAsync(Opcode.GetCurSceneInfoScRsp, s);
+            //await session.SendAsync(Opcode.GetCurSceneInfoScRsp, s);
         }
     }
 }

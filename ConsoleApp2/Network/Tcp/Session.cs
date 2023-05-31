@@ -1,5 +1,6 @@
 ﻿using Google.Protobuf;
 using Serilog;
+using Server.Database.MongoDb.Entities;
 using Server.Unsorted;
 using System.Net;
 
@@ -14,6 +15,8 @@ namespace Server.Network.TCP
         public Connection mConnection;
         public EndPoint Address => mConnection.RemoteAddress;
         public bool mKicked = false;
+
+        public PlayerEntity Player { get; set; }
 
         internal void Register(Connection channel)
         {

@@ -1,5 +1,6 @@
 ﻿using Serilog;
 using Server.Attributes;
+using Server.Database.MongoDb.Repositories;
 using Server.Network.TCP;
 using Server.Unsorted;
 using static Server.Unsorted.Constants;
@@ -18,7 +19,11 @@ namespace Server.Services
             var cplrtoken = PlayerGetTokenCsReq.Parser.ParseFrom(payload.Span);
             if (cplrtoken == null) return;
 
-            var splrtoken = new PlayerGetTokenScRsp { UID = 1 };
+            var plr = await PlayerRepository.FirstOrDefault(x => x.UID == 1);
+            if (plr == null) return;
+            connection.Player = plr;
+
+            var splrtoken = new PlayerGetTokenScRsp { UID = plr.UID };
 #if DEBUG
             Logger.Debug(cplrtoken.PPIEAKOMAKD);
             Logger.Debug(splrtoken.ToString());
@@ -29,16 +34,18 @@ namespace Server.Services
         [Handler(Opcode.PlayerLoginCsReq)]
         public static async Task OnPlayerLogin(Session connection, Memory<byte> _)
         {
+            var plr = connection.Player;
+
             await connection.SendAsync(
                 Opcode.PlayerLoginScRsp,
                 new PlayerLoginScRsp
                 {
-                    BGONHENALMD = new BEPIDFNIMLN { NickName = "Hang", Level = 70, HCoin = 10000, SCoin = 10000, WorldLevel = 6 },
-                    Stamina = 180,
+                    BGONHENALMD = plr.PlayerBasicInfo,
+                    Stamina = plr.PlayerBasicInfo.Stamina,
                     GHFMCFENPNF = "3967187-V1.0Live",
                     RegisterCPS = "hoyoverse_PC",
                     CurServerTimezone = 1,
-                    ServerLoginRandomNum = 7235863151202677137,
+                    ServerLoginRandomNum = ulong.MaxValue,
                     ServerTimestampMs = (ulong)DateTimeOffset.Now.ToUnixTimeSeconds()
                 }
             );
