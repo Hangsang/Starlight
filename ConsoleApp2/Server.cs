@@ -7,7 +7,6 @@ using Server.Network.Tcp.Netty;
 using Server.Network.TCP;
 using Server.Unsorted;
 using Server.Utils;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Server;
 

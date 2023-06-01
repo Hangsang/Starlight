@@ -21,13 +21,13 @@ namespace Server.Services
 
             gachaInfo.MGFPBBAKOMI.Add(new GLIBDFCOMJJ
             {
-                GachaID = 2004,
+                GachaID = 2003,
                 HistoryURL = "https://google.com",
                 EndTimeStamp = DateTimeOffset.Now.ToUnixTimeSeconds() * 2
             });
 
-            gachaInfo.MGFPBBAKOMI[0].EDBGNPCFHBB.AddRange(new uint[] { 1001, 1202, 1204, 1206 }); //4 stars list
-            gachaInfo.MGFPBBAKOMI[0].NFGHMBCIJCD.AddRange(new uint[] { 1204 }); //5 stars list
+            //gachaInfo.MGFPBBAKOMI[0].EDBGNPCFHBB.AddRange(new uint[] { 1001, 1202, 1204, 1206 }); //4 stars list
+            gachaInfo.MGFPBBAKOMI[0].NFGHMBCIJCD.AddRange(new uint[] { 1102 }); //5 stars list
 
             await session.SendAsync(Opcode.GetGachaInfoScRsp, gachaInfo);
         }
@@ -56,8 +56,7 @@ namespace Server.Services
                     ItemList12 = new ItemList()
                 });
 
-                doGacha.MJDNKCHNADE[0].ItemList.ItemList_.Add(new Item { ItemId = 102, Num = 100 });
-                doGacha.MJDNKCHNADE[0].ItemList12.ItemList_.Add(new Item { ItemId = 170, Num = 100 });
+                doGacha.MJDNKCHNADE[i].ItemList.ItemList_.Add(new Item { ItemId = 102, Num = 100 });
             }
 
             await session.SendAsync(Opcode.DoGachaScRsp, doGacha);

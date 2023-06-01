@@ -33,7 +33,6 @@ namespace Server.Services
 #if DEBUG
             Logger.Debug($"Received HeartBeat C2S by {session.Address}");
 #endif
-            Logger.Information(a.ToString());
             await session.SendAsync(Opcode.PlayerHeartbeatScRsp,
                 new LNLHNPDBEAD { NowMsTimeStamp = a.FGNIIAHNCCM, FOFKDPCKJOP = (ulong)DateTimeOffset.Now.ToUnixTimeSeconds(), IDLEBBNEPGA = new AAIBPJCPOIL() });
         }
