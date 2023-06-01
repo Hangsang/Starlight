@@ -4,7 +4,6 @@ using DotNetty.Transport.Channels;
 using Serilog;
 using Server.Network.TCP;
 using Server.Packet;
-using Server.Unsorted;
 using System.Buffers;
 
 namespace Server.Codecs

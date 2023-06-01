@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using Server.Interfaces;
-using System.Xml;
 
 namespace Server.Database.MongoDb.Entities
 {

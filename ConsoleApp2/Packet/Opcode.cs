@@ -1,4 +1,4 @@
-﻿namespace Server.Unsorted;
+﻿namespace Server.Packet;
 
 public enum Opcode : ushort
 {

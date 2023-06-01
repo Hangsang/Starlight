@@ -1,7 +1,7 @@
 ﻿using Serilog;
 using Server.Attributes;
 using Server.Network.TCP;
-using Server.Unsorted;
+using Server.Packet;
 
 namespace Server.Services
 {
@@ -51,10 +51,13 @@ namespace Server.Services
             {
                 doGacha.MJDNKCHNADE.Add(new GKIGHAFBNBO
                 {
-                    ItemId = new Item { ItemId = 1206, Num = 1 },
+                    ItemId = new Item { ItemId = 8001, Num = 1 },
                     ItemList = new ItemList(),
                     ItemList12 = new ItemList()
                 });
+
+                doGacha.MJDNKCHNADE[0].ItemList.ItemList_.Add(new Item { ItemId = 102, Num = 100 });
+                doGacha.MJDNKCHNADE[0].ItemList12.ItemList_.Add(new Item { ItemId = 170, Num = 100 });
             }
 
             await session.SendAsync(Opcode.DoGachaScRsp, doGacha);

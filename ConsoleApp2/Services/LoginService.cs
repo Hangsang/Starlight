@@ -2,7 +2,7 @@
 using Server.Attributes;
 using Server.Database.MongoDb.Repositories;
 using Server.Network.TCP;
-using Server.Unsorted;
+using Server.Packet;
 using static Server.Unsorted.Constants;
 
 namespace Server.Services
@@ -45,7 +45,6 @@ namespace Server.Services
                     GHFMCFENPNF = "3967187-V1.0Live",
                     RegisterCPS = "hoyoverse_PC",
                     CurServerTimezone = 1,
-                    ServerLoginRandomNum = ulong.MaxValue,
                     ServerTimestampMs = (ulong)DateTimeOffset.Now.ToUnixTimeSeconds()
                 }
             );

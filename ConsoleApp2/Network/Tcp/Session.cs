@@ -1,7 +1,7 @@
 ﻿using Google.Protobuf;
 using Serilog;
 using Server.Database.MongoDb.Entities;
-using Server.Unsorted;
+using Server.Packet;
 using System.Net;
 
 namespace Server.Network.TCP
@@ -12,11 +12,12 @@ namespace Server.Network.TCP
             Serilog.Core.Constants.SourceContextPropertyName,
             nameof(Session));
 
-        public Connection mConnection;
-        public EndPoint Address => mConnection.RemoteAddress;
-        public bool mKicked = false;
-
+        public Connection mConnection { get; set; }
         public PlayerEntity Player { get; set; }
+
+        public EndPoint Address => mConnection.RemoteAddress;
+
+        public bool mKicked { get; set; }
 
         internal void Register(Connection channel)
         {
@@ -63,7 +64,7 @@ namespace Server.Network.TCP
             }
             catch (Exception ex)
             {
-                Logger.Error(ex.Message); ;
+                Logger.Error(ex.Message);
             }
         }
 
