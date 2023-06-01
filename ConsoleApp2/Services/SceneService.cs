@@ -64,14 +64,22 @@ namespace Server.Services
             s.SceneInfo.OMGOOLPICCA.AddRange(new uint[] { 0, 1, 2, 3, 4, 5, 6, 7, 8 });
 
             await session.SendAsync(Opcode.GetCurSceneInfoScRsp, s);
-            // await session.SendAsync(Opcode.GetCurLineupDataScRsp, new GetCurLineupDataScRsp());
-            // await session.SendAsync(Opcode.GetCurBattleInfoScRsp, new GetCurBattleInfoScRsp());
         }
 
         [Handler(Opcode.GetCurBattleInfoCsReq)]
         public static async Task OnGetCurBattleInfo(Session session, Memory<byte> _)
         {
-            await session.SendAsync(Opcode.GetCurBattleInfoScRsp, new GetCurBattleInfoScRsp());
+            await session.SendAsync(Opcode.GetCurBattleInfoScRsp, new GetCurBattleInfoScRsp { HPHIMJAJANJ = BattleEnd.Win, MEGJDKGGEOJ = new BOGGPAELPEP { WorldLevel = 6 }, PFBEFHCDPIP = 20003222 });
+        }
+
+        [Handler(Opcode.GetSceneMapInfoCsReq)]
+        public static async Task OnGetSceneMapInfo(Session session, Memory<byte> _)
+        {
+            var mapInfo = new GetSceneMapInfoScRsp();
+            mapInfo.FCAEFKDNDNB.AddRange(new uint[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 });
+            mapInfo.CurMapEntryID = 2000301;
+            await session.SendAsync(Opcode.GetSceneMapInfoScRsp, mapInfo);
+            //await session.SendAsync(Opcode.GetCurBattleInfoScRsp, new GetCurBattleInfoScRsp { HPHIMJAJANJ = BattleEnd.Win, MEGJDKGGEOJ = new BOGGPAELPEP { WorldLevel = 6 }, PFBEFHCDPIP = 20003222 });
         }
     }
 }

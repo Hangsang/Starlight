@@ -121,6 +121,8 @@ public enum Opcode : ushort
     GetFirstTalkCsReq = 2178,
     GetBattleEventDataScRsp = 122,
     GetBattleEventDataCsReq = 109,
+    GetSceneMapInfoCsReq = 1496,
+    GetSceneMapInfoScRsp = 1470,
     BattlePassInfoNotify = 3052,
     RaidInfoNotify = 2278,
     DailyTaskDataScNotify = 1247,

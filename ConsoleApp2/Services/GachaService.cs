@@ -51,7 +51,7 @@ namespace Server.Services
             {
                 doGacha.MJDNKCHNADE.Add(new GKIGHAFBNBO
                 {
-                    ItemId = new Item { ItemId = 8001, Num = 1 },
+                    ItemId = new Item { ItemId = 1102, Num = 1 },
                     ItemList = new ItemList(),
                     ItemList12 = new ItemList()
                 });
