@@ -5,6 +5,7 @@ using Serilog;
 using Server.Network.TCP;
 using Server.Packet;
 using System.Buffers;
+using System.Collections.Concurrent;
 
 namespace Server.Codecs
 {
@@ -13,6 +14,9 @@ namespace Server.Codecs
         private static readonly ILogger Logger = Log.ForContext(
             Serilog.Core.Constants.SourceContextPropertyName,
             "Decoder");
+
+        private readonly ConcurrentQueue<IByteBuffer> mPacketQueue = new();
+        private readonly SemaphoreSlim mSemaphore = new(1);
 
         private const uint HEAD_MAGIC = 0x9D74C714;
 
@@ -25,7 +29,6 @@ namespace Server.Codecs
         private readonly Connection mTcpConnection;
         private byte[] mBuffer;
 
-        //static readonly List<Opcode> BANNED_PACKETS;
         private static readonly List<Opcode> READABLE_PACKETS = new()
         { Opcode.PlayerGetTokenCsReq, Opcode.GetMissionStatusCsReq, Opcode.SyncClientResVersionCsReq,
           Opcode.UnlockTutorialGuideCsReq, Opcode.FinishTutorialGuideCsReq, Opcode.PlayerHeartbeatCsReq, Opcode.DoGachaReq };
@@ -37,45 +40,60 @@ namespace Server.Codecs
 
         protected override void Decode(IChannelHandlerContext context, IByteBuffer message, List<object> output)
         {
-            try
+            mPacketQueue.Enqueue(message);
+
+            if (mSemaphore.Wait(0))
             {
-                if (mTcpConnection.mConnection.mKicked || !context.Channel.Active)
-                    return;
-
-                var headMagic = message.GetUnsignedInt(MAGIC_BEGIN_LENGTH);
-                if (headMagic != HEAD_MAGIC)
-                    return;
-
-                var cmdId = (Opcode)message.GetUnsignedShort(CMD_BEGIN_LENGTH);
-                if (!READABLE_PACKETS.Contains(cmdId)) //Not necessary to read the whole data
+                try
                 {
-                    var justCmd = new HsrPacket(new HsrHeader { CmdId = (ushort)cmdId }, Memory<byte>.Empty, 0);
-                    output.Add(justCmd);
-                    return;
+                    while (mPacketQueue.TryDequeue(out var packet))
+                    {
+                        try
+                        {
+                            if (mTcpConnection.mConnection.mKicked || !context.Channel.Active)
+                                continue;
+
+                            var headMagic = packet.GetUnsignedInt(MAGIC_BEGIN_LENGTH);
+                            if (headMagic != HEAD_MAGIC)
+                                continue;
+
+                            var cmdId = (Opcode)packet.GetUnsignedShort(CMD_BEGIN_LENGTH);
+                            if (!READABLE_PACKETS.Contains(cmdId))
+                            {
+                                var justCmd = new HsrPacket(new HsrHeader { CmdId = (ushort)cmdId }, Memory<byte>.Empty, 0);
+                                output.Add(justCmd);
+                                continue;
+                            }
+
+                            var metaLen = packet.GetUnsignedShort(METALEN_BEGIN_LENGTH);
+                            var bodyLen = packet.GetInt(BODYLEN_BEGIN_LENGTH);
+
+                            if (packet.ReadableBytes != DATA_BEGIN_LENGTH + metaLen + bodyLen + sizeof(uint))
+                                continue;
+
+                            mBuffer = ArrayPool<byte>.Shared.Rent(bodyLen);
+                            packet.GetBytes(DATA_BEGIN_LENGTH + metaLen, mBuffer, 0, bodyLen);
+
+                            var hsrHeader = new HsrHeader { HeadMagic = headMagic, CmdId = (ushort)cmdId, MetaLen = metaLen, BodyLen = (uint)bodyLen };
+                            var wholeData = new HsrPacket(hsrHeader, mBuffer.AsMemory(0, bodyLen), 0);
+                            output.Add(wholeData);
+                        }
+                        catch (Exception ex)
+                        {
+                            Logger.Error(ex, "Exception occurred during message decoding");
+                            mTcpConnection.DeRegister();
+                        }
+                        finally
+                        {
+                            if (mBuffer != null)
+                                ArrayPool<byte>.Shared.Return(mBuffer);
+                        }
+                    }
                 }
-
-                var metaLen = message.GetUnsignedShort(METALEN_BEGIN_LENGTH);
-                var bodyLen = message.GetInt(BODYLEN_BEGIN_LENGTH);
-
-                if (message.ReadableBytes != DATA_BEGIN_LENGTH + metaLen + bodyLen + sizeof(uint))
-                    return;
-
-                mBuffer = ArrayPool<byte>.Shared.Rent(bodyLen);
-                message.GetBytes(DATA_BEGIN_LENGTH + metaLen, mBuffer, 0, bodyLen);
-
-                var hsrHeader = new HsrHeader { HeadMagic = headMagic, CmdId = (ushort)cmdId, MetaLen = metaLen, BodyLen = (uint)bodyLen };
-                var wholeData = new HsrPacket(hsrHeader, mBuffer.AsMemory(0, bodyLen), 0);
-                output.Add(wholeData);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error(ex, "Exception occurred during message decoding");
-                mTcpConnection.DeRegister();
-            }
-            finally
-            {
-                if (mBuffer != null)
-                    ArrayPool<byte>.Shared.Return(mBuffer);
+                finally
+                {
+                    mSemaphore.Release();
+                }
             }
         }
     }

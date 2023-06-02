@@ -19,7 +19,7 @@ public class Bootstrap
     public Bootstrap(INetty _netty)
     {
         Boss = new MultithreadEventLoopGroup(1);
-        Worker = new MultithreadEventLoopGroup(Environment.ProcessorCount * 2);
+        Worker = new MultithreadEventLoopGroup();
         mBootstrap = new ServerBootstrap().Group(Boss, Worker);
         mBootstrap.Channel<TcpServerSocketChannel>();
         mBootstrap.ChildHandler(new ActionChannelInitializer<IChannel>(channel =>

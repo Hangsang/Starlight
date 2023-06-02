@@ -7,11 +7,11 @@ using System.Reflection;
 
 namespace Server.Unsorted
 {
-    public sealed class MessageManager : Singleton<MessageManager>
+    internal sealed class MessageManager : Singleton<MessageManager>
     {
         private ImmutableDictionary<Opcode, (HandlerAttribute, HandlerDelegate)> clientMessageHandlers;
 
-        public void Initialize()
+        internal void Initialize()
         {
             InitializePacketHandlers();
         }
@@ -76,7 +76,7 @@ namespace Server.Unsorted
         }
         */
 
-        public (HandlerAttribute attribute, HandlerDelegate @delegate) GetMessageInformation(Opcode opcode)
+        internal (HandlerAttribute attribute, HandlerDelegate @delegate) GetMessageInformation(Opcode opcode)
         {
             clientMessageHandlers.TryGetValue(opcode,
                                               out (HandlerAttribute attribute, HandlerDelegate @delegate)
@@ -92,7 +92,7 @@ namespace Server.Unsorted
         }
         */
 
-        public delegate void HandlerDelegate(Session session, Memory<byte> payload);
+        internal delegate void HandlerDelegate(Session session, Memory<byte> payload);
     }
 
     public abstract class Singleton<T> where T : class

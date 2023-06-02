@@ -10,12 +10,12 @@ using Server.Utils;
 
 namespace Server;
 
-public class Server
+class Server
 {
     private static Bootstrap? Bootstrap { get; set; }
     private static ServiceProvider? ServiceProvider { get; set; }
 
-    public static async Task Main()
+    static async Task Main()
     {
         Console.Title = "Honkai: Star Rail - Game Server";
 
@@ -29,21 +29,20 @@ public class Server
 #endif
             .CreateLogger();
 
-        var Logger = Log.ForContext(Serilog.Core.Constants.SourceContextPropertyName, nameof(Server));
-
         Driver.Start($"mongodb://127.0.0.1:27017", Log.ForContext(Serilog.Core.Constants.SourceContextPropertyName, "MongoDB"));
 
-        var a = await PlayerRepository.CountAll();
+        var a = await PlayerRepository.CountAll().ConfigureAwait(false);
         if (a == 0)
         {
             await PlayerRepository.InsertOne(new Database.MongoDb.Entities.PlayerEntity
             {
                 UID = 1,
+                Banned = true,
                 PlayerBasicInfo = new BEPIDFNIMLN
                 {
                     NickName = "Hang"
                 }
-            });
+            }).ConfigureAwait(false);
         }
 
         MessageManager.Instance.Initialize();
@@ -54,7 +53,7 @@ public class Server
             .BuildServiceProvider();
 
         Bootstrap = GetServices<Bootstrap>();
-        await Bootstrap.BindAsync();
+        await Bootstrap.BindAsync().ConfigureAwait(false);
 
         while (true)
             Console.ReadLine();

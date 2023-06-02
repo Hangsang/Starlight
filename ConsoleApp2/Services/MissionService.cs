@@ -39,9 +39,9 @@ namespace Server.Services
         }
 
         [Handler(Opcode.GetMissionEventDataCsReq)]
-        public static async Task OnGetMissionEventData(Session session, Memory<byte> _)
+        public static Task OnGetMissionEventData(Session session, Memory<byte> _)
         {
-            await session.SendAsync(Opcode.GetMissionEventDataScRsp, new GetMissionEventDataScRsp());
+            return session.SendAsync(Opcode.GetMissionEventDataScRsp, new GetMissionEventDataScRsp());
         }
     }
 }

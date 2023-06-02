@@ -20,11 +20,10 @@ namespace Server.Network.TCP
         internal Session mConnection { get; set; }
 
         public string Id => Channel.Id.AsLongText();
+        public EndPoint RemoteAddress => Channel.RemoteAddress;
 
         public bool IsActive => Channel.Active;
         public bool IsWritable => Channel.IsWritable;
-
-        public EndPoint RemoteAddress => Channel.RemoteAddress;
 
         public void Register(Session connection)
         {

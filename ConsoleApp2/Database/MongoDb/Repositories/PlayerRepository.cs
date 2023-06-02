@@ -1,6 +1,4 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using Server.Database.MongoDb.Entities;
+﻿using Server.Database.MongoDb.Entities;
 using Server.Interfaces;
 
 namespace Server.Database.MongoDb.Repositories

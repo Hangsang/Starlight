@@ -7,7 +7,7 @@ namespace Server.Database.MongoDb
 {
     public static class Driver
     {
-        public static ILogger Logger { get; set; }
+        private static ILogger Logger { get; set; }
 
         public static void Start(string connection, ILogger logger)
         {

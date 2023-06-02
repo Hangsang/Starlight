@@ -17,17 +17,25 @@ namespace Server.Services
         public static async Task OnPlayerGetToken(Session connection, Memory<byte> payload)
         {
             var cplrtoken = PlayerGetTokenCsReq.Parser.ParseFrom(payload.Span);
-            if (cplrtoken == null) return;
+            if (cplrtoken == null)
+                return;
 
             var plr = await PlayerRepository.FirstOrDefault(x => x.UID == 1);
-            if (plr == null) return;
-            connection.Player = plr;
+            if (plr == null)
+                return;
 
-            var splrtoken = new PlayerGetTokenScRsp { UID = plr.UID };
+            var splrtoken = new PlayerGetTokenScRsp();
+            if (plr.Banned) {
+                splrtoken.MValue = 1013;
+            }
+
+            connection.Player = plr;
+            splrtoken.UID = plr.UID;
 #if DEBUG
             Logger.Debug(cplrtoken.PPIEAKOMAKD);
             Logger.Debug(splrtoken.ToString());
 #endif
+
             await connection.SendAsync(Opcode.PlayerGetTokenScRsp, splrtoken);
         }
 
@@ -46,21 +54,18 @@ namespace Server.Services
                     RegisterCPS = "hoyoverse_PC",
                     CurServerTimezone = 1,
                     ServerTimestampMs = (ulong)DateTimeOffset.Now.ToUnixTimeSeconds()
-                }
-            );
-#if DEBUG
+                });
             await connection.SendAsync(Opcode.UpdateFeatureSwitchScNotify, new UpdateFeatureSwitchScNotify());
-            //await connection.SendAsync(Opcode.SyncServerSceneChangeNotify, new SyncServerSceneChangeNotify());
+            await connection.SendAsync(Opcode.SyncServerSceneChangeNotify, new SyncServerSceneChangeNotify());
             await connection.SendAsync(Opcode.DailyTaskDataScNotify, new DailyTaskDataScNotify());
             await connection.SendAsync(Opcode.RaidInfoNotify, new RaidInfoNotify());
-#endif
-            await connection.SendAsync(Opcode.BattlePassInfoNotify, new BattlePassInfoNotify { BattlePassData = 1, PurchaseType = BpTierType.Premium2, Level = 69 });
+            await connection.SendAsync(
+                Opcode.BattlePassInfoNotify,
+                new BattlePassInfoNotify { BattlePassData = 1, PurchaseType = BpTierType.Premium2, Level = 69 });
         }
 
         [Handler(Opcode.GetLoginActivityCsReq)]
-        public static async Task OnGetLoginActivity(Session session, Memory<byte> _)
-        {
-            await session.SendAsync(Opcode.GetLoginActivityScRsp, new GetLoginActivityScRsp());
-        }
+        public static Task OnGetLoginActivity(Session session, Memory<byte> _)
+        { return session.SendAsync(Opcode.GetLoginActivityScRsp, new GetLoginActivityScRsp()); }
     }
 }
