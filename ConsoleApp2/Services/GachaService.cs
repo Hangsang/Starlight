@@ -23,7 +23,7 @@ namespace Server.Services
             {
                 GachaID = 2003,
                 HistoryURL = "https://google.com",
-                EndTimeStamp = DateTimeOffset.Now.ToUnixTimeSeconds() * 2
+                EndTimeStamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds() * 2
             });
 
             //gachaInfo.MGFPBBAKOMI[0].EDBGNPCFHBB.AddRange(new uint[] { 1001, 1202, 1204, 1206 }); //4 stars list

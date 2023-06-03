@@ -19,7 +19,7 @@ namespace Server.Services
                 HGPHPJMOIHK = new HCMHCAPMDNO
                 {
                     JLLDBGGMCOD = 1000,
-                    OJFODJFDBOC = DateTimeOffset.Now.ToUnixTimeSeconds()
+                    OJFODJFDBOC = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
                 },
 
                 JJPFKBLEJAF = new LCIKOENMNNP

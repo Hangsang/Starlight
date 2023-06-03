@@ -53,7 +53,7 @@ namespace Server.Services
                     GHFMCFENPNF = "3967187-V1.0Live",
                     RegisterCPS = "hoyoverse_PC",
                     CurServerTimezone = 1,
-                    ServerTimestampMs = (ulong)DateTimeOffset.Now.ToUnixTimeSeconds()
+                    ServerTimestampMs = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds()
                 });
             await connection.SendAsync(Opcode.UpdateFeatureSwitchScNotify, new UpdateFeatureSwitchScNotify());
             await connection.SendAsync(Opcode.SyncServerSceneChangeNotify, new SyncServerSceneChangeNotify());

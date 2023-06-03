@@ -98,8 +98,8 @@ namespace Server.Network.TCP
             {
                 JIOKMHDOPJP = new EGHHJDHHBKM
                 {
-                    FCONOFEKJMH = DateTimeOffset.Now.ToUnixTimeMilliseconds() * 2,
-                    KJHDCEDJACN = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
+                    FCONOFEKJMH = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() * 2,
+                    KJHDCEDJACN = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
                     AMKAMCCPGHH = 2,
                     FGNMJDDGHNA = 2
                 }

@@ -7,6 +7,7 @@ using Server.Codecs;
 using Server.Interfaces;
 using Server.Network.Tcp.Netty;
 using System.Net;
+using System.Net.Sockets;
 
 namespace Server.Network.TCP;
 
@@ -18,7 +19,7 @@ public class Bootstrap
 
     public Bootstrap(INetty _netty)
     {
-        Boss = new MultithreadEventLoopGroup(1);
+        Boss = new MultithreadEventLoopGroup();
         Worker = new MultithreadEventLoopGroup();
         mBootstrap = new ServerBootstrap().Group(Boss, Worker);
         mBootstrap.Channel<TcpServerSocketChannel>();

@@ -53,7 +53,13 @@ class Server
             .BuildServiceProvider();
 
         Bootstrap = GetServices<Bootstrap>();
-        await Bootstrap.BindAsync().ConfigureAwait(false);
+        await Bootstrap.BindAsync();
+
+        for (int i = 0; i < 100; i++)
+        {
+            await Bootstrap.ConnectToServer();
+            Log.Logger.Warning(i.ToString());
+        }
 
         while (true)
             Console.ReadLine();
