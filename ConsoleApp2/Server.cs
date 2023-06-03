@@ -55,12 +55,6 @@ class Server
         Bootstrap = GetServices<Bootstrap>();
         await Bootstrap.BindAsync();
 
-        for (int i = 0; i < 100; i++)
-        {
-            await Bootstrap.ConnectToServer();
-            Log.Logger.Warning(i.ToString());
-        }
-
         while (true)
             Console.ReadLine();
     }
