@@ -32,9 +32,6 @@ namespace Server.Network.TCP
 
         public async Task SendAsync(Opcode opcode, IMessage message)
         {
-            Stopwatch sw = new();
-            sw.Start();
-
             if (!mConnection.IsWritable || !mConnection.IsActive || mKicked)
                 return;
 
@@ -70,9 +67,6 @@ namespace Server.Network.TCP
                     mSemaphore.Release();
                 }
             }
-
-            Logger.Information(sw.Elapsed.TotalMilliseconds.ToString());
-            sw.Stop();
         }
 
         public async Task SendBytesAsync(byte[] buffer)
