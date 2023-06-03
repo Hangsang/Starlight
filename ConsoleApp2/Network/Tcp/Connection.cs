@@ -35,10 +35,14 @@ namespace Server.Network.TCP
             Logger.Information($"New connection by {RemoteAddress}");
         }
 
-        public void DeRegister()
+        public void DeRegister(bool sendPacket = false)
         {
             if (mConnection == null)
                 return;
+
+            if (sendPacket) {
+                mConnection?.KickAsync();
+            }
 
             Logger.Information($"{RemoteAddress} disconnected");
             Channel.CloseAsync();

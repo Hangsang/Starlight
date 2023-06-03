@@ -1,10 +1,8 @@
-﻿using DotNetty.Common.Utilities;
-using Google.Protobuf;
+﻿using Google.Protobuf;
 using Serilog;
 using Server.Database.MongoDb.Entities;
 using Server.Packet;
 using System.Collections.Concurrent;
-using System.Diagnostics;
 using System.Net;
 
 namespace Server.Network.TCP
@@ -86,7 +84,7 @@ namespace Server.Network.TCP
             }
         }
 
-        public async Task KickAsync()
+        public async Task KickAsync(bool _deReg = false)
         {
             var kick = new PlayerKickoutScNotify
             {
@@ -100,7 +98,7 @@ namespace Server.Network.TCP
             };
             await SendAsync(Opcode.PlayerKickOutScNotify, kick);
             mKicked = true;
-            mConnection.DeRegister();
+            if (_deReg) mConnection.DeRegister();
         }
 
         public Task DisconnectAsync()

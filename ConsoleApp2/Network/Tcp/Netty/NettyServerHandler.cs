@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using DotNetty.Handlers.Timeout;
+using Serilog;
 using Server.Interfaces;
 using Server.Network.TCP;
 using Server.Packet;
@@ -36,7 +37,7 @@ namespace Server.Network.Tcp.Netty
             }
             else
             {
-                await session.mConnection.KickAsync();
+                await session.mConnection.KickAsync(true);
                 return;
             }
         }
@@ -44,7 +45,7 @@ namespace Server.Network.Tcp.Netty
         public void ExceptionCaught(Connection session, Exception exception)
         {
             Logger.Error($"Exception in NettyServerHandler {session.RemoteAddress}");
-            session?.mConnection.KickAsync();
+            session?.mConnection.KickAsync(true);
             return;
         }
     }

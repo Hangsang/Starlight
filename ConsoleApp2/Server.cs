@@ -31,18 +31,19 @@ class Server
 
         Driver.Start($"mongodb://127.0.0.1:27017", Log.ForContext(Serilog.Core.Constants.SourceContextPropertyName, "MongoDB"));
 
-        var a = await PlayerRepository.CountAll().ConfigureAwait(false);
+        var a = await PlayerRepository.CountAll();
         if (a == 0)
         {
             await PlayerRepository.InsertOne(new Database.MongoDb.Entities.PlayerEntity
             {
                 UID = 1,
-                Banned = true,
                 PlayerBasicInfo = new BEPIDFNIMLN
                 {
-                    NickName = "Hang"
+                    NickName = "Hang",
+                    Level = 70,
+                    WorldLevel = 6
                 }
-            }).ConfigureAwait(false);
+            });
         }
 
         MessageManager.Instance.Initialize();

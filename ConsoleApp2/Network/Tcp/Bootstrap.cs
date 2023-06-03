@@ -7,7 +7,6 @@ using Server.Codecs;
 using Server.Interfaces;
 using Server.Network.Tcp.Netty;
 using System.Net;
-using System.Net.Sockets;
 
 namespace Server.Network.TCP;
 
@@ -28,7 +27,7 @@ public class Bootstrap
             var session = new Connection(channel);
             channel.Pipeline.AddLast(new MessageDecoder(session));
             channel.Pipeline.AddLast(new INettyHandler(_netty, session));
-            channel.Pipeline.AddLast(new WriteTimeoutHandler(TimeSpan.FromSeconds(15)));
+            channel.Pipeline.AddLast(new NettyTimeout(session, 10, 10, 10));
         }))
           .ChildOption(ChannelOption.TcpNodelay, true)
           .ChildOption(ChannelOption.SoKeepalive, true);

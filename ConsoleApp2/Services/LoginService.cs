@@ -13,6 +13,7 @@ namespace Server.Services
             Serilog.Core.Constants.SourceContextPropertyName,
             nameof(LoginService));
 
+        [Firewall(1000)]
         [Handler(Opcode.PlayerGetTokenCsReq, SessionState.Ignored)]
         public static async Task OnPlayerGetToken(Session connection, Memory<byte> payload)
         {
@@ -28,7 +29,6 @@ namespace Server.Services
             if (plr.Banned) {
                 splrtoken.MValue = 1013;
             }
-
             connection.Player = plr;
             splrtoken.UID = plr.UID;
 #if DEBUG

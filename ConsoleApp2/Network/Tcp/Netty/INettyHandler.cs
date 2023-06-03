@@ -1,4 +1,5 @@
-﻿using DotNetty.Transport.Channels;
+﻿using DotNetty.Handlers.Timeout;
+using DotNetty.Transport.Channels;
 using Server.Interfaces;
 using Server.Network.TCP;
 
