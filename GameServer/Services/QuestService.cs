@@ -1,7 +1,7 @@
-﻿using Serilog;
-using Common.Attributes;
+﻿using Common.Attributes;
 using Common.Network.Tcp;
 using Common.Packet;
+using Serilog;
 
 namespace GameServer.Services
 {

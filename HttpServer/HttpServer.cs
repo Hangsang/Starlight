@@ -2,36 +2,44 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
-var builder = WebApplication.CreateBuilder();
+namespace HttpServer;
 
-var app = builder.Build();
-
-app.UsePathBase("/");
-app.Urls.Add($"http://*:{80}");
-app.Urls.Add($"https://*:{443}");
-
-Dispatch.AddHandlers(app);
-
-app.UseMiddleware<RequestLoggingMiddleware>();
-Console.WriteLine($"HTTP(s) server started on port 80 & 443");
-await app.RunAsync();
-
-public class RequestLoggingMiddleware
+internal class HttpServer
 {
-    private readonly RequestDelegate _next;
-
-    public RequestLoggingMiddleware(RequestDelegate next)
+    private static async Task Main()
     {
-        _next = next;
+        var builder = WebApplication.CreateBuilder();
+
+        var app = builder.Build();
+
+        app.UsePathBase("/");
+        app.Urls.Add($"http://*:{80}");
+        app.Urls.Add($"https://*:{443}");
+
+        Dispatch.AddHandlers(app);
+
+        app.UseMiddleware<RequestLoggingMiddleware>();
+        await app.RunAsync();
+        Console.WriteLine($"HTTP(s) server started on port 80 & 443");
     }
 
-    public async Task Invoke(HttpContext context)
+    private class RequestLoggingMiddleware
     {
-        try
+        private readonly RequestDelegate _next;
+
+        public RequestLoggingMiddleware(RequestDelegate next)
         {
-            await _next(context);
+            _next = next;
         }
-        catch (Exception ex)
-        { }
+
+        public async Task Invoke(HttpContext context)
+        {
+            try
+            {
+                await _next(context);
+            }
+            catch (Exception ex)
+            { }
+        }
     }
 }

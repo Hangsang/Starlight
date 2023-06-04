@@ -16,7 +16,7 @@ namespace Common.Codecs
 
         //public MessageDecoder()
         //{
-            //mTcpConnection = connection;
+        //mTcpConnection = connection;
         //}
 
         protected override void Decode(IChannelHandlerContext context, IByteBuffer message, List<object> output)
@@ -31,10 +31,6 @@ namespace Common.Codecs
                     return;
 
                 var cmdId = (Opcode)message.GetUnsignedShort(Constants.CMD_BEGIN_LENGTH);
-
-                var (attribute, _) = MessageFactory.Instance.GetMessageInformation(cmdId);
-                if (attribute == null)
-                    return;
 
                 mPacketQueue.Enqueue(message);
 
