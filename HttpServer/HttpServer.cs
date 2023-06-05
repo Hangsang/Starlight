@@ -16,11 +16,10 @@ internal class HttpServer
         app.Urls.Add($"http://*:{80}");
         app.Urls.Add($"https://*:{443}");
 
-        Dispatch.AddHandlers(app);
+        DispatchController.AddHandlers(app);
 
         app.UseMiddleware<RequestLoggingMiddleware>();
         await app.RunAsync();
-        Console.WriteLine($"HTTP(s) server started on port 80 & 443");
     }
 
     private class RequestLoggingMiddleware
@@ -39,7 +38,11 @@ internal class HttpServer
                 await _next(context);
             }
             catch (Exception ex)
-            { }
+            {
+            }
+            finally
+            {
+            }
         }
     }
 }

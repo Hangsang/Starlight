@@ -40,14 +40,15 @@ namespace Common.Network.Tcp
                     while (mSendQueue.TryDequeue(out var item))
                     {
                         var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
-                        var size = message.CalculateSize();
+                        //var size = message.CalculateSize();
+                        var mData = item.message.ToByteArray();
 
                         mPooledBuffer.WriteShort(0x9D74);
                         mPooledBuffer.WriteShort(0xC714);
                         mPooledBuffer.WriteShort((ushort)item.opcode);
                         mPooledBuffer.WriteShort(0);
-                        mPooledBuffer.WriteInt(size);
-                        mPooledBuffer.WriteBytes(item.message.ToByteArray());
+                        mPooledBuffer.WriteInt(mData.Length);
+                        mPooledBuffer.WriteBytes(mData);
                         mPooledBuffer.WriteShort(0xD7A1);
                         mPooledBuffer.WriteShort(0x52C8);
 
