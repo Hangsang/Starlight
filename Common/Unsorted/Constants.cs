@@ -10,24 +10,6 @@
         public const int BODYLEN_BEGIN_LENGTH = 8;
         public const int DATA_BEGIN_LENGTH = 12;
 
-        public enum HttpStatus
-        {
-            OK = 200,
-            CREATED,
-            ACCEPTED,
-            PARTIALINFO,
-            NORSP,
-            BADREQ = 400,
-            UNAUTH,
-            PAYMENTREQUIRED,
-            FORBIDDEN,
-            NOTFOUND,
-            INTERNALERR = 500,
-            NOTIMPL,
-            OVERLOADED,
-            TIMEOUT
-        }
-
         public enum SessionState
         {
             Authorized,
