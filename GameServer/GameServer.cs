@@ -12,22 +12,6 @@ namespace GameServer;
 
 internal class GameServer
 {
-    private static Bootstrap bootstrap;
-
-    private static Bootstrap GetBootstrap()
-    {
-        return Bootstrap;
-    }
-
-    private static void SetBootstrap(Bootstrap value)
-    {
-        Bootstrap = value;
-    }
-
-    private static ServiceProvider? ServiceProvider { get; set; }
-    public static Bootstrap Bootstrap { get => Bootstrap1; set => Bootstrap1 = value; }
-    public static Bootstrap Bootstrap1 { get => bootstrap; set => bootstrap = value; }
-
     private static async Task Main()
     {
         Console.Title = "Honkai: Star Rail - Game Server";
@@ -77,4 +61,20 @@ internal class GameServer
     {
         return ServiceProvider.GetService<T>();
     }
+
+    private static Bootstrap bootstrap;
+
+    private static Bootstrap GetBootstrap()
+    {
+        return Bootstrap;
+    }
+
+    private static void SetBootstrap(Bootstrap value)
+    {
+        Bootstrap = value;
+    }
+
+    private static ServiceProvider? ServiceProvider { get; set; }
+    public static Bootstrap Bootstrap { get => Bootstrap1; set => Bootstrap1 = value; }
+    public static Bootstrap Bootstrap1 { get => bootstrap; set => bootstrap = value; }
 }

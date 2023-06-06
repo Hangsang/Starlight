@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace HttpServer.Controllers
 {
-    public class DispatchController
+    internal class DispatchController
     {
-        public static void AddHandlers(WebApplication app)
+        internal static void AddHandlers(WebApplication app)
         {
             app.Map("/query_dispatch", HandleQueryDispatch);
             app.Map("/query_gateway", HandleQueryGateway);
@@ -23,7 +23,6 @@ namespace HttpServer.Controllers
                 DisplayName = "annen"
             });
 
-            //context.Response.StatusCode = (int)HttpStatusCode.OK; NOT SURE IF THIS IS REQUIRED MANUALLY
             var base64 = Convert.ToBase64String(_global.ToByteArray());
             await context.Response.WriteAsync(base64);
         }
@@ -48,7 +47,7 @@ namespace HttpServer.Controllers
                 Host = "127.0.0.1",
                 Port = 22102
             };
-            //context.Response.StatusCode = (int)HttpStatusCode.OK;
+
             var base64 = Convert.ToBase64String(_dispatch.ToByteArray());
             await context.Response.WriteAsync(base64);
         }
