@@ -13,7 +13,7 @@ internal class HttpServer
         var app = builder.Build();
 
         app.UsePathBase("/");
-        app.Urls.Add($"http://*:{80}");
+        //app.Urls.Add($"http://*:{80}");
         app.Urls.Add($"https://*:{443}");
 
         DispatchController.AddHandlers(app);
