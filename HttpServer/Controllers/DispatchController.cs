@@ -22,6 +22,7 @@ namespace HttpServer.Controllers
                 SdkEnv = "2",
                 DisplayName = "annen"
             });
+            _global.Top = "annen";
 
             var base64 = Convert.ToBase64String(_global.ToByteArray());
             await context.Response.WriteAsync(base64);
@@ -29,23 +30,27 @@ namespace HttpServer.Controllers
 
         private static async Task HandleQueryGateway(HttpContext context)
         {
-            var _dispatch = new ServerDispatchData
+            var _dispatch = new ServerDispatch
             {
-                AssetBundleVersionUpdateUrl = "https://autopatchos.starrails.com/asb/V1.0Live/output_4186973_52d0b74c56",
-                LuaBundleVersionUpdateUrl = "https://autopatchos.starrails.com/lua/V1.0Live/output_4135247_48f4e37838",
-                DesignDataBundleVersionUpdateUrl = "https://autopatchos.starrails.com/design_data/V1.0Live/output_4333050_e99822159b",
-                RedeemCodeUrl = "http://localhost/common/apicdkey/api",
-                OfficialCommunityUrl = "https://google.com",
-                TemporaryMaintenanceUrl = "https://google.com",
-                CustomServiceUrl = "https://google.com",
-                EnableDesignDataBundleVersionUpdate = true,
-                EventTrackingOpen = true,
-                LoginWhiteMsg = "The Astral Express will depart at 2069/02/30 13:37 (UTC+420). Trailblazers, please be patient~",
-                Name = "annen",
-                KMJAFDLEPOH = "", //ec2b,
-                UseTcp = true,
-                Host = "127.0.0.1",
-                Port = 22102
+                ConnectHost = "127.0.0.1",
+                ConnectPort = 22102,
+                FirstBool = true,
+                SecondBool = true,
+                ThirdBool = true,
+                WhiteErrorMsg = "ERROR",
+                AsbUrl = "https://autopatchos.starrails.com/asb/V1.1Live/output_4381695_e3ff4a5941",
+                LuaUrl = "https://autopatchos.starrails.com/lua/V1.1Live/output_4365933_6947ddbfd9",
+                DesignDataUrl = "https://autopatchos.starrails.com/design_data/V1.1Live/output_4365965_abba03dffc",
+                ResultMessage = "OK",
+                ServerName = "annen",
+                OBCBJOHAOAK = true,
+                EFBEPICCKNP = true,
+                IHEDNHBBOFA = true,
+                IOFJNPOMBFC = true,
+                EOOKHNELFEH = true,
+                FAAJKEEIMMD = true,
+                HODGOGLIJOI = true,
+                IOIFFEJFGGC = true
             };
 
             var base64 = Convert.ToBase64String(_dispatch.ToByteArray());

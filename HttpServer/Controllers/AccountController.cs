@@ -84,12 +84,12 @@ namespace HttpServer.Controllers
                         scene = "S_NORMAL",
                         name = "崩坏RPG",
                         disable_regist = true,
-                        enable_email_captcha = false,
+                        enable_email_captcha = true,
                         thirdparty = Array.Empty<string>(),
                         disable_mmt = false,
                         server_guest = true,
                         thirdparty_ignore = new { fb = "", tw = "" },
-                        enable_ps_bind_account = false,
+                        enable_ps_bind_account = true,
                         thirdparty_login_configs = new { }
                     }
                 });

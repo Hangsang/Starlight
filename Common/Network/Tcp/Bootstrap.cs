@@ -26,7 +26,7 @@ public class Bootstrap
             var session = new Connection(channel);
             channel.Pipeline.AddLast(new MessageDecoder());
             channel.Pipeline.AddLast(new INettyHandler(_netty, session));
-            channel.Pipeline.AddLast(new NettyTimeout(session, 8, 8, 8));
+            channel.Pipeline.AddLast(new NettyTimeout(session, 10, 10, 10));
         }))
           .ChildOption(ChannelOption.TcpNodelay, true);
     }

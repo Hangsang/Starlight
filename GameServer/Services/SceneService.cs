@@ -75,6 +75,20 @@ namespace GameServer.Services
         [Handler(Opcode.GetSceneMapInfoCsReq)]
         public static async Task OnGetSceneMapInfo(Session session, Memory<byte> _)
         {
+            var announce = new ServerAnnounceNotify();
+            announce.NBDEOGABBMN.Add(new JFODNACIOCP
+            {
+                ENAMOEHEHPG = true,
+                DOAKDPFBCGI = "<a>AAAAAAAAAAAAAAAAAAAAAAAAAA</a>",
+                KKCIPHMLIBD = "<a>AAAAAAAAAAAAAAAAAAAAAAAAAA</a>",
+                EndTimeStamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() * 2,
+                BKMHJGICPIJ = "<a>AAAAAAAAAAAAAAAAAAAAAAAAAA</a>",
+                BDBPCJNHAJH = 99,
+                NDGLLOJJLAM = 99,
+                NPPBCCBKGJN = 99
+            });
+            await session.SendAsync(Opcode.ServerAnnounceNotify, announce);
+
             var mapInfo = new GetSceneMapInfoScRsp();
             mapInfo.FCAEFKDNDNB.AddRange(new uint[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 });
             mapInfo.CurMapEntryID = 2000301;

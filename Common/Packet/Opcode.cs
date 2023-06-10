@@ -4,6 +4,7 @@ public enum Opcode : ushort
 {
     None = 0,
     GateServerScNotify = 48,
+    ServerAnnounceNotify = 53,
     ClientDownloadDataScNotify = 10,
     SyncClientResVersionScRsp = 147,
     GetAuthKeyScRsp = 56,
