@@ -51,5 +51,11 @@ namespace GameServer.Services
                     CurEpoch = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds()
                 });
         }
+
+        [Handler(Opcode.GetLevelRewardTakenListCsReq)]
+        public static async Task OnGetLevelRewardTakenList(Session session, Memory<byte> _)
+        {
+            await session.SendCmdId(Opcode.GetLevelRewardTakenListScRsp);
+        }
     }
 }

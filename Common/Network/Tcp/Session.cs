@@ -83,6 +83,31 @@ namespace Common.Network.Tcp
             }
         }
 
+        public async Task SendCmdId(Opcode opcode)
+        {
+            if (!mConnection.IsWritable || !mConnection.IsActive || mKicked)
+                return;
+
+            try
+            {
+                var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
+
+                mPooledBuffer.WriteShort(0x9D74);
+                mPooledBuffer.WriteShort(0xC714);
+                mPooledBuffer.WriteShort((ushort)opcode);
+                mPooledBuffer.WriteShort(0);
+                mPooledBuffer.WriteInt(0);
+                mPooledBuffer.WriteShort(0xD7A1);
+                mPooledBuffer.WriteShort(0x52C8);
+
+                await mConnection.Channel.WriteAndFlushAsync(mPooledBuffer);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+            }
+        }
+
         public async Task KickAsync(bool _deReg = false)
         {
             /*
