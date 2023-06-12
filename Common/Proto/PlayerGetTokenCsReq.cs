@@ -22,15 +22,15 @@ public static partial class PlayerGetTokenCsReqReflection {
   static PlayerGetTokenCsReqReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChlQbGF5ZXJHZXRUb2tlbkNzUmVxLnByb3RvIrUBChNQbGF5ZXJHZXRUb2tl",
-          "bkNzUmVxEhMKC2hPTUxPTUlCTUtIGA8gASgJEhIKCmdsb2JhbFZhcnMYBiAB",
-          "KA0SEwoLYUFCTEdORUZQTUkYAyABKAkSEwoLcFBJRUFLT01BS0QYDSABKAkS",
-          "CwoDdUlEGAUgASgNEhQKDHBsYXRmb3JtVHlwZRgEIAEoDRITCgtmQUNMQk1H",
-          "Sk1HSxgIIAEoDRITCgtlQUhIQ0tCT0dGQRgOIAEoDWIGcHJvdG8z"));
+          "ChlQbGF5ZXJHZXRUb2tlbkNzUmVxLnByb3RvIrYBChNQbGF5ZXJHZXRUb2tl",
+          "bkNzUmVxEhEKCWNoYW5uZWxJRBgDIAEoDRINCgVUb2tlbhgBIAEoCRITCgtP",
+          "UEZOT0xKQ0NKTBgGIAEoDRITCgtEQk5GT0tDSUtLTBgNIAEoDRIUCgxob3lv",
+          "dmVyc2VVSUQYDCABKAkSEwoLSEJJSkdEQkFLRUoYDyABKA0SEwoLSkFNQk9D",
+          "SU9QSksYBSABKA0SEwoLTUVCQkpDRUVLSkwYCSABKAliBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerGetTokenCsReq), global::PlayerGetTokenCsReq.Parser, new[]{ "HOMLOMIBMKH", "GlobalVars", "AABLGNEFPMI", "PPIEAKOMAKD", "UID", "PlatformType", "FACLBMGJMGK", "EAHHCKBOGFA" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerGetTokenCsReq), global::PlayerGetTokenCsReq.Parser, new[]{ "ChannelID", "Token", "OPFNOLJCCJL", "DBNFOKCIKKL", "HoyoverseUID", "HBIJGDBAKEJ", "JAMBOCIOPJK", "MEBBJCEEKJL" }, null, null, null, null)
         }));
   }
   #endregion
@@ -71,14 +71,14 @@ public sealed partial class PlayerGetTokenCsReq : pb::IMessage<PlayerGetTokenCsR
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public PlayerGetTokenCsReq(PlayerGetTokenCsReq other) : this() {
-    hOMLOMIBMKH_ = other.hOMLOMIBMKH_;
-    globalVars_ = other.globalVars_;
-    aABLGNEFPMI_ = other.aABLGNEFPMI_;
-    pPIEAKOMAKD_ = other.pPIEAKOMAKD_;
-    uID_ = other.uID_;
-    platformType_ = other.platformType_;
-    fACLBMGJMGK_ = other.fACLBMGJMGK_;
-    eAHHCKBOGFA_ = other.eAHHCKBOGFA_;
+    channelID_ = other.channelID_;
+    token_ = other.token_;
+    oPFNOLJCCJL_ = other.oPFNOLJCCJL_;
+    dBNFOKCIKKL_ = other.dBNFOKCIKKL_;
+    hoyoverseUID_ = other.hoyoverseUID_;
+    hBIJGDBAKEJ_ = other.hBIJGDBAKEJ_;
+    jAMBOCIOPJK_ = other.jAMBOCIOPJK_;
+    mEBBJCEEKJL_ = other.mEBBJCEEKJL_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -88,99 +88,99 @@ public sealed partial class PlayerGetTokenCsReq : pb::IMessage<PlayerGetTokenCsR
     return new PlayerGetTokenCsReq(this);
   }
 
-  /// <summary>Field number for the "hOMLOMIBMKH" field.</summary>
-  public const int HOMLOMIBMKHFieldNumber = 15;
-  private string hOMLOMIBMKH_ = "";
+  /// <summary>Field number for the "channelID" field.</summary>
+  public const int ChannelIDFieldNumber = 3;
+  private uint channelID_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public string HOMLOMIBMKH {
-    get { return hOMLOMIBMKH_; }
+  public uint ChannelID {
+    get { return channelID_; }
     set {
-      hOMLOMIBMKH_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      channelID_ = value;
     }
   }
 
-  /// <summary>Field number for the "globalVars" field.</summary>
-  public const int GlobalVarsFieldNumber = 6;
-  private uint globalVars_;
+  /// <summary>Field number for the "Token" field.</summary>
+  public const int TokenFieldNumber = 1;
+  private string token_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint GlobalVars {
-    get { return globalVars_; }
+  public string Token {
+    get { return token_; }
     set {
-      globalVars_ = value;
+      token_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
-  /// <summary>Field number for the "aABLGNEFPMI" field.</summary>
-  public const int AABLGNEFPMIFieldNumber = 3;
-  private string aABLGNEFPMI_ = "";
+  /// <summary>Field number for the "OPFNOLJCCJL" field.</summary>
+  public const int OPFNOLJCCJLFieldNumber = 6;
+  private uint oPFNOLJCCJL_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public string AABLGNEFPMI {
-    get { return aABLGNEFPMI_; }
+  public uint OPFNOLJCCJL {
+    get { return oPFNOLJCCJL_; }
     set {
-      aABLGNEFPMI_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      oPFNOLJCCJL_ = value;
     }
   }
 
-  /// <summary>Field number for the "pPIEAKOMAKD" field.</summary>
-  public const int PPIEAKOMAKDFieldNumber = 13;
-  private string pPIEAKOMAKD_ = "";
+  /// <summary>Field number for the "DBNFOKCIKKL" field.</summary>
+  public const int DBNFOKCIKKLFieldNumber = 13;
+  private uint dBNFOKCIKKL_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public string PPIEAKOMAKD {
-    get { return pPIEAKOMAKD_; }
+  public uint DBNFOKCIKKL {
+    get { return dBNFOKCIKKL_; }
     set {
-      pPIEAKOMAKD_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      dBNFOKCIKKL_ = value;
     }
   }
 
-  /// <summary>Field number for the "uID" field.</summary>
-  public const int UIDFieldNumber = 5;
-  private uint uID_;
+  /// <summary>Field number for the "hoyoverseUID" field.</summary>
+  public const int HoyoverseUIDFieldNumber = 12;
+  private string hoyoverseUID_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint UID {
-    get { return uID_; }
+  public string HoyoverseUID {
+    get { return hoyoverseUID_; }
     set {
-      uID_ = value;
+      hoyoverseUID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
-  /// <summary>Field number for the "platformType" field.</summary>
-  public const int PlatformTypeFieldNumber = 4;
-  private uint platformType_;
+  /// <summary>Field number for the "HBIJGDBAKEJ" field.</summary>
+  public const int HBIJGDBAKEJFieldNumber = 15;
+  private uint hBIJGDBAKEJ_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint PlatformType {
-    get { return platformType_; }
+  public uint HBIJGDBAKEJ {
+    get { return hBIJGDBAKEJ_; }
     set {
-      platformType_ = value;
+      hBIJGDBAKEJ_ = value;
     }
   }
 
-  /// <summary>Field number for the "fACLBMGJMGK" field.</summary>
-  public const int FACLBMGJMGKFieldNumber = 8;
-  private uint fACLBMGJMGK_;
+  /// <summary>Field number for the "JAMBOCIOPJK" field.</summary>
+  public const int JAMBOCIOPJKFieldNumber = 5;
+  private uint jAMBOCIOPJK_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint FACLBMGJMGK {
-    get { return fACLBMGJMGK_; }
+  public uint JAMBOCIOPJK {
+    get { return jAMBOCIOPJK_; }
     set {
-      fACLBMGJMGK_ = value;
+      jAMBOCIOPJK_ = value;
     }
   }
 
-  /// <summary>Field number for the "eAHHCKBOGFA" field.</summary>
-  public const int EAHHCKBOGFAFieldNumber = 14;
-  private uint eAHHCKBOGFA_;
+  /// <summary>Field number for the "MEBBJCEEKJL" field.</summary>
+  public const int MEBBJCEEKJLFieldNumber = 9;
+  private string mEBBJCEEKJL_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint EAHHCKBOGFA {
-    get { return eAHHCKBOGFA_; }
+  public string MEBBJCEEKJL {
+    get { return mEBBJCEEKJL_; }
     set {
-      eAHHCKBOGFA_ = value;
+      mEBBJCEEKJL_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
@@ -199,14 +199,14 @@ public sealed partial class PlayerGetTokenCsReq : pb::IMessage<PlayerGetTokenCsR
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (HOMLOMIBMKH != other.HOMLOMIBMKH) return false;
-    if (GlobalVars != other.GlobalVars) return false;
-    if (AABLGNEFPMI != other.AABLGNEFPMI) return false;
-    if (PPIEAKOMAKD != other.PPIEAKOMAKD) return false;
-    if (UID != other.UID) return false;
-    if (PlatformType != other.PlatformType) return false;
-    if (FACLBMGJMGK != other.FACLBMGJMGK) return false;
-    if (EAHHCKBOGFA != other.EAHHCKBOGFA) return false;
+    if (ChannelID != other.ChannelID) return false;
+    if (Token != other.Token) return false;
+    if (OPFNOLJCCJL != other.OPFNOLJCCJL) return false;
+    if (DBNFOKCIKKL != other.DBNFOKCIKKL) return false;
+    if (HoyoverseUID != other.HoyoverseUID) return false;
+    if (HBIJGDBAKEJ != other.HBIJGDBAKEJ) return false;
+    if (JAMBOCIOPJK != other.JAMBOCIOPJK) return false;
+    if (MEBBJCEEKJL != other.MEBBJCEEKJL) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -214,14 +214,14 @@ public sealed partial class PlayerGetTokenCsReq : pb::IMessage<PlayerGetTokenCsR
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public override int GetHashCode() {
     int hash = 1;
-    if (HOMLOMIBMKH.Length != 0) hash ^= HOMLOMIBMKH.GetHashCode();
-    if (GlobalVars != 0) hash ^= GlobalVars.GetHashCode();
-    if (AABLGNEFPMI.Length != 0) hash ^= AABLGNEFPMI.GetHashCode();
-    if (PPIEAKOMAKD.Length != 0) hash ^= PPIEAKOMAKD.GetHashCode();
-    if (UID != 0) hash ^= UID.GetHashCode();
-    if (PlatformType != 0) hash ^= PlatformType.GetHashCode();
-    if (FACLBMGJMGK != 0) hash ^= FACLBMGJMGK.GetHashCode();
-    if (EAHHCKBOGFA != 0) hash ^= EAHHCKBOGFA.GetHashCode();
+    if (ChannelID != 0) hash ^= ChannelID.GetHashCode();
+    if (Token.Length != 0) hash ^= Token.GetHashCode();
+    if (OPFNOLJCCJL != 0) hash ^= OPFNOLJCCJL.GetHashCode();
+    if (DBNFOKCIKKL != 0) hash ^= DBNFOKCIKKL.GetHashCode();
+    if (HoyoverseUID.Length != 0) hash ^= HoyoverseUID.GetHashCode();
+    if (HBIJGDBAKEJ != 0) hash ^= HBIJGDBAKEJ.GetHashCode();
+    if (JAMBOCIOPJK != 0) hash ^= JAMBOCIOPJK.GetHashCode();
+    if (MEBBJCEEKJL.Length != 0) hash ^= MEBBJCEEKJL.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -240,37 +240,37 @@ public sealed partial class PlayerGetTokenCsReq : pb::IMessage<PlayerGetTokenCsR
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (AABLGNEFPMI.Length != 0) {
-      output.WriteRawTag(26);
-      output.WriteString(AABLGNEFPMI);
+    if (Token.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Token);
     }
-    if (PlatformType != 0) {
-      output.WriteRawTag(32);
-      output.WriteUInt32(PlatformType);
+    if (ChannelID != 0) {
+      output.WriteRawTag(24);
+      output.WriteUInt32(ChannelID);
     }
-    if (UID != 0) {
+    if (JAMBOCIOPJK != 0) {
       output.WriteRawTag(40);
-      output.WriteUInt32(UID);
+      output.WriteUInt32(JAMBOCIOPJK);
     }
-    if (GlobalVars != 0) {
+    if (OPFNOLJCCJL != 0) {
       output.WriteRawTag(48);
-      output.WriteUInt32(GlobalVars);
+      output.WriteUInt32(OPFNOLJCCJL);
     }
-    if (FACLBMGJMGK != 0) {
-      output.WriteRawTag(64);
-      output.WriteUInt32(FACLBMGJMGK);
+    if (MEBBJCEEKJL.Length != 0) {
+      output.WriteRawTag(74);
+      output.WriteString(MEBBJCEEKJL);
     }
-    if (PPIEAKOMAKD.Length != 0) {
-      output.WriteRawTag(106);
-      output.WriteString(PPIEAKOMAKD);
+    if (HoyoverseUID.Length != 0) {
+      output.WriteRawTag(98);
+      output.WriteString(HoyoverseUID);
     }
-    if (EAHHCKBOGFA != 0) {
-      output.WriteRawTag(112);
-      output.WriteUInt32(EAHHCKBOGFA);
+    if (DBNFOKCIKKL != 0) {
+      output.WriteRawTag(104);
+      output.WriteUInt32(DBNFOKCIKKL);
     }
-    if (HOMLOMIBMKH.Length != 0) {
-      output.WriteRawTag(122);
-      output.WriteString(HOMLOMIBMKH);
+    if (HBIJGDBAKEJ != 0) {
+      output.WriteRawTag(120);
+      output.WriteUInt32(HBIJGDBAKEJ);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -282,37 +282,37 @@ public sealed partial class PlayerGetTokenCsReq : pb::IMessage<PlayerGetTokenCsR
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (AABLGNEFPMI.Length != 0) {
-      output.WriteRawTag(26);
-      output.WriteString(AABLGNEFPMI);
+    if (Token.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Token);
     }
-    if (PlatformType != 0) {
-      output.WriteRawTag(32);
-      output.WriteUInt32(PlatformType);
+    if (ChannelID != 0) {
+      output.WriteRawTag(24);
+      output.WriteUInt32(ChannelID);
     }
-    if (UID != 0) {
+    if (JAMBOCIOPJK != 0) {
       output.WriteRawTag(40);
-      output.WriteUInt32(UID);
+      output.WriteUInt32(JAMBOCIOPJK);
     }
-    if (GlobalVars != 0) {
+    if (OPFNOLJCCJL != 0) {
       output.WriteRawTag(48);
-      output.WriteUInt32(GlobalVars);
+      output.WriteUInt32(OPFNOLJCCJL);
     }
-    if (FACLBMGJMGK != 0) {
-      output.WriteRawTag(64);
-      output.WriteUInt32(FACLBMGJMGK);
+    if (MEBBJCEEKJL.Length != 0) {
+      output.WriteRawTag(74);
+      output.WriteString(MEBBJCEEKJL);
     }
-    if (PPIEAKOMAKD.Length != 0) {
-      output.WriteRawTag(106);
-      output.WriteString(PPIEAKOMAKD);
+    if (HoyoverseUID.Length != 0) {
+      output.WriteRawTag(98);
+      output.WriteString(HoyoverseUID);
     }
-    if (EAHHCKBOGFA != 0) {
-      output.WriteRawTag(112);
-      output.WriteUInt32(EAHHCKBOGFA);
+    if (DBNFOKCIKKL != 0) {
+      output.WriteRawTag(104);
+      output.WriteUInt32(DBNFOKCIKKL);
     }
-    if (HOMLOMIBMKH.Length != 0) {
-      output.WriteRawTag(122);
-      output.WriteString(HOMLOMIBMKH);
+    if (HBIJGDBAKEJ != 0) {
+      output.WriteRawTag(120);
+      output.WriteUInt32(HBIJGDBAKEJ);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -324,29 +324,29 @@ public sealed partial class PlayerGetTokenCsReq : pb::IMessage<PlayerGetTokenCsR
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public int CalculateSize() {
     int size = 0;
-    if (HOMLOMIBMKH.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(HOMLOMIBMKH);
+    if (ChannelID != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ChannelID);
     }
-    if (GlobalVars != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GlobalVars);
+    if (Token.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
     }
-    if (AABLGNEFPMI.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(AABLGNEFPMI);
+    if (OPFNOLJCCJL != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OPFNOLJCCJL);
     }
-    if (PPIEAKOMAKD.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(PPIEAKOMAKD);
+    if (DBNFOKCIKKL != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DBNFOKCIKKL);
     }
-    if (UID != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(UID);
+    if (HoyoverseUID.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(HoyoverseUID);
     }
-    if (PlatformType != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlatformType);
+    if (HBIJGDBAKEJ != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HBIJGDBAKEJ);
     }
-    if (FACLBMGJMGK != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(FACLBMGJMGK);
+    if (JAMBOCIOPJK != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(JAMBOCIOPJK);
     }
-    if (EAHHCKBOGFA != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EAHHCKBOGFA);
+    if (MEBBJCEEKJL.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(MEBBJCEEKJL);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -360,29 +360,29 @@ public sealed partial class PlayerGetTokenCsReq : pb::IMessage<PlayerGetTokenCsR
     if (other == null) {
       return;
     }
-    if (other.HOMLOMIBMKH.Length != 0) {
-      HOMLOMIBMKH = other.HOMLOMIBMKH;
+    if (other.ChannelID != 0) {
+      ChannelID = other.ChannelID;
     }
-    if (other.GlobalVars != 0) {
-      GlobalVars = other.GlobalVars;
+    if (other.Token.Length != 0) {
+      Token = other.Token;
     }
-    if (other.AABLGNEFPMI.Length != 0) {
-      AABLGNEFPMI = other.AABLGNEFPMI;
+    if (other.OPFNOLJCCJL != 0) {
+      OPFNOLJCCJL = other.OPFNOLJCCJL;
     }
-    if (other.PPIEAKOMAKD.Length != 0) {
-      PPIEAKOMAKD = other.PPIEAKOMAKD;
+    if (other.DBNFOKCIKKL != 0) {
+      DBNFOKCIKKL = other.DBNFOKCIKKL;
     }
-    if (other.UID != 0) {
-      UID = other.UID;
+    if (other.HoyoverseUID.Length != 0) {
+      HoyoverseUID = other.HoyoverseUID;
     }
-    if (other.PlatformType != 0) {
-      PlatformType = other.PlatformType;
+    if (other.HBIJGDBAKEJ != 0) {
+      HBIJGDBAKEJ = other.HBIJGDBAKEJ;
     }
-    if (other.FACLBMGJMGK != 0) {
-      FACLBMGJMGK = other.FACLBMGJMGK;
+    if (other.JAMBOCIOPJK != 0) {
+      JAMBOCIOPJK = other.JAMBOCIOPJK;
     }
-    if (other.EAHHCKBOGFA != 0) {
-      EAHHCKBOGFA = other.EAHHCKBOGFA;
+    if (other.MEBBJCEEKJL.Length != 0) {
+      MEBBJCEEKJL = other.MEBBJCEEKJL;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -399,36 +399,36 @@ public sealed partial class PlayerGetTokenCsReq : pb::IMessage<PlayerGetTokenCsR
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
-        case 26: {
-          AABLGNEFPMI = input.ReadString();
+        case 10: {
+          Token = input.ReadString();
           break;
         }
-        case 32: {
-          PlatformType = input.ReadUInt32();
+        case 24: {
+          ChannelID = input.ReadUInt32();
           break;
         }
         case 40: {
-          UID = input.ReadUInt32();
+          JAMBOCIOPJK = input.ReadUInt32();
           break;
         }
         case 48: {
-          GlobalVars = input.ReadUInt32();
+          OPFNOLJCCJL = input.ReadUInt32();
           break;
         }
-        case 64: {
-          FACLBMGJMGK = input.ReadUInt32();
+        case 74: {
+          MEBBJCEEKJL = input.ReadString();
           break;
         }
-        case 106: {
-          PPIEAKOMAKD = input.ReadString();
+        case 98: {
+          HoyoverseUID = input.ReadString();
           break;
         }
-        case 112: {
-          EAHHCKBOGFA = input.ReadUInt32();
+        case 104: {
+          DBNFOKCIKKL = input.ReadUInt32();
           break;
         }
-        case 122: {
-          HOMLOMIBMKH = input.ReadString();
+        case 120: {
+          HBIJGDBAKEJ = input.ReadUInt32();
           break;
         }
       }
@@ -446,36 +446,36 @@ public sealed partial class PlayerGetTokenCsReq : pb::IMessage<PlayerGetTokenCsR
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
-        case 26: {
-          AABLGNEFPMI = input.ReadString();
+        case 10: {
+          Token = input.ReadString();
           break;
         }
-        case 32: {
-          PlatformType = input.ReadUInt32();
+        case 24: {
+          ChannelID = input.ReadUInt32();
           break;
         }
         case 40: {
-          UID = input.ReadUInt32();
+          JAMBOCIOPJK = input.ReadUInt32();
           break;
         }
         case 48: {
-          GlobalVars = input.ReadUInt32();
+          OPFNOLJCCJL = input.ReadUInt32();
           break;
         }
-        case 64: {
-          FACLBMGJMGK = input.ReadUInt32();
+        case 74: {
+          MEBBJCEEKJL = input.ReadString();
           break;
         }
-        case 106: {
-          PPIEAKOMAKD = input.ReadString();
+        case 98: {
+          HoyoverseUID = input.ReadString();
           break;
         }
-        case 112: {
-          EAHHCKBOGFA = input.ReadUInt32();
+        case 104: {
+          DBNFOKCIKKL = input.ReadUInt32();
           break;
         }
-        case 122: {
-          HOMLOMIBMKH = input.ReadString();
+        case 120: {
+          HBIJGDBAKEJ = input.ReadUInt32();
           break;
         }
       }

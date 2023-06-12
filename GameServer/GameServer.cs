@@ -34,11 +34,13 @@ internal class GameServer
             await PlayerRepository.InsertOne(new Common.Database.MongoDb.Entities.PlayerEntity
             {
                 UID = 1,
-                PlayerBasicInfo = new BEPIDFNIMLN
+                PlayerBasicInfo = new PlayerBasicInfo
                 {
                     NickName = "Hang",
                     Level = 70,
-                    WorldLevel = 6
+                    WorldLevel = 6,
+                    HCoin = 999999, //Jades
+                    MCoin = 999999 //Credits
                 }
             });
         }

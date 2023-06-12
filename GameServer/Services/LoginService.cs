@@ -43,23 +43,13 @@ namespace GameServer.Services
                 Opcode.PlayerLoginScRsp,
                 new PlayerLoginScRsp
                 {
-                    BGONHENALMD = plr.PlayerBasicInfo,
+                    PlayerInfo = plr.PlayerBasicInfo,
                     Stamina = plr.PlayerBasicInfo.Stamina,
-                    GHFMCFENPNF = "3967187-V1.0Live",
-                    RegisterCPS = "hoyoverse_PC",
-                    CurServerTimezone = 1,
-                    ServerTimestampMs = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds()
+                    Version = "4365933-V1.1Live",
+                    Platform = "hoyoverse_PC",
+                    CurTimezone = 1,
+                    CurEpoch = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds()
                 });
-            await connection.SendAsync(Opcode.UpdateFeatureSwitchScNotify, new UpdateFeatureSwitchScNotify());
-            await connection.SendAsync(Opcode.SyncServerSceneChangeNotify, new SyncServerSceneChangeNotify());
-            await connection.SendAsync(Opcode.DailyTaskDataScNotify, new DailyTaskDataScNotify());
-            await connection.SendAsync(Opcode.RaidInfoNotify, new RaidInfoNotify());
-            await connection.SendAsync(Opcode.BattlePassInfoNotify,
-                new BattlePassInfoNotify { BattlePassData = 1, PurchaseType = BpTierType.Premium2, Level = 69 });
         }
-
-        [Handler(Opcode.GetLoginActivityCsReq)]
-        public static async Task OnGetLoginActivity(Session session, Memory<byte> _)
-        { await session.SendAsync(Opcode.GetLoginActivityScRsp, new GetLoginActivityScRsp()); }
     }
 }

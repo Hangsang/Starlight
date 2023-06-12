@@ -85,6 +85,7 @@ namespace Common.Network.Tcp
 
         public async Task KickAsync(bool _deReg = false)
         {
+            /*
             var kick = new PlayerKickoutScNotify
             {
                 JIOKMHDOPJP = new EGHHJDHHBKM
@@ -95,7 +96,8 @@ namespace Common.Network.Tcp
                     FGNMJDDGHNA = 2
                 }
             };
-            await SendAsync(Opcode.PlayerKickOutScNotify, kick);
+            */
+            //await SendAsync(Opcode.PlayerKickOutScNotify, kick);
             mKicked = true;
             if (_deReg) mConnection.DeRegister();
         }

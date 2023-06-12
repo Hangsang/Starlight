@@ -22,21 +22,21 @@ public static partial class PlayerLoginScRspReflection {
   static PlayerLoginScRspReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChZQbGF5ZXJMb2dpblNjUnNwLnByb3RvIvsBChBQbGF5ZXJMb2dpblNjUnNw",
-          "EiEKC2JHT05IRU5BTE1EGAcgASgLMgwuQkVQSURGTklNTE4SEwoLZ0hGTUNG",
-          "RU5QTkYYCSABKAkSEwoLZ0lKR0ZFR0hMQlAYDSABKAgSGQoRc2VydmVyVGlt",
-          "ZXN0YW1wTXMYBCABKAQSDwoHc3RhbWluYRgFIAEoDRIPCgdtX3ZhbHVlGA4g",
-          "ASgNEhwKFHNlcnZlckxvZ2luUmFuZG9tTnVtGAYgASgEEhkKEWN1clNlcnZl",
-          "clRpbWV6b25lGAsgASgFEhMKC3JlZ2lzdGVyQ1BTGAwgASgJEg8KB2lzUmVs",
-          "YXkYDyABKAgilAEKC0JFUElERk5JTUxOEhAKCG5pY2tOYW1lGAEgASgJEg0K",
-          "BWxldmVsGAIgASgNEhIKCmN1cnJlbnRFeHAYAyABKA0SDwoHc3RhbWluYRgE",
-          "IAEoDRINCgVtQ29pbhgFIAEoDRINCgVoQ29pbhgGIAEoDRINCgVzQ29pbhgH",
-          "IAEoDRISCgp3b3JsZExldmVsGAggASgNYgZwcm90bzM="));
+          "ChZQbGF5ZXJMb2dpblNjUnNwLnByb3RvIugBChBQbGF5ZXJMb2dpblNjUnNw",
+          "Eg8KB1ZlcnNpb24YDyABKAkSEAoIQ3VyRXBvY2gYByABKAQSEwoLQ3VyVGlt",
+          "ZXpvbmUYBSABKAUSEwoLQk5OT01JQkRIQUEYCyABKA0SFAoMUmFuZG9tTnVt",
+          "YmVyGA0gASgEEiQKClBsYXllckluZm8YDCABKAsyEC5QbGF5ZXJCYXNpY0lu",
+          "Zm8SDwoHU3RhbWluYRgOIAEoDRITCgtGS0tHTk1FTU9GSxgJIAEoCBITCgtI",
+          "TkVBQ0FMR0ZLRRgIIAEoCBIQCghQbGF0Zm9ybRgEIAEoCSKYAQoPUGxheWVy",
+          "QmFzaWNJbmZvEhAKCG5pY2tOYW1lGAEgASgJEg0KBWxldmVsGAIgASgNEhIK",
+          "CmN1cnJlbnRFeHAYAyABKA0SDwoHc3RhbWluYRgEIAEoDRINCgVtQ29pbhgF",
+          "IAEoDRINCgVoQ29pbhgGIAEoDRINCgVzQ29pbhgHIAEoDRISCgp3b3JsZExl",
+          "dmVsGAggASgNYgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerLoginScRsp), global::PlayerLoginScRsp.Parser, new[]{ "BGONHENALMD", "GHFMCFENPNF", "GIJGFEGHLBP", "ServerTimestampMs", "Stamina", "MValue", "ServerLoginRandomNum", "CurServerTimezone", "RegisterCPS", "IsRelay" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::BEPIDFNIMLN), global::BEPIDFNIMLN.Parser, new[]{ "NickName", "Level", "CurrentExp", "Stamina", "MCoin", "HCoin", "SCoin", "WorldLevel" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerLoginScRsp), global::PlayerLoginScRsp.Parser, new[]{ "Version", "CurEpoch", "CurTimezone", "BNNOMIBDHAA", "RandomNumber", "PlayerInfo", "Stamina", "FKKGNMEMOFK", "HNEACALGFKE", "Platform" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerBasicInfo), global::PlayerBasicInfo.Parser, new[]{ "NickName", "Level", "CurrentExp", "Stamina", "MCoin", "HCoin", "SCoin", "WorldLevel" }, null, null, null, null)
         }));
   }
   #endregion
@@ -77,16 +77,16 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public PlayerLoginScRsp(PlayerLoginScRsp other) : this() {
-    bGONHENALMD_ = other.bGONHENALMD_ != null ? other.bGONHENALMD_.Clone() : null;
-    gHFMCFENPNF_ = other.gHFMCFENPNF_;
-    gIJGFEGHLBP_ = other.gIJGFEGHLBP_;
-    serverTimestampMs_ = other.serverTimestampMs_;
+    version_ = other.version_;
+    curEpoch_ = other.curEpoch_;
+    curTimezone_ = other.curTimezone_;
+    bNNOMIBDHAA_ = other.bNNOMIBDHAA_;
+    randomNumber_ = other.randomNumber_;
+    playerInfo_ = other.playerInfo_ != null ? other.playerInfo_.Clone() : null;
     stamina_ = other.stamina_;
-    mValue_ = other.mValue_;
-    serverLoginRandomNum_ = other.serverLoginRandomNum_;
-    curServerTimezone_ = other.curServerTimezone_;
-    registerCPS_ = other.registerCPS_;
-    isRelay_ = other.isRelay_;
+    fKKGNMEMOFK_ = other.fKKGNMEMOFK_;
+    hNEACALGFKE_ = other.hNEACALGFKE_;
+    platform_ = other.platform_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -96,56 +96,80 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
     return new PlayerLoginScRsp(this);
   }
 
-  /// <summary>Field number for the "bGONHENALMD" field.</summary>
-  public const int BGONHENALMDFieldNumber = 7;
-  private global::BEPIDFNIMLN bGONHENALMD_;
+  /// <summary>Field number for the "Version" field.</summary>
+  public const int VersionFieldNumber = 15;
+  private string version_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public global::BEPIDFNIMLN BGONHENALMD {
-    get { return bGONHENALMD_; }
+  public string Version {
+    get { return version_; }
     set {
-      bGONHENALMD_ = value;
+      version_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
-  /// <summary>Field number for the "gHFMCFENPNF" field.</summary>
-  public const int GHFMCFENPNFFieldNumber = 9;
-  private string gHFMCFENPNF_ = "";
+  /// <summary>Field number for the "CurEpoch" field.</summary>
+  public const int CurEpochFieldNumber = 7;
+  private ulong curEpoch_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public string GHFMCFENPNF {
-    get { return gHFMCFENPNF_; }
+  public ulong CurEpoch {
+    get { return curEpoch_; }
     set {
-      gHFMCFENPNF_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      curEpoch_ = value;
     }
   }
 
-  /// <summary>Field number for the "gIJGFEGHLBP" field.</summary>
-  public const int GIJGFEGHLBPFieldNumber = 13;
-  private bool gIJGFEGHLBP_;
+  /// <summary>Field number for the "CurTimezone" field.</summary>
+  public const int CurTimezoneFieldNumber = 5;
+  private int curTimezone_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public bool GIJGFEGHLBP {
-    get { return gIJGFEGHLBP_; }
+  public int CurTimezone {
+    get { return curTimezone_; }
     set {
-      gIJGFEGHLBP_ = value;
+      curTimezone_ = value;
     }
   }
 
-  /// <summary>Field number for the "serverTimestampMs" field.</summary>
-  public const int ServerTimestampMsFieldNumber = 4;
-  private ulong serverTimestampMs_;
+  /// <summary>Field number for the "BNNOMIBDHAA" field.</summary>
+  public const int BNNOMIBDHAAFieldNumber = 11;
+  private uint bNNOMIBDHAA_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public ulong ServerTimestampMs {
-    get { return serverTimestampMs_; }
+  public uint BNNOMIBDHAA {
+    get { return bNNOMIBDHAA_; }
     set {
-      serverTimestampMs_ = value;
+      bNNOMIBDHAA_ = value;
     }
   }
 
-  /// <summary>Field number for the "stamina" field.</summary>
-  public const int StaminaFieldNumber = 5;
+  /// <summary>Field number for the "RandomNumber" field.</summary>
+  public const int RandomNumberFieldNumber = 13;
+  private ulong randomNumber_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public ulong RandomNumber {
+    get { return randomNumber_; }
+    set {
+      randomNumber_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "PlayerInfo" field.</summary>
+  public const int PlayerInfoFieldNumber = 12;
+  private global::PlayerBasicInfo playerInfo_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public global::PlayerBasicInfo PlayerInfo {
+    get { return playerInfo_; }
+    set {
+      playerInfo_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "Stamina" field.</summary>
+  public const int StaminaFieldNumber = 14;
   private uint stamina_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -156,63 +180,39 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
     }
   }
 
-  /// <summary>Field number for the "m_value" field.</summary>
-  public const int MValueFieldNumber = 14;
-  private uint mValue_;
+  /// <summary>Field number for the "FKKGNMEMOFK" field.</summary>
+  public const int FKKGNMEMOFKFieldNumber = 9;
+  private bool fKKGNMEMOFK_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint MValue {
-    get { return mValue_; }
+  public bool FKKGNMEMOFK {
+    get { return fKKGNMEMOFK_; }
     set {
-      mValue_ = value;
+      fKKGNMEMOFK_ = value;
     }
   }
 
-  /// <summary>Field number for the "serverLoginRandomNum" field.</summary>
-  public const int ServerLoginRandomNumFieldNumber = 6;
-  private ulong serverLoginRandomNum_;
+  /// <summary>Field number for the "HNEACALGFKE" field.</summary>
+  public const int HNEACALGFKEFieldNumber = 8;
+  private bool hNEACALGFKE_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public ulong ServerLoginRandomNum {
-    get { return serverLoginRandomNum_; }
+  public bool HNEACALGFKE {
+    get { return hNEACALGFKE_; }
     set {
-      serverLoginRandomNum_ = value;
+      hNEACALGFKE_ = value;
     }
   }
 
-  /// <summary>Field number for the "curServerTimezone" field.</summary>
-  public const int CurServerTimezoneFieldNumber = 11;
-  private int curServerTimezone_;
+  /// <summary>Field number for the "Platform" field.</summary>
+  public const int PlatformFieldNumber = 4;
+  private string platform_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public int CurServerTimezone {
-    get { return curServerTimezone_; }
+  public string Platform {
+    get { return platform_; }
     set {
-      curServerTimezone_ = value;
-    }
-  }
-
-  /// <summary>Field number for the "registerCPS" field.</summary>
-  public const int RegisterCPSFieldNumber = 12;
-  private string registerCPS_ = "";
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public string RegisterCPS {
-    get { return registerCPS_; }
-    set {
-      registerCPS_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
-
-  /// <summary>Field number for the "isRelay" field.</summary>
-  public const int IsRelayFieldNumber = 15;
-  private bool isRelay_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public bool IsRelay {
-    get { return isRelay_; }
-    set {
-      isRelay_ = value;
+      platform_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
@@ -231,16 +231,16 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (!object.Equals(BGONHENALMD, other.BGONHENALMD)) return false;
-    if (GHFMCFENPNF != other.GHFMCFENPNF) return false;
-    if (GIJGFEGHLBP != other.GIJGFEGHLBP) return false;
-    if (ServerTimestampMs != other.ServerTimestampMs) return false;
+    if (Version != other.Version) return false;
+    if (CurEpoch != other.CurEpoch) return false;
+    if (CurTimezone != other.CurTimezone) return false;
+    if (BNNOMIBDHAA != other.BNNOMIBDHAA) return false;
+    if (RandomNumber != other.RandomNumber) return false;
+    if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
     if (Stamina != other.Stamina) return false;
-    if (MValue != other.MValue) return false;
-    if (ServerLoginRandomNum != other.ServerLoginRandomNum) return false;
-    if (CurServerTimezone != other.CurServerTimezone) return false;
-    if (RegisterCPS != other.RegisterCPS) return false;
-    if (IsRelay != other.IsRelay) return false;
+    if (FKKGNMEMOFK != other.FKKGNMEMOFK) return false;
+    if (HNEACALGFKE != other.HNEACALGFKE) return false;
+    if (Platform != other.Platform) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -248,16 +248,16 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public override int GetHashCode() {
     int hash = 1;
-    if (bGONHENALMD_ != null) hash ^= BGONHENALMD.GetHashCode();
-    if (GHFMCFENPNF.Length != 0) hash ^= GHFMCFENPNF.GetHashCode();
-    if (GIJGFEGHLBP != false) hash ^= GIJGFEGHLBP.GetHashCode();
-    if (ServerTimestampMs != 0UL) hash ^= ServerTimestampMs.GetHashCode();
+    if (Version.Length != 0) hash ^= Version.GetHashCode();
+    if (CurEpoch != 0UL) hash ^= CurEpoch.GetHashCode();
+    if (CurTimezone != 0) hash ^= CurTimezone.GetHashCode();
+    if (BNNOMIBDHAA != 0) hash ^= BNNOMIBDHAA.GetHashCode();
+    if (RandomNumber != 0UL) hash ^= RandomNumber.GetHashCode();
+    if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
     if (Stamina != 0) hash ^= Stamina.GetHashCode();
-    if (MValue != 0) hash ^= MValue.GetHashCode();
-    if (ServerLoginRandomNum != 0UL) hash ^= ServerLoginRandomNum.GetHashCode();
-    if (CurServerTimezone != 0) hash ^= CurServerTimezone.GetHashCode();
-    if (RegisterCPS.Length != 0) hash ^= RegisterCPS.GetHashCode();
-    if (IsRelay != false) hash ^= IsRelay.GetHashCode();
+    if (FKKGNMEMOFK != false) hash ^= FKKGNMEMOFK.GetHashCode();
+    if (HNEACALGFKE != false) hash ^= HNEACALGFKE.GetHashCode();
+    if (Platform.Length != 0) hash ^= Platform.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -276,45 +276,45 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (ServerTimestampMs != 0UL) {
-      output.WriteRawTag(32);
-      output.WriteUInt64(ServerTimestampMs);
+    if (Platform.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteString(Platform);
+    }
+    if (CurTimezone != 0) {
+      output.WriteRawTag(40);
+      output.WriteInt32(CurTimezone);
+    }
+    if (CurEpoch != 0UL) {
+      output.WriteRawTag(56);
+      output.WriteUInt64(CurEpoch);
+    }
+    if (HNEACALGFKE != false) {
+      output.WriteRawTag(64);
+      output.WriteBool(HNEACALGFKE);
+    }
+    if (FKKGNMEMOFK != false) {
+      output.WriteRawTag(72);
+      output.WriteBool(FKKGNMEMOFK);
+    }
+    if (BNNOMIBDHAA != 0) {
+      output.WriteRawTag(88);
+      output.WriteUInt32(BNNOMIBDHAA);
+    }
+    if (playerInfo_ != null) {
+      output.WriteRawTag(98);
+      output.WriteMessage(PlayerInfo);
+    }
+    if (RandomNumber != 0UL) {
+      output.WriteRawTag(104);
+      output.WriteUInt64(RandomNumber);
     }
     if (Stamina != 0) {
-      output.WriteRawTag(40);
+      output.WriteRawTag(112);
       output.WriteUInt32(Stamina);
     }
-    if (ServerLoginRandomNum != 0UL) {
-      output.WriteRawTag(48);
-      output.WriteUInt64(ServerLoginRandomNum);
-    }
-    if (bGONHENALMD_ != null) {
-      output.WriteRawTag(58);
-      output.WriteMessage(BGONHENALMD);
-    }
-    if (GHFMCFENPNF.Length != 0) {
-      output.WriteRawTag(74);
-      output.WriteString(GHFMCFENPNF);
-    }
-    if (CurServerTimezone != 0) {
-      output.WriteRawTag(88);
-      output.WriteInt32(CurServerTimezone);
-    }
-    if (RegisterCPS.Length != 0) {
-      output.WriteRawTag(98);
-      output.WriteString(RegisterCPS);
-    }
-    if (GIJGFEGHLBP != false) {
-      output.WriteRawTag(104);
-      output.WriteBool(GIJGFEGHLBP);
-    }
-    if (MValue != 0) {
-      output.WriteRawTag(112);
-      output.WriteUInt32(MValue);
-    }
-    if (IsRelay != false) {
-      output.WriteRawTag(120);
-      output.WriteBool(IsRelay);
+    if (Version.Length != 0) {
+      output.WriteRawTag(122);
+      output.WriteString(Version);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -326,45 +326,45 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (ServerTimestampMs != 0UL) {
-      output.WriteRawTag(32);
-      output.WriteUInt64(ServerTimestampMs);
+    if (Platform.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteString(Platform);
+    }
+    if (CurTimezone != 0) {
+      output.WriteRawTag(40);
+      output.WriteInt32(CurTimezone);
+    }
+    if (CurEpoch != 0UL) {
+      output.WriteRawTag(56);
+      output.WriteUInt64(CurEpoch);
+    }
+    if (HNEACALGFKE != false) {
+      output.WriteRawTag(64);
+      output.WriteBool(HNEACALGFKE);
+    }
+    if (FKKGNMEMOFK != false) {
+      output.WriteRawTag(72);
+      output.WriteBool(FKKGNMEMOFK);
+    }
+    if (BNNOMIBDHAA != 0) {
+      output.WriteRawTag(88);
+      output.WriteUInt32(BNNOMIBDHAA);
+    }
+    if (playerInfo_ != null) {
+      output.WriteRawTag(98);
+      output.WriteMessage(PlayerInfo);
+    }
+    if (RandomNumber != 0UL) {
+      output.WriteRawTag(104);
+      output.WriteUInt64(RandomNumber);
     }
     if (Stamina != 0) {
-      output.WriteRawTag(40);
+      output.WriteRawTag(112);
       output.WriteUInt32(Stamina);
     }
-    if (ServerLoginRandomNum != 0UL) {
-      output.WriteRawTag(48);
-      output.WriteUInt64(ServerLoginRandomNum);
-    }
-    if (bGONHENALMD_ != null) {
-      output.WriteRawTag(58);
-      output.WriteMessage(BGONHENALMD);
-    }
-    if (GHFMCFENPNF.Length != 0) {
-      output.WriteRawTag(74);
-      output.WriteString(GHFMCFENPNF);
-    }
-    if (CurServerTimezone != 0) {
-      output.WriteRawTag(88);
-      output.WriteInt32(CurServerTimezone);
-    }
-    if (RegisterCPS.Length != 0) {
-      output.WriteRawTag(98);
-      output.WriteString(RegisterCPS);
-    }
-    if (GIJGFEGHLBP != false) {
-      output.WriteRawTag(104);
-      output.WriteBool(GIJGFEGHLBP);
-    }
-    if (MValue != 0) {
-      output.WriteRawTag(112);
-      output.WriteUInt32(MValue);
-    }
-    if (IsRelay != false) {
-      output.WriteRawTag(120);
-      output.WriteBool(IsRelay);
+    if (Version.Length != 0) {
+      output.WriteRawTag(122);
+      output.WriteString(Version);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -376,35 +376,35 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public int CalculateSize() {
     int size = 0;
-    if (bGONHENALMD_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(BGONHENALMD);
+    if (Version.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Version);
     }
-    if (GHFMCFENPNF.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(GHFMCFENPNF);
+    if (CurEpoch != 0UL) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(CurEpoch);
     }
-    if (GIJGFEGHLBP != false) {
-      size += 1 + 1;
+    if (CurTimezone != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(CurTimezone);
     }
-    if (ServerTimestampMs != 0UL) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ServerTimestampMs);
+    if (BNNOMIBDHAA != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BNNOMIBDHAA);
+    }
+    if (RandomNumber != 0UL) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RandomNumber);
+    }
+    if (playerInfo_ != null) {
+      size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
     }
     if (Stamina != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Stamina);
     }
-    if (MValue != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MValue);
-    }
-    if (ServerLoginRandomNum != 0UL) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ServerLoginRandomNum);
-    }
-    if (CurServerTimezone != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(CurServerTimezone);
-    }
-    if (RegisterCPS.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(RegisterCPS);
-    }
-    if (IsRelay != false) {
+    if (FKKGNMEMOFK != false) {
       size += 1 + 1;
+    }
+    if (HNEACALGFKE != false) {
+      size += 1 + 1;
+    }
+    if (Platform.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Platform);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -418,38 +418,38 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
     if (other == null) {
       return;
     }
-    if (other.bGONHENALMD_ != null) {
-      if (bGONHENALMD_ == null) {
-        BGONHENALMD = new global::BEPIDFNIMLN();
+    if (other.Version.Length != 0) {
+      Version = other.Version;
+    }
+    if (other.CurEpoch != 0UL) {
+      CurEpoch = other.CurEpoch;
+    }
+    if (other.CurTimezone != 0) {
+      CurTimezone = other.CurTimezone;
+    }
+    if (other.BNNOMIBDHAA != 0) {
+      BNNOMIBDHAA = other.BNNOMIBDHAA;
+    }
+    if (other.RandomNumber != 0UL) {
+      RandomNumber = other.RandomNumber;
+    }
+    if (other.playerInfo_ != null) {
+      if (playerInfo_ == null) {
+        PlayerInfo = new global::PlayerBasicInfo();
       }
-      BGONHENALMD.MergeFrom(other.BGONHENALMD);
-    }
-    if (other.GHFMCFENPNF.Length != 0) {
-      GHFMCFENPNF = other.GHFMCFENPNF;
-    }
-    if (other.GIJGFEGHLBP != false) {
-      GIJGFEGHLBP = other.GIJGFEGHLBP;
-    }
-    if (other.ServerTimestampMs != 0UL) {
-      ServerTimestampMs = other.ServerTimestampMs;
+      PlayerInfo.MergeFrom(other.PlayerInfo);
     }
     if (other.Stamina != 0) {
       Stamina = other.Stamina;
     }
-    if (other.MValue != 0) {
-      MValue = other.MValue;
+    if (other.FKKGNMEMOFK != false) {
+      FKKGNMEMOFK = other.FKKGNMEMOFK;
     }
-    if (other.ServerLoginRandomNum != 0UL) {
-      ServerLoginRandomNum = other.ServerLoginRandomNum;
+    if (other.HNEACALGFKE != false) {
+      HNEACALGFKE = other.HNEACALGFKE;
     }
-    if (other.CurServerTimezone != 0) {
-      CurServerTimezone = other.CurServerTimezone;
-    }
-    if (other.RegisterCPS.Length != 0) {
-      RegisterCPS = other.RegisterCPS;
-    }
-    if (other.IsRelay != false) {
-      IsRelay = other.IsRelay;
+    if (other.Platform.Length != 0) {
+      Platform = other.Platform;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -466,47 +466,47 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
-        case 32: {
-          ServerTimestampMs = input.ReadUInt64();
+        case 34: {
+          Platform = input.ReadString();
           break;
         }
         case 40: {
-          Stamina = input.ReadUInt32();
+          CurTimezone = input.ReadInt32();
           break;
         }
-        case 48: {
-          ServerLoginRandomNum = input.ReadUInt64();
+        case 56: {
+          CurEpoch = input.ReadUInt64();
           break;
         }
-        case 58: {
-          if (bGONHENALMD_ == null) {
-            BGONHENALMD = new global::BEPIDFNIMLN();
-          }
-          input.ReadMessage(BGONHENALMD);
+        case 64: {
+          HNEACALGFKE = input.ReadBool();
           break;
         }
-        case 74: {
-          GHFMCFENPNF = input.ReadString();
+        case 72: {
+          FKKGNMEMOFK = input.ReadBool();
           break;
         }
         case 88: {
-          CurServerTimezone = input.ReadInt32();
+          BNNOMIBDHAA = input.ReadUInt32();
           break;
         }
         case 98: {
-          RegisterCPS = input.ReadString();
+          if (playerInfo_ == null) {
+            PlayerInfo = new global::PlayerBasicInfo();
+          }
+          input.ReadMessage(PlayerInfo);
           break;
         }
         case 104: {
-          GIJGFEGHLBP = input.ReadBool();
+          RandomNumber = input.ReadUInt64();
           break;
         }
         case 112: {
-          MValue = input.ReadUInt32();
+          Stamina = input.ReadUInt32();
           break;
         }
-        case 120: {
-          IsRelay = input.ReadBool();
+        case 122: {
+          Version = input.ReadString();
           break;
         }
       }
@@ -524,47 +524,47 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
-        case 32: {
-          ServerTimestampMs = input.ReadUInt64();
+        case 34: {
+          Platform = input.ReadString();
           break;
         }
         case 40: {
-          Stamina = input.ReadUInt32();
+          CurTimezone = input.ReadInt32();
           break;
         }
-        case 48: {
-          ServerLoginRandomNum = input.ReadUInt64();
+        case 56: {
+          CurEpoch = input.ReadUInt64();
           break;
         }
-        case 58: {
-          if (bGONHENALMD_ == null) {
-            BGONHENALMD = new global::BEPIDFNIMLN();
-          }
-          input.ReadMessage(BGONHENALMD);
+        case 64: {
+          HNEACALGFKE = input.ReadBool();
           break;
         }
-        case 74: {
-          GHFMCFENPNF = input.ReadString();
+        case 72: {
+          FKKGNMEMOFK = input.ReadBool();
           break;
         }
         case 88: {
-          CurServerTimezone = input.ReadInt32();
+          BNNOMIBDHAA = input.ReadUInt32();
           break;
         }
         case 98: {
-          RegisterCPS = input.ReadString();
+          if (playerInfo_ == null) {
+            PlayerInfo = new global::PlayerBasicInfo();
+          }
+          input.ReadMessage(PlayerInfo);
           break;
         }
         case 104: {
-          GIJGFEGHLBP = input.ReadBool();
+          RandomNumber = input.ReadUInt64();
           break;
         }
         case 112: {
-          MValue = input.ReadUInt32();
+          Stamina = input.ReadUInt32();
           break;
         }
-        case 120: {
-          IsRelay = input.ReadBool();
+        case 122: {
+          Version = input.ReadString();
           break;
         }
       }
@@ -574,16 +574,16 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
 
 }
 
-public sealed partial class BEPIDFNIMLN : pb::IMessage<BEPIDFNIMLN>
+public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
 #endif
 {
-  private static readonly pb::MessageParser<BEPIDFNIMLN> _parser = new pb::MessageParser<BEPIDFNIMLN>(() => new BEPIDFNIMLN());
+  private static readonly pb::MessageParser<PlayerBasicInfo> _parser = new pb::MessageParser<PlayerBasicInfo>(() => new PlayerBasicInfo());
   private pb::UnknownFieldSet _unknownFields;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public static pb::MessageParser<BEPIDFNIMLN> Parser { get { return _parser; } }
+  public static pb::MessageParser<PlayerBasicInfo> Parser { get { return _parser; } }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -599,7 +599,7 @@ public sealed partial class BEPIDFNIMLN : pb::IMessage<BEPIDFNIMLN>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public BEPIDFNIMLN() {
+  public PlayerBasicInfo() {
     OnConstruction();
   }
 
@@ -607,7 +607,7 @@ public sealed partial class BEPIDFNIMLN : pb::IMessage<BEPIDFNIMLN>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public BEPIDFNIMLN(BEPIDFNIMLN other) : this() {
+  public PlayerBasicInfo(PlayerBasicInfo other) : this() {
     nickName_ = other.nickName_;
     level_ = other.level_;
     currentExp_ = other.currentExp_;
@@ -621,8 +621,8 @@ public sealed partial class BEPIDFNIMLN : pb::IMessage<BEPIDFNIMLN>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public BEPIDFNIMLN Clone() {
-    return new BEPIDFNIMLN(this);
+  public PlayerBasicInfo Clone() {
+    return new PlayerBasicInfo(this);
   }
 
   /// <summary>Field number for the "nickName" field.</summary>
@@ -724,12 +724,12 @@ public sealed partial class BEPIDFNIMLN : pb::IMessage<BEPIDFNIMLN>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public override bool Equals(object other) {
-    return Equals(other as BEPIDFNIMLN);
+    return Equals(other as PlayerBasicInfo);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public bool Equals(BEPIDFNIMLN other) {
+  public bool Equals(PlayerBasicInfo other) {
     if (ReferenceEquals(other, null)) {
       return false;
     }
@@ -893,7 +893,7 @@ public sealed partial class BEPIDFNIMLN : pb::IMessage<BEPIDFNIMLN>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public void MergeFrom(BEPIDFNIMLN other) {
+  public void MergeFrom(PlayerBasicInfo other) {
     if (other == null) {
       return;
     }

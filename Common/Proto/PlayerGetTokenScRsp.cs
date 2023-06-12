@@ -22,17 +22,17 @@ public static partial class PlayerGetTokenScRspReflection {
   static PlayerGetTokenScRspReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChlQbGF5ZXJHZXRUb2tlblNjUnNwLnByb3RvIn0KE1BsYXllckdldFRva2Vu",
-          "U2NSc3ASDwoHbV92YWx1ZRgLIAEoDRITCgtkTU5PREhNSUVGSBgIIAEoBBIh",
-          "CgtrS0xLRkxITUlJSRgCIAEoCzIMLkVHSEhKREhIQktNEhAKCHN0b3BEZXNj",
-          "GAQgASgJEgsKA3VJRBgJIAEoDSJlCgtFR0hISkRISEJLTRIWCg5iZWdpblRp",
-          "bWVTdGFtcBgBIAEoAxIUCgxlbmRUaW1lU3RhbXAYAiABKAMSEwoLZ0ZCTUFD",
-          "T0ZBRUEYAyABKA0SEwoLbUpNSUVFRk5CTkkYBCABKA1iBnByb3RvMw=="));
+          "ChlQbGF5ZXJHZXRUb2tlblNjUnNwLnByb3RvIoIBChNQbGF5ZXJHZXRUb2tl",
+          "blNjUnNwEhAKCHN0b3BEZXNjGAggASgJEiMKC0pER0RCREhGQ0dQGAUgASgL",
+          "Mg4uQmxhY2tMaXN0SW5mbxIOCgZtVmFsdWUYCSABKA0SFwoPc2VjcmV0X2tl",
+          "eV9zZWVkGAEgASgEEgsKA3VJRBgEIAEoDSJhCg1CbGFja0xpc3RJbmZvEhIK",
+          "CnRpbWVTdGFtcDEYASABKAMSEgoKdGltZVN0YW1wMhgCIAEoAxITCgtOQUJN",
+          "QUVOSkVHTBgDIAEoDRITCgtLTElFTkVJT0lITxgEIAEoDWIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerGetTokenScRsp), global::PlayerGetTokenScRsp.Parser, new[]{ "MValue", "DMNODHMIEFH", "KKLKFLHMIII", "StopDesc", "UID" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::EGHHJDHHBKM), global::EGHHJDHHBKM.Parser, new[]{ "BeginTimeStamp", "EndTimeStamp", "GFBMACOFAEA", "MJMIEEFNBNI" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerGetTokenScRsp), global::PlayerGetTokenScRsp.Parser, new[]{ "StopDesc", "JDGDBDHFCGP", "MValue", "SecretKeySeed", "UID" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::BlackListInfo), global::BlackListInfo.Parser, new[]{ "TimeStamp1", "TimeStamp2", "NABMAENJEGL", "KLIENEIOIHO" }, null, null, null, null)
         }));
   }
   #endregion
@@ -73,10 +73,10 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public PlayerGetTokenScRsp(PlayerGetTokenScRsp other) : this() {
-    mValue_ = other.mValue_;
-    dMNODHMIEFH_ = other.dMNODHMIEFH_;
-    kKLKFLHMIII_ = other.kKLKFLHMIII_ != null ? other.kKLKFLHMIII_.Clone() : null;
     stopDesc_ = other.stopDesc_;
+    jDGDBDHFCGP_ = other.jDGDBDHFCGP_ != null ? other.jDGDBDHFCGP_.Clone() : null;
+    mValue_ = other.mValue_;
+    secretKeySeed_ = other.secretKeySeed_;
     uID_ = other.uID_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
@@ -87,44 +87,8 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
     return new PlayerGetTokenScRsp(this);
   }
 
-  /// <summary>Field number for the "m_value" field.</summary>
-  public const int MValueFieldNumber = 11;
-  private uint mValue_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint MValue {
-    get { return mValue_; }
-    set {
-      mValue_ = value;
-    }
-  }
-
-  /// <summary>Field number for the "dMNODHMIEFH" field.</summary>
-  public const int DMNODHMIEFHFieldNumber = 8;
-  private ulong dMNODHMIEFH_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public ulong DMNODHMIEFH {
-    get { return dMNODHMIEFH_; }
-    set {
-      dMNODHMIEFH_ = value;
-    }
-  }
-
-  /// <summary>Field number for the "kKLKFLHMIII" field.</summary>
-  public const int KKLKFLHMIIIFieldNumber = 2;
-  private global::EGHHJDHHBKM kKLKFLHMIII_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public global::EGHHJDHHBKM KKLKFLHMIII {
-    get { return kKLKFLHMIII_; }
-    set {
-      kKLKFLHMIII_ = value;
-    }
-  }
-
   /// <summary>Field number for the "stopDesc" field.</summary>
-  public const int StopDescFieldNumber = 4;
+  public const int StopDescFieldNumber = 8;
   private string stopDesc_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -135,8 +99,44 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
     }
   }
 
+  /// <summary>Field number for the "JDGDBDHFCGP" field.</summary>
+  public const int JDGDBDHFCGPFieldNumber = 5;
+  private global::BlackListInfo jDGDBDHFCGP_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public global::BlackListInfo JDGDBDHFCGP {
+    get { return jDGDBDHFCGP_; }
+    set {
+      jDGDBDHFCGP_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "mValue" field.</summary>
+  public const int MValueFieldNumber = 9;
+  private uint mValue_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public uint MValue {
+    get { return mValue_; }
+    set {
+      mValue_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "secret_key_seed" field.</summary>
+  public const int SecretKeySeedFieldNumber = 1;
+  private ulong secretKeySeed_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public ulong SecretKeySeed {
+    get { return secretKeySeed_; }
+    set {
+      secretKeySeed_ = value;
+    }
+  }
+
   /// <summary>Field number for the "uID" field.</summary>
-  public const int UIDFieldNumber = 9;
+  public const int UIDFieldNumber = 4;
   private uint uID_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -162,10 +162,10 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (MValue != other.MValue) return false;
-    if (DMNODHMIEFH != other.DMNODHMIEFH) return false;
-    if (!object.Equals(KKLKFLHMIII, other.KKLKFLHMIII)) return false;
     if (StopDesc != other.StopDesc) return false;
+    if (!object.Equals(JDGDBDHFCGP, other.JDGDBDHFCGP)) return false;
+    if (MValue != other.MValue) return false;
+    if (SecretKeySeed != other.SecretKeySeed) return false;
     if (UID != other.UID) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
@@ -174,10 +174,10 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public override int GetHashCode() {
     int hash = 1;
-    if (MValue != 0) hash ^= MValue.GetHashCode();
-    if (DMNODHMIEFH != 0UL) hash ^= DMNODHMIEFH.GetHashCode();
-    if (kKLKFLHMIII_ != null) hash ^= KKLKFLHMIII.GetHashCode();
     if (StopDesc.Length != 0) hash ^= StopDesc.GetHashCode();
+    if (jDGDBDHFCGP_ != null) hash ^= JDGDBDHFCGP.GetHashCode();
+    if (MValue != 0) hash ^= MValue.GetHashCode();
+    if (SecretKeySeed != 0UL) hash ^= SecretKeySeed.GetHashCode();
     if (UID != 0) hash ^= UID.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
@@ -197,24 +197,24 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (kKLKFLHMIII_ != null) {
-      output.WriteRawTag(18);
-      output.WriteMessage(KKLKFLHMIII);
-    }
-    if (StopDesc.Length != 0) {
-      output.WriteRawTag(34);
-      output.WriteString(StopDesc);
-    }
-    if (DMNODHMIEFH != 0UL) {
-      output.WriteRawTag(64);
-      output.WriteUInt64(DMNODHMIEFH);
+    if (SecretKeySeed != 0UL) {
+      output.WriteRawTag(8);
+      output.WriteUInt64(SecretKeySeed);
     }
     if (UID != 0) {
-      output.WriteRawTag(72);
+      output.WriteRawTag(32);
       output.WriteUInt32(UID);
     }
+    if (jDGDBDHFCGP_ != null) {
+      output.WriteRawTag(42);
+      output.WriteMessage(JDGDBDHFCGP);
+    }
+    if (StopDesc.Length != 0) {
+      output.WriteRawTag(66);
+      output.WriteString(StopDesc);
+    }
     if (MValue != 0) {
-      output.WriteRawTag(88);
+      output.WriteRawTag(72);
       output.WriteUInt32(MValue);
     }
     if (_unknownFields != null) {
@@ -227,24 +227,24 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (kKLKFLHMIII_ != null) {
-      output.WriteRawTag(18);
-      output.WriteMessage(KKLKFLHMIII);
-    }
-    if (StopDesc.Length != 0) {
-      output.WriteRawTag(34);
-      output.WriteString(StopDesc);
-    }
-    if (DMNODHMIEFH != 0UL) {
-      output.WriteRawTag(64);
-      output.WriteUInt64(DMNODHMIEFH);
+    if (SecretKeySeed != 0UL) {
+      output.WriteRawTag(8);
+      output.WriteUInt64(SecretKeySeed);
     }
     if (UID != 0) {
-      output.WriteRawTag(72);
+      output.WriteRawTag(32);
       output.WriteUInt32(UID);
     }
+    if (jDGDBDHFCGP_ != null) {
+      output.WriteRawTag(42);
+      output.WriteMessage(JDGDBDHFCGP);
+    }
+    if (StopDesc.Length != 0) {
+      output.WriteRawTag(66);
+      output.WriteString(StopDesc);
+    }
     if (MValue != 0) {
-      output.WriteRawTag(88);
+      output.WriteRawTag(72);
       output.WriteUInt32(MValue);
     }
     if (_unknownFields != null) {
@@ -257,17 +257,17 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public int CalculateSize() {
     int size = 0;
+    if (StopDesc.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(StopDesc);
+    }
+    if (jDGDBDHFCGP_ != null) {
+      size += 1 + pb::CodedOutputStream.ComputeMessageSize(JDGDBDHFCGP);
+    }
     if (MValue != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MValue);
     }
-    if (DMNODHMIEFH != 0UL) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(DMNODHMIEFH);
-    }
-    if (kKLKFLHMIII_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(KKLKFLHMIII);
-    }
-    if (StopDesc.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(StopDesc);
+    if (SecretKeySeed != 0UL) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SecretKeySeed);
     }
     if (UID != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(UID);
@@ -284,20 +284,20 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
     if (other == null) {
       return;
     }
+    if (other.StopDesc.Length != 0) {
+      StopDesc = other.StopDesc;
+    }
+    if (other.jDGDBDHFCGP_ != null) {
+      if (jDGDBDHFCGP_ == null) {
+        JDGDBDHFCGP = new global::BlackListInfo();
+      }
+      JDGDBDHFCGP.MergeFrom(other.JDGDBDHFCGP);
+    }
     if (other.MValue != 0) {
       MValue = other.MValue;
     }
-    if (other.DMNODHMIEFH != 0UL) {
-      DMNODHMIEFH = other.DMNODHMIEFH;
-    }
-    if (other.kKLKFLHMIII_ != null) {
-      if (kKLKFLHMIII_ == null) {
-        KKLKFLHMIII = new global::EGHHJDHHBKM();
-      }
-      KKLKFLHMIII.MergeFrom(other.KKLKFLHMIII);
-    }
-    if (other.StopDesc.Length != 0) {
-      StopDesc = other.StopDesc;
+    if (other.SecretKeySeed != 0UL) {
+      SecretKeySeed = other.SecretKeySeed;
     }
     if (other.UID != 0) {
       UID = other.UID;
@@ -317,26 +317,26 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
-        case 18: {
-          if (kKLKFLHMIII_ == null) {
-            KKLKFLHMIII = new global::EGHHJDHHBKM();
-          }
-          input.ReadMessage(KKLKFLHMIII);
+        case 8: {
+          SecretKeySeed = input.ReadUInt64();
           break;
         }
-        case 34: {
-          StopDesc = input.ReadString();
-          break;
-        }
-        case 64: {
-          DMNODHMIEFH = input.ReadUInt64();
-          break;
-        }
-        case 72: {
+        case 32: {
           UID = input.ReadUInt32();
           break;
         }
-        case 88: {
+        case 42: {
+          if (jDGDBDHFCGP_ == null) {
+            JDGDBDHFCGP = new global::BlackListInfo();
+          }
+          input.ReadMessage(JDGDBDHFCGP);
+          break;
+        }
+        case 66: {
+          StopDesc = input.ReadString();
+          break;
+        }
+        case 72: {
           MValue = input.ReadUInt32();
           break;
         }
@@ -355,27 +355,327 @@ public sealed partial class PlayerGetTokenScRsp : pb::IMessage<PlayerGetTokenScR
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
-        case 18: {
-          if (kKLKFLHMIII_ == null) {
-            KKLKFLHMIII = new global::EGHHJDHHBKM();
-          }
-          input.ReadMessage(KKLKFLHMIII);
+        case 8: {
+          SecretKeySeed = input.ReadUInt64();
           break;
         }
-        case 34: {
-          StopDesc = input.ReadString();
-          break;
-        }
-        case 64: {
-          DMNODHMIEFH = input.ReadUInt64();
-          break;
-        }
-        case 72: {
+        case 32: {
           UID = input.ReadUInt32();
           break;
         }
-        case 88: {
+        case 42: {
+          if (jDGDBDHFCGP_ == null) {
+            JDGDBDHFCGP = new global::BlackListInfo();
+          }
+          input.ReadMessage(JDGDBDHFCGP);
+          break;
+        }
+        case 66: {
+          StopDesc = input.ReadString();
+          break;
+        }
+        case 72: {
           MValue = input.ReadUInt32();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
+public sealed partial class BlackListInfo : pb::IMessage<BlackListInfo>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<BlackListInfo> _parser = new pb::MessageParser<BlackListInfo>(() => new BlackListInfo());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public static pb::MessageParser<BlackListInfo> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::PlayerGetTokenScRspReflection.Descriptor.MessageTypes[1]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public BlackListInfo() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public BlackListInfo(BlackListInfo other) : this() {
+    timeStamp1_ = other.timeStamp1_;
+    timeStamp2_ = other.timeStamp2_;
+    nABMAENJEGL_ = other.nABMAENJEGL_;
+    kLIENEIOIHO_ = other.kLIENEIOIHO_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public BlackListInfo Clone() {
+    return new BlackListInfo(this);
+  }
+
+  /// <summary>Field number for the "timeStamp1" field.</summary>
+  public const int TimeStamp1FieldNumber = 1;
+  private long timeStamp1_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public long TimeStamp1 {
+    get { return timeStamp1_; }
+    set {
+      timeStamp1_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "timeStamp2" field.</summary>
+  public const int TimeStamp2FieldNumber = 2;
+  private long timeStamp2_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public long TimeStamp2 {
+    get { return timeStamp2_; }
+    set {
+      timeStamp2_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "NABMAENJEGL" field.</summary>
+  public const int NABMAENJEGLFieldNumber = 3;
+  private uint nABMAENJEGL_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public uint NABMAENJEGL {
+    get { return nABMAENJEGL_; }
+    set {
+      nABMAENJEGL_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "KLIENEIOIHO" field.</summary>
+  public const int KLIENEIOIHOFieldNumber = 4;
+  private uint kLIENEIOIHO_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public uint KLIENEIOIHO {
+    get { return kLIENEIOIHO_; }
+    set {
+      kLIENEIOIHO_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public override bool Equals(object other) {
+    return Equals(other as BlackListInfo);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public bool Equals(BlackListInfo other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (TimeStamp1 != other.TimeStamp1) return false;
+    if (TimeStamp2 != other.TimeStamp2) return false;
+    if (NABMAENJEGL != other.NABMAENJEGL) return false;
+    if (KLIENEIOIHO != other.KLIENEIOIHO) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (TimeStamp1 != 0L) hash ^= TimeStamp1.GetHashCode();
+    if (TimeStamp2 != 0L) hash ^= TimeStamp2.GetHashCode();
+    if (NABMAENJEGL != 0) hash ^= NABMAENJEGL.GetHashCode();
+    if (KLIENEIOIHO != 0) hash ^= KLIENEIOIHO.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (TimeStamp1 != 0L) {
+      output.WriteRawTag(8);
+      output.WriteInt64(TimeStamp1);
+    }
+    if (TimeStamp2 != 0L) {
+      output.WriteRawTag(16);
+      output.WriteInt64(TimeStamp2);
+    }
+    if (NABMAENJEGL != 0) {
+      output.WriteRawTag(24);
+      output.WriteUInt32(NABMAENJEGL);
+    }
+    if (KLIENEIOIHO != 0) {
+      output.WriteRawTag(32);
+      output.WriteUInt32(KLIENEIOIHO);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (TimeStamp1 != 0L) {
+      output.WriteRawTag(8);
+      output.WriteInt64(TimeStamp1);
+    }
+    if (TimeStamp2 != 0L) {
+      output.WriteRawTag(16);
+      output.WriteInt64(TimeStamp2);
+    }
+    if (NABMAENJEGL != 0) {
+      output.WriteRawTag(24);
+      output.WriteUInt32(NABMAENJEGL);
+    }
+    if (KLIENEIOIHO != 0) {
+      output.WriteRawTag(32);
+      output.WriteUInt32(KLIENEIOIHO);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public int CalculateSize() {
+    int size = 0;
+    if (TimeStamp1 != 0L) {
+      size += 1 + pb::CodedOutputStream.ComputeInt64Size(TimeStamp1);
+    }
+    if (TimeStamp2 != 0L) {
+      size += 1 + pb::CodedOutputStream.ComputeInt64Size(TimeStamp2);
+    }
+    if (NABMAENJEGL != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NABMAENJEGL);
+    }
+    if (KLIENEIOIHO != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(KLIENEIOIHO);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public void MergeFrom(BlackListInfo other) {
+    if (other == null) {
+      return;
+    }
+    if (other.TimeStamp1 != 0L) {
+      TimeStamp1 = other.TimeStamp1;
+    }
+    if (other.TimeStamp2 != 0L) {
+      TimeStamp2 = other.TimeStamp2;
+    }
+    if (other.NABMAENJEGL != 0) {
+      NABMAENJEGL = other.NABMAENJEGL;
+    }
+    if (other.KLIENEIOIHO != 0) {
+      KLIENEIOIHO = other.KLIENEIOIHO;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 8: {
+          TimeStamp1 = input.ReadInt64();
+          break;
+        }
+        case 16: {
+          TimeStamp2 = input.ReadInt64();
+          break;
+        }
+        case 24: {
+          NABMAENJEGL = input.ReadUInt32();
+          break;
+        }
+        case 32: {
+          KLIENEIOIHO = input.ReadUInt32();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 8: {
+          TimeStamp1 = input.ReadInt64();
+          break;
+        }
+        case 16: {
+          TimeStamp2 = input.ReadInt64();
+          break;
+        }
+        case 24: {
+          NABMAENJEGL = input.ReadUInt32();
+          break;
+        }
+        case 32: {
+          KLIENEIOIHO = input.ReadUInt32();
           break;
         }
       }
