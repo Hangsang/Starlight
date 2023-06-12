@@ -17,7 +17,7 @@ namespace GameServer.Services
         [Handler(Opcode.GetRogueScoreRewardInfoCsReq)]
         public static async Task OnGetRogueScoreRewardInfo(Session session, Memory<byte> _)
         {
-            await session.SendCmdId(Opcode.GetRogueScoreRewardInfoScRsp);
+            //await session.SendCmdId(Opcode.GetRogueScoreRewardInfoScRsp);
         }
     }
 }

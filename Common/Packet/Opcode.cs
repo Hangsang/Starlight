@@ -27,12 +27,19 @@ public enum Opcode : ushort
     CurSceneInfoRsp = 1499,
     CurBattleInfoCsReq = 187,
     CurBattleInfoScRsp = 179,
-
     GetAvatarDataCsReq = 369,
     GetAvatarDataScRsp = 319,
-    GetCurLineupCsReq = 706,
-    GetCurLineupScRsp = 759,
-
-    FriendListScRsp = 2919,
-
+    GetAllLineupCsReq = 706,
+    GetAllLineupScRsp = 759,
+    GetCurLineupCsReq = 739,
+    GetCurLineupScRsp = 784,
+    FriendListScRsp = 2919
 }
+
+/*
+ * "739": "GetCurLineupDataCsReq",
+  "784": "GetCurLineupDataScRsp",
+
+  "706": "GetAllLineupDataCsReq",
+  "759": "GetAllLineupDataScRsp",
+*/

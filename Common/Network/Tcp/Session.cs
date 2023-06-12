@@ -31,38 +31,29 @@ namespace Common.Network.Tcp
             if (!mConnection.IsWritable || !mConnection.IsActive || mKicked)
                 return;
 
-            mSendQueue.Enqueue((opcode, message));
-
-            if (await mSemaphore.WaitAsync(0))
+            try
             {
-                try
-                {
-                    while (mSendQueue.TryDequeue(out var item))
-                    {
-                        var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
-                        //var size = message.CalculateSize();
-                        var mData = item.message.ToByteArray();
+                var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
+                //var size = message.CalculateSize();
+                var mData = message.ToByteArray();
 
-                        mPooledBuffer.WriteShort(0x9D74);
-                        mPooledBuffer.WriteShort(0xC714);
-                        mPooledBuffer.WriteShort((ushort)item.opcode);
-                        mPooledBuffer.WriteShort(0);
-                        mPooledBuffer.WriteInt(mData.Length);
-                        mPooledBuffer.WriteBytes(mData);
-                        mPooledBuffer.WriteShort(0xD7A1);
-                        mPooledBuffer.WriteShort(0x52C8);
+                mPooledBuffer.WriteShort(0x9D74);
+                mPooledBuffer.WriteShort(0xC714);
+                mPooledBuffer.WriteShort((ushort)opcode);
+                mPooledBuffer.WriteShort(0);
+                mPooledBuffer.WriteInt(mData.Length);
+                mPooledBuffer.WriteBytes(mData);
+                mPooledBuffer.WriteShort(0xD7A1);
+                mPooledBuffer.WriteShort(0x52C8);
 
-                        await mConnection.Channel.WriteAndFlushAsync(mPooledBuffer);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Logger.Error(ex.Message);
-                }
-                finally
-                {
-                    mSemaphore.Release();
-                }
+                await mConnection.Channel.WriteAndFlushAsync(mPooledBuffer);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+            }
+            finally
+            {
             }
         }
 
