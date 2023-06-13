@@ -45,17 +45,19 @@ namespace GameServer.Services
                 {
                     PlayerInfo = plr.PlayerBasicInfo,
                     Stamina = plr.PlayerBasicInfo.Stamina,
+#if DEBUG
                     Version = "4365933-V1.1Live",
                     Platform = "hoyoverse_PC",
                     CurTimezone = 1,
                     CurEpoch = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds()
+#endif
                 });
         }
 
         [Handler(Opcode.GetLevelRewardTakenListCsReq)]
         public static async Task OnGetLevelRewardTakenList(Session session, Memory<byte> _)
         {
-            await session.SendCmdId(Opcode.GetLevelRewardTakenListScRsp);
+            //await session.SendCmdId(Opcode.GetLevelRewardTakenListScRsp);
         }
     }
 }

@@ -39,6 +39,7 @@ internal class GameServer
                     NickName = "Hang",
                     Level = 70,
                     WorldLevel = 6,
+                    Stamina = 1337,
                     HCoin = 999999, //Jades
                     MCoin = 999999 //Credits
                 }

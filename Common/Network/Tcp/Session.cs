@@ -13,9 +13,6 @@ namespace Common.Network.Tcp
             Serilog.Core.Constants.SourceContextPropertyName,
             nameof(Session));
 
-        private readonly ConcurrentQueue<(Opcode opcode, IMessage message)> mSendQueue = new();
-        private readonly SemaphoreSlim mSemaphore = new(1);
-
         public Connection mConnection { get; set; }
         public PlayerEntity Player { get; set; }
         public EndPoint Address => mConnection.RemoteAddress;
