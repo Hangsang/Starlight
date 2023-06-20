@@ -36,7 +36,7 @@ internal class GameServer
                 UID = 1,
                 PlayerBasicInfo = new PlayerBasicInfo
                 {
-                    NickName = "Hang",
+                    NickName = "hecker",
                     Level = 70,
                     WorldLevel = 6,
                     Stamina = 1337,

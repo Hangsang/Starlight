@@ -1,10 +1,7 @@
-﻿using Amazon.Runtime.Internal;
-using Common.Attributes;
-using Common.Database.MongoDb.Repositories;
+﻿using Common.Attributes;
 using Common.Network.Tcp;
 using Common.Packet;
 using Serilog;
-using static Common.Unsorted.Constants;
 
 namespace GameServer.Services
 {
@@ -17,7 +14,7 @@ namespace GameServer.Services
         [Handler(Opcode.GetRogueScoreRewardInfoCsReq)]
         public static async Task OnGetRogueScoreRewardInfo(Session session, Memory<byte> _)
         {
-            //await session.SendCmdId(Opcode.GetRogueScoreRewardInfoScRsp);
+            await session.SendCmdId(Opcode.GetRogueScoreRewardInfoScRsp);
         }
     }
 }

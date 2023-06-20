@@ -1,9 +1,7 @@
-﻿using Google.Protobuf;
-using HttpServer.Models;
+﻿using HttpServer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using System.Security.Cryptography;
 
 namespace HttpServer.Controllers
 {
@@ -140,7 +138,6 @@ namespace HttpServer.Controllers
                     }
                 };
             });
-
         }
 
         private static async Task HandleAccountRisky(HttpContext context)
@@ -202,6 +199,5 @@ namespace HttpServer.Controllers
                 }
             });
         }
-
     }
 }

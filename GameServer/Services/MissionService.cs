@@ -1,10 +1,7 @@
-﻿using Amazon.Runtime.Internal;
-using Common.Attributes;
-using Common.Database.MongoDb.Repositories;
+﻿using Common.Attributes;
 using Common.Network.Tcp;
 using Common.Packet;
 using Serilog;
-using static Common.Unsorted.Constants;
 
 namespace GameServer.Services
 {
@@ -19,7 +16,10 @@ namespace GameServer.Services
         {
             var request = GetMissionStatusCsReq.Parser.ParseFrom(payload.Span);
             if (request == null)
+            {
+                Logger.Error("MissionStatusReq data was null!!");
                 return;
+            }
 
             var response = new GetMissionStatusScRsp();
             foreach (var _sub in request.SubMissions)
