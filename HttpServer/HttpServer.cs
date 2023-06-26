@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Builder;
 
 namespace HttpServer;
 
-class HttpServer
+internal class HttpServer
 {
-    static async Task Main()
+    private static async Task Main()
     {
         var builder = WebApplication.CreateBuilder();
 
