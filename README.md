@@ -1,8 +1,16 @@
-# StarRailStation
+# HSRSharp
 
-A TCP server for game Honkai: Star Rail based on .NET Core.
+A TCP game server for the game Honkai: Star Rail based on .NET Core
 
-# Contact
+# Dependencies
 
-Discord = real hecker#5106
+[.Net 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+
+[MongoDB](https://www.mongodb.com/try/download/community)
+
+# Credits
+
+realhecker - Developer
+
+Hiro - Protos & Cmdids
 
