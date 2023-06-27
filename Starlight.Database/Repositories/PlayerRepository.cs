@@ -1,4 +1,5 @@
-﻿using Starlight.Common.Entity;
+﻿using Starlight.Common;
+using Starlight.Common.Interfaces;
 
 namespace Starlight.Database.Repositories
 {

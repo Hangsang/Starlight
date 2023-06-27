@@ -1,4 +1,5 @@
 ﻿using DotNetty.Transport.Channels;
+using Starlight.Common.Interfaces;
 
 namespace Starlight.Common.Network.Netty
 {

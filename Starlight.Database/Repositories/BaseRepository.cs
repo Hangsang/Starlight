@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using Starlight.Common.Interfaces;
 using System.Linq.Expressions;
 
 namespace Starlight.Database.Repositories

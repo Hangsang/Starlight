@@ -3,9 +3,9 @@ using Starlight.HttpServer.Controllers;
 
 namespace Starlight.HttpServer;
 
-internal class HttpServer
+class HttpServer
 {
-    private static async Task Main()
+    static async Task Main()
     {
         var builder = WebApplication.CreateBuilder();
         var app = builder.Build();

@@ -1,4 +1,6 @@
-﻿namespace Starlight.Common.Network.Netty
+﻿using Starlight.Common.Network;
+
+namespace Starlight.Common.Interfaces
 {
     public interface INetty
     {

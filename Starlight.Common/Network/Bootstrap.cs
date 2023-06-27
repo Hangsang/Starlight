@@ -3,6 +3,7 @@ using DotNetty.Transport.Channels;
 using DotNetty.Transport.Channels.Sockets;
 using Serilog;
 using Starlight.Common.Codecs;
+using Starlight.Common.Interfaces;
 using Starlight.Common.Network.Netty;
 using System.Net;
 

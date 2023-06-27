@@ -1,4 +1,4 @@
-﻿namespace Starlight.Database
+﻿namespace Starlight.Common.Interfaces
 {
     public interface IRepository
     {

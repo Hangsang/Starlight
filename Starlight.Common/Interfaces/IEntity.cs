@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson;
 
-namespace Starlight.Database
+namespace Starlight.Common.Interfaces
 {
     public interface IEntity
     {

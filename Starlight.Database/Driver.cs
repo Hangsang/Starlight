@@ -1,5 +1,6 @@
 ﻿using MongoDB.Driver;
 using Serilog;
+using Starlight.Common.Interfaces;
 using System.Diagnostics;
 
 namespace Starlight.Database

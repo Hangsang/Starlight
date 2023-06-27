@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using Starlight.Common.Interfaces;
 using Starlight.Common.Packet;
 
 namespace Starlight.Common.Network.Netty

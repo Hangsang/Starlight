@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Serilog;
-using Starlight.Common.Entity;
+using Starlight.Common;
+using Starlight.Common.Interfaces;
 using Starlight.Common.Network;
 using Starlight.Common.Network.Netty;
 using Starlight.Common.Unsorted;

@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
-using Starlight.Database;
+using Starlight.Common.Interfaces;
 
-namespace Starlight.Common.Entity
+namespace Starlight.Common
 {
     public class Player : IEntity
     {
