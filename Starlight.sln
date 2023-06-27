@@ -5,11 +5,11 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starlight.GameServer", "Starlight.GameServer\Starlight.GameServer.csproj", "{20EE235C-43E0-4F32-B3AF-04411607B42B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starlight.HttpServer", "Starlight.HttpServer\Starlight.HttpServer.csproj", "{E70AE34A-A4E8-4CC0-B56B-2947FD60B9E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starlight.HttpServer", "Starlight.HttpServer\Starlight.HttpServer.csproj", "{E70AE34A-A4E8-4CC0-B56B-2947FD60B9E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starlight.Common", "Starlight.Common\Starlight.Common.csproj", "{900F3E4E-5421-4A04-B2E9-4C7AB82B214C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starlight.Common", "Starlight.Common\Starlight.Common.csproj", "{900F3E4E-5421-4A04-B2E9-4C7AB82B214C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starlight.Database", "Starlight.Database\Starlight.Database.csproj", "{B485E4F7-5BDB-455C-B320-148C71C5DA94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starlight.Database", "Starlight.Database\Starlight.Database.csproj", "{B485E4F7-5BDB-455C-B320-148C71C5DA94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

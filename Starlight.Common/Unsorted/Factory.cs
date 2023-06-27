@@ -16,27 +16,6 @@ namespace Starlight.Common.Unsorted
             InitializePacketHandlers();
         }
 
-        /*
-        private void InitializeMessages()
-        {
-            var messageFactories = ImmutableDictionary.CreateBuilder<Opcode, MessageFactoryDelegate>();
-            var messageOpcodes = ImmutableDictionary.CreateBuilder<Type, Opcode>();
-
-            foreach (var type in Assembly.GetExecutingAssembly().GetTypes().Concat(Assembly.GetEntryAssembly()?.GetTypes() ?? throw new InvalidOperationException()))
-            {
-                var attribute = type.GetCustomAttribute<MessageAttribute>();
-                if (attribute == null)
-                    continue;
-
-                if (typeof(IReadable).IsAssignableFrom(type))
-                    messageOpcodes.Add(type, attribute.Opcode);
-            }
-
-            clientMessageFactories = messageFactories.ToImmutable();
-            serverMessageOpcodes = messageOpcodes.ToImmutable();
-        }
-        */
-
         private void InitializePacketHandlers()
         {
             var messageHandlers = ImmutableDictionary
@@ -69,13 +48,6 @@ namespace Starlight.Common.Unsorted
             clientMessageHandlers = messageHandlers.ToImmutable();
         }
 
-        /*
-        public IMessage GetMessage(Opcode opcode)
-        {
-            return clientMessageFactories.TryGetValue(opcode, out var factory) ? factory.Invoke() : null;
-        }
-        */
-
         public (HandlerAttribute attribute, HandlerDelegate @delegate) GetMessageInformation(Opcode opcode)
         {
             clientMessageHandlers.TryGetValue(opcode,
@@ -83,14 +55,6 @@ namespace Starlight.Common.Unsorted
                                                   handler);
             return handler;
         }
-
-        /*
-        public Opcode? GetMessageOpcode(IWritable message)
-        {
-            if (!serverMessageOpcodes.TryGetValue(message.GetType(), out var opcode)) return null;
-            return opcode;
-        }
-        */
 
         public delegate void HandlerDelegate(Session session, Memory<byte> payload);
     }
