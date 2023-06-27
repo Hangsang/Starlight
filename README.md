@@ -1,15 +1,18 @@
-# HSRSharp
+## Starlight
 
-A TCP game server for the game Honkai: Star Rail based on .NET Core
+### Information
+A server emulator for the Hoyoverse gacha Honkai Star Rail that supports the latest OS client.
 
-# Dependencies
+### Getting Started
+[Client Setup Guide](https://google.com)  
+[Server Setup Guide](https://brain.exe)
 
-[.Net 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+### Requirements
+ * Visual Studio (or equivalent, eg: Rider)
+ * .Net 7.0
+ * MongoDB Driver
+ * Equivalent HSR Game Client
 
-[MongoDB](https://www.mongodb.com/try/download/community)
-
-# Credits
-
-realhecker - Developer
-
-Hiro - Protos & Cmdids
+### Credits
+- Hangsang (realhecker) - Developer
+- Hiro (Hiro420) - Proto & CmdId 🥄🐈
