@@ -52,7 +52,6 @@ namespace Starlight.Common.Codecs
 
                     var mData = new HsrPacket(hsrHeader, mBuffer, 0);
                     output.Add(mData);
-                    ArrayPool<byte>.Shared.Return(mBuffer, true);
                 }
             }
             catch (Exception ex)

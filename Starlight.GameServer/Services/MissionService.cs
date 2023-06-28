@@ -22,17 +22,17 @@ namespace Starlight.GameServer.Services
             }
 
             var response = new GetMissionStatusScRsp();
-            foreach (var _sub in request.SubMissions)
+            foreach (var _sub in request.SubMissionIdList)
             {
-                response.SubMissionStatusList.Add(new MissionData { Id = _sub, Status = MissionStatus.MissionFinish });
+                response.SubMissionStatusList.Add(new Mission { Id = _sub, Status = MissionStatus.MissionFinish });
             }
-            foreach (var _event in request.EventMissions)
+            foreach (var _event in request.MissionEventIdList)
             {
-                response.MissionEventStatusList.Add(new MissionData { Id = _event, Status = MissionStatus.MissionFinish });
+                response.MissionEventStatusList.Add(new Mission { Id = _event, Status = MissionStatus.MissionFinish });
             }
-            foreach (var _unfinish in request.UnfinishedMissions)
+            foreach (var _main in request.MainMissionIdList)
             {
-                response.FinishedMainMissionIdList.Add(_unfinish);
+                response.FinishedMainMissionIdList.Add(_main);
             }
 
             await session.SendAsync(Opcode.GetMissionStatusScRsp, response);

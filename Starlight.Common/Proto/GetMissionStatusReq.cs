@@ -22,13 +22,14 @@ public static partial class GetMissionStatusReqReflection {
   static GetMissionStatusReqReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChlHZXRNaXNzaW9uU3RhdHVzUmVxLnByb3RvIl8KFUdldE1pc3Npb25TdGF0",
-          "dXNDc1JlcRITCgtTdWJNaXNzaW9ucxgNIAMoDRIaChJVbmZpbmlzaGVkTWlz",
-          "c2lvbnMYCCADKA0SFQoNRXZlbnRNaXNzaW9ucxgDIAMoDWIGcHJvdG8z"));
+          "ChlHZXRNaXNzaW9uU3RhdHVzUmVxLnByb3RvImgKFUdldE1pc3Npb25TdGF0",
+          "dXNDc1JlcRIZChFtYWluTWlzc2lvbklkTGlzdBgNIAMoDRIaChJtaXNzaW9u",
+          "RXZlbnRJZExpc3QYCCADKA0SGAoQc3ViTWlzc2lvbklkTGlzdBgDIAMoDWIG",
+          "cHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::GetMissionStatusCsReq), global::GetMissionStatusCsReq.Parser, new[]{ "SubMissions", "UnfinishedMissions", "EventMissions" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::GetMissionStatusCsReq), global::GetMissionStatusCsReq.Parser, new[]{ "MainMissionIdList", "MissionEventIdList", "SubMissionIdList" }, null, null, null, null)
         }));
   }
   #endregion
@@ -69,9 +70,9 @@ public sealed partial class GetMissionStatusCsReq : pb::IMessage<GetMissionStatu
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public GetMissionStatusCsReq(GetMissionStatusCsReq other) : this() {
-    subMissions_ = other.subMissions_.Clone();
-    unfinishedMissions_ = other.unfinishedMissions_.Clone();
-    eventMissions_ = other.eventMissions_.Clone();
+    mainMissionIdList_ = other.mainMissionIdList_.Clone();
+    missionEventIdList_ = other.missionEventIdList_.Clone();
+    subMissionIdList_ = other.subMissionIdList_.Clone();
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -81,37 +82,46 @@ public sealed partial class GetMissionStatusCsReq : pb::IMessage<GetMissionStatu
     return new GetMissionStatusCsReq(this);
   }
 
-  /// <summary>Field number for the "SubMissions" field.</summary>
-  public const int SubMissionsFieldNumber = 13;
-  private static readonly pb::FieldCodec<uint> _repeated_subMissions_codec
+  /// <summary>Field number for the "mainMissionIdList" field.</summary>
+  public const int MainMissionIdListFieldNumber = 13;
+  private static readonly pb::FieldCodec<uint> _repeated_mainMissionIdList_codec
       = pb::FieldCodec.ForUInt32(106);
-  private readonly pbc::RepeatedField<uint> subMissions_ = new pbc::RepeatedField<uint>();
+  private readonly pbc::RepeatedField<uint> mainMissionIdList_ = new pbc::RepeatedField<uint>();
+  /// <summary>
+  ///DAALJPBOPLC
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public pbc::RepeatedField<uint> SubMissions {
-    get { return subMissions_; }
+  public pbc::RepeatedField<uint> MainMissionIdList {
+    get { return mainMissionIdList_; }
   }
 
-  /// <summary>Field number for the "UnfinishedMissions" field.</summary>
-  public const int UnfinishedMissionsFieldNumber = 8;
-  private static readonly pb::FieldCodec<uint> _repeated_unfinishedMissions_codec
+  /// <summary>Field number for the "missionEventIdList" field.</summary>
+  public const int MissionEventIdListFieldNumber = 8;
+  private static readonly pb::FieldCodec<uint> _repeated_missionEventIdList_codec
       = pb::FieldCodec.ForUInt32(66);
-  private readonly pbc::RepeatedField<uint> unfinishedMissions_ = new pbc::RepeatedField<uint>();
+  private readonly pbc::RepeatedField<uint> missionEventIdList_ = new pbc::RepeatedField<uint>();
+  /// <summary>
+  ///OHAMPJLLPHA
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public pbc::RepeatedField<uint> UnfinishedMissions {
-    get { return unfinishedMissions_; }
+  public pbc::RepeatedField<uint> MissionEventIdList {
+    get { return missionEventIdList_; }
   }
 
-  /// <summary>Field number for the "EventMissions" field.</summary>
-  public const int EventMissionsFieldNumber = 3;
-  private static readonly pb::FieldCodec<uint> _repeated_eventMissions_codec
+  /// <summary>Field number for the "subMissionIdList" field.</summary>
+  public const int SubMissionIdListFieldNumber = 3;
+  private static readonly pb::FieldCodec<uint> _repeated_subMissionIdList_codec
       = pb::FieldCodec.ForUInt32(26);
-  private readonly pbc::RepeatedField<uint> eventMissions_ = new pbc::RepeatedField<uint>();
+  private readonly pbc::RepeatedField<uint> subMissionIdList_ = new pbc::RepeatedField<uint>();
+  /// <summary>
+  ///OBEFNGAGMHH
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public pbc::RepeatedField<uint> EventMissions {
-    get { return eventMissions_; }
+  public pbc::RepeatedField<uint> SubMissionIdList {
+    get { return subMissionIdList_; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -129,9 +139,9 @@ public sealed partial class GetMissionStatusCsReq : pb::IMessage<GetMissionStatu
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if(!subMissions_.Equals(other.subMissions_)) return false;
-    if(!unfinishedMissions_.Equals(other.unfinishedMissions_)) return false;
-    if(!eventMissions_.Equals(other.eventMissions_)) return false;
+    if(!mainMissionIdList_.Equals(other.mainMissionIdList_)) return false;
+    if(!missionEventIdList_.Equals(other.missionEventIdList_)) return false;
+    if(!subMissionIdList_.Equals(other.subMissionIdList_)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -139,9 +149,9 @@ public sealed partial class GetMissionStatusCsReq : pb::IMessage<GetMissionStatu
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public override int GetHashCode() {
     int hash = 1;
-    hash ^= subMissions_.GetHashCode();
-    hash ^= unfinishedMissions_.GetHashCode();
-    hash ^= eventMissions_.GetHashCode();
+    hash ^= mainMissionIdList_.GetHashCode();
+    hash ^= missionEventIdList_.GetHashCode();
+    hash ^= subMissionIdList_.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -160,9 +170,9 @@ public sealed partial class GetMissionStatusCsReq : pb::IMessage<GetMissionStatu
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    eventMissions_.WriteTo(output, _repeated_eventMissions_codec);
-    unfinishedMissions_.WriteTo(output, _repeated_unfinishedMissions_codec);
-    subMissions_.WriteTo(output, _repeated_subMissions_codec);
+    subMissionIdList_.WriteTo(output, _repeated_subMissionIdList_codec);
+    missionEventIdList_.WriteTo(output, _repeated_missionEventIdList_codec);
+    mainMissionIdList_.WriteTo(output, _repeated_mainMissionIdList_codec);
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -173,9 +183,9 @@ public sealed partial class GetMissionStatusCsReq : pb::IMessage<GetMissionStatu
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    eventMissions_.WriteTo(ref output, _repeated_eventMissions_codec);
-    unfinishedMissions_.WriteTo(ref output, _repeated_unfinishedMissions_codec);
-    subMissions_.WriteTo(ref output, _repeated_subMissions_codec);
+    subMissionIdList_.WriteTo(ref output, _repeated_subMissionIdList_codec);
+    missionEventIdList_.WriteTo(ref output, _repeated_missionEventIdList_codec);
+    mainMissionIdList_.WriteTo(ref output, _repeated_mainMissionIdList_codec);
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -186,9 +196,9 @@ public sealed partial class GetMissionStatusCsReq : pb::IMessage<GetMissionStatu
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public int CalculateSize() {
     int size = 0;
-    size += subMissions_.CalculateSize(_repeated_subMissions_codec);
-    size += unfinishedMissions_.CalculateSize(_repeated_unfinishedMissions_codec);
-    size += eventMissions_.CalculateSize(_repeated_eventMissions_codec);
+    size += mainMissionIdList_.CalculateSize(_repeated_mainMissionIdList_codec);
+    size += missionEventIdList_.CalculateSize(_repeated_missionEventIdList_codec);
+    size += subMissionIdList_.CalculateSize(_repeated_subMissionIdList_codec);
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
     }
@@ -201,9 +211,9 @@ public sealed partial class GetMissionStatusCsReq : pb::IMessage<GetMissionStatu
     if (other == null) {
       return;
     }
-    subMissions_.Add(other.subMissions_);
-    unfinishedMissions_.Add(other.unfinishedMissions_);
-    eventMissions_.Add(other.eventMissions_);
+    mainMissionIdList_.Add(other.mainMissionIdList_);
+    missionEventIdList_.Add(other.missionEventIdList_);
+    subMissionIdList_.Add(other.subMissionIdList_);
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
 
@@ -221,17 +231,17 @@ public sealed partial class GetMissionStatusCsReq : pb::IMessage<GetMissionStatu
           break;
         case 26:
         case 24: {
-          eventMissions_.AddEntriesFrom(input, _repeated_eventMissions_codec);
+          subMissionIdList_.AddEntriesFrom(input, _repeated_subMissionIdList_codec);
           break;
         }
         case 66:
         case 64: {
-          unfinishedMissions_.AddEntriesFrom(input, _repeated_unfinishedMissions_codec);
+          missionEventIdList_.AddEntriesFrom(input, _repeated_missionEventIdList_codec);
           break;
         }
         case 106:
         case 104: {
-          subMissions_.AddEntriesFrom(input, _repeated_subMissions_codec);
+          mainMissionIdList_.AddEntriesFrom(input, _repeated_mainMissionIdList_codec);
           break;
         }
       }
@@ -251,17 +261,17 @@ public sealed partial class GetMissionStatusCsReq : pb::IMessage<GetMissionStatu
           break;
         case 26:
         case 24: {
-          eventMissions_.AddEntriesFrom(ref input, _repeated_eventMissions_codec);
+          subMissionIdList_.AddEntriesFrom(ref input, _repeated_subMissionIdList_codec);
           break;
         }
         case 66:
         case 64: {
-          unfinishedMissions_.AddEntriesFrom(ref input, _repeated_unfinishedMissions_codec);
+          missionEventIdList_.AddEntriesFrom(ref input, _repeated_missionEventIdList_codec);
           break;
         }
         case 106:
         case 104: {
-          subMissions_.AddEntriesFrom(ref input, _repeated_subMissions_codec);
+          mainMissionIdList_.AddEntriesFrom(ref input, _repeated_mainMissionIdList_codec);
           break;
         }
       }

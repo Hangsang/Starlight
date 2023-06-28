@@ -22,21 +22,21 @@ public static partial class GetMissionStatusScRspReflection {
   static GetMissionStatusScRspReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChtHZXRNaXNzaW9uU3RhdHVzU2NSc3AucHJvdG8i2AEKFUdldE1pc3Npb25T",
+          "ChtHZXRNaXNzaW9uU3RhdHVzU2NSc3AucHJvdG8i0AEKFUdldE1pc3Npb25T",
           "dGF0dXNTY1JzcBInCh91bmZpbmlzaGVkX21haW5fbWlzc2lvbl9pZF9saXN0",
-          "GAMgAygNEi8KGW1pc3Npb25fZXZlbnRfc3RhdHVzX2xpc3QYBCADKAsyDC5N",
-          "aXNzaW9uRGF0YRIlCh1maW5pc2hlZF9tYWluX21pc3Npb25faWRfbGlzdBgB",
-          "IAMoDRItChdzdWJfbWlzc2lvbl9zdGF0dXNfbGlzdBgIIAMoCzIMLk1pc3Np",
-          "b25EYXRhEg8KB3JldGNvZGUYDyABKA0iVAoLTWlzc2lvbkRhdGESHwoHX1N0",
-          "YXR1cxgMIAEoDjIOLk1pc3Npb25TdGF0dXMSCgoCaWQYCCABKA0SGAoQX0N1",
-          "cnJlbnRQcm9ncmVzcxgEIAEoDSpeCg1NaXNzaW9uU3RhdHVzEhAKDE1JU1NJ",
-          "T05fTk9ORRAAEhEKDU1JU1NJT05fRE9JTkcQARISCg5NSVNTSU9OX0ZJTklT",
-          "SBACEhQKEE1JU1NJT05fUFJFUEFSRUQQA2IGcHJvdG8z"));
+          "GAMgAygNEisKGW1pc3Npb25fZXZlbnRfc3RhdHVzX2xpc3QYBCADKAsyCC5N",
+          "aXNzaW9uEiUKHWZpbmlzaGVkX21haW5fbWlzc2lvbl9pZF9saXN0GAEgAygN",
+          "EikKF3N1Yl9taXNzaW9uX3N0YXR1c19saXN0GAggAygLMgguTWlzc2lvbhIP",
+          "CgdyZXRjb2RlGA8gASgNIkcKB01pc3Npb24SHgoGc3RhdHVzGAwgASgOMg4u",
+          "TWlzc2lvblN0YXR1cxIKCgJpZBgIIAEoDRIQCghwcm9ncmVzcxgEIAEoDSpe",
+          "Cg1NaXNzaW9uU3RhdHVzEhAKDE1JU1NJT05fTk9ORRAAEhEKDU1JU1NJT05f",
+          "RE9JTkcQARISCg5NSVNTSU9OX0ZJTklTSBACEhQKEE1JU1NJT05fUFJFUEFS",
+          "RUQQA2IGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::MissionStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::GetMissionStatusScRsp), global::GetMissionStatusScRsp.Parser, new[]{ "UnfinishedMainMissionIdList", "MissionEventStatusList", "FinishedMainMissionIdList", "SubMissionStatusList", "Retcode" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::MissionData), global::MissionData.Parser, new[]{ "Status", "Id", "CurrentProgress" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::Mission), global::Mission.Parser, new[]{ "Status", "Id", "Progress" }, null, null, null, null)
         }));
   }
   #endregion
@@ -114,12 +114,12 @@ public sealed partial class GetMissionStatusScRsp : pb::IMessage<GetMissionStatu
 
   /// <summary>Field number for the "mission_event_status_list" field.</summary>
   public const int MissionEventStatusListFieldNumber = 4;
-  private static readonly pb::FieldCodec<global::MissionData> _repeated_missionEventStatusList_codec
-      = pb::FieldCodec.ForMessage(34, global::MissionData.Parser);
-  private readonly pbc::RepeatedField<global::MissionData> missionEventStatusList_ = new pbc::RepeatedField<global::MissionData>();
+  private static readonly pb::FieldCodec<global::Mission> _repeated_missionEventStatusList_codec
+      = pb::FieldCodec.ForMessage(34, global::Mission.Parser);
+  private readonly pbc::RepeatedField<global::Mission> missionEventStatusList_ = new pbc::RepeatedField<global::Mission>();
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public pbc::RepeatedField<global::MissionData> MissionEventStatusList {
+  public pbc::RepeatedField<global::Mission> MissionEventStatusList {
     get { return missionEventStatusList_; }
   }
 
@@ -136,12 +136,12 @@ public sealed partial class GetMissionStatusScRsp : pb::IMessage<GetMissionStatu
 
   /// <summary>Field number for the "sub_mission_status_list" field.</summary>
   public const int SubMissionStatusListFieldNumber = 8;
-  private static readonly pb::FieldCodec<global::MissionData> _repeated_subMissionStatusList_codec
-      = pb::FieldCodec.ForMessage(66, global::MissionData.Parser);
-  private readonly pbc::RepeatedField<global::MissionData> subMissionStatusList_ = new pbc::RepeatedField<global::MissionData>();
+  private static readonly pb::FieldCodec<global::Mission> _repeated_subMissionStatusList_codec
+      = pb::FieldCodec.ForMessage(66, global::Mission.Parser);
+  private readonly pbc::RepeatedField<global::Mission> subMissionStatusList_ = new pbc::RepeatedField<global::Mission>();
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public pbc::RepeatedField<global::MissionData> SubMissionStatusList {
+  public pbc::RepeatedField<global::Mission> SubMissionStatusList {
     get { return subMissionStatusList_; }
   }
 
@@ -350,16 +350,16 @@ public sealed partial class GetMissionStatusScRsp : pb::IMessage<GetMissionStatu
 
 }
 
-public sealed partial class MissionData : pb::IMessage<MissionData>
+public sealed partial class Mission : pb::IMessage<Mission>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
 #endif
 {
-  private static readonly pb::MessageParser<MissionData> _parser = new pb::MessageParser<MissionData>(() => new MissionData());
+  private static readonly pb::MessageParser<Mission> _parser = new pb::MessageParser<Mission>(() => new Mission());
   private pb::UnknownFieldSet _unknownFields;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public static pb::MessageParser<MissionData> Parser { get { return _parser; } }
+  public static pb::MessageParser<Mission> Parser { get { return _parser; } }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -375,7 +375,7 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public MissionData() {
+  public Mission() {
     OnConstruction();
   }
 
@@ -383,28 +383,28 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public MissionData(MissionData other) : this() {
-    Status_ = other.Status_;
+  public Mission(Mission other) : this() {
+    status_ = other.status_;
     id_ = other.id_;
-    CurrentProgress_ = other.CurrentProgress_;
+    progress_ = other.progress_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public MissionData Clone() {
-    return new MissionData(this);
+  public Mission Clone() {
+    return new Mission(this);
   }
 
-  /// <summary>Field number for the "_Status" field.</summary>
+  /// <summary>Field number for the "status" field.</summary>
   public const int StatusFieldNumber = 12;
-  private global::MissionStatus Status_ = global::MissionStatus.MissionNone;
+  private global::MissionStatus status_ = global::MissionStatus.MissionNone;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public global::MissionStatus Status {
-    get { return Status_; }
+    get { return status_; }
     set {
-      Status_ = value;
+      status_ = value;
     }
   }
 
@@ -420,27 +420,27 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
     }
   }
 
-  /// <summary>Field number for the "_CurrentProgress" field.</summary>
-  public const int CurrentProgressFieldNumber = 4;
-  private uint CurrentProgress_;
+  /// <summary>Field number for the "progress" field.</summary>
+  public const int ProgressFieldNumber = 4;
+  private uint progress_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint CurrentProgress {
-    get { return CurrentProgress_; }
+  public uint Progress {
+    get { return progress_; }
     set {
-      CurrentProgress_ = value;
+      progress_ = value;
     }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public override bool Equals(object other) {
-    return Equals(other as MissionData);
+    return Equals(other as Mission);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public bool Equals(MissionData other) {
+  public bool Equals(Mission other) {
     if (ReferenceEquals(other, null)) {
       return false;
     }
@@ -449,7 +449,7 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
     }
     if (Status != other.Status) return false;
     if (Id != other.Id) return false;
-    if (CurrentProgress != other.CurrentProgress) return false;
+    if (Progress != other.Progress) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -459,7 +459,7 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
     int hash = 1;
     if (Status != global::MissionStatus.MissionNone) hash ^= Status.GetHashCode();
     if (Id != 0) hash ^= Id.GetHashCode();
-    if (CurrentProgress != 0) hash ^= CurrentProgress.GetHashCode();
+    if (Progress != 0) hash ^= Progress.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -478,9 +478,9 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (CurrentProgress != 0) {
+    if (Progress != 0) {
       output.WriteRawTag(32);
-      output.WriteUInt32(CurrentProgress);
+      output.WriteUInt32(Progress);
     }
     if (Id != 0) {
       output.WriteRawTag(64);
@@ -500,9 +500,9 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (CurrentProgress != 0) {
+    if (Progress != 0) {
       output.WriteRawTag(32);
-      output.WriteUInt32(CurrentProgress);
+      output.WriteUInt32(Progress);
     }
     if (Id != 0) {
       output.WriteRawTag(64);
@@ -528,8 +528,8 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
     if (Id != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
     }
-    if (CurrentProgress != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CurrentProgress);
+    if (Progress != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Progress);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -539,7 +539,7 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public void MergeFrom(MissionData other) {
+  public void MergeFrom(Mission other) {
     if (other == null) {
       return;
     }
@@ -549,8 +549,8 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
     if (other.Id != 0) {
       Id = other.Id;
     }
-    if (other.CurrentProgress != 0) {
-      CurrentProgress = other.CurrentProgress;
+    if (other.Progress != 0) {
+      Progress = other.Progress;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -568,7 +568,7 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 32: {
-          CurrentProgress = input.ReadUInt32();
+          Progress = input.ReadUInt32();
           break;
         }
         case 64: {
@@ -595,7 +595,7 @@ public sealed partial class MissionData : pb::IMessage<MissionData>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 32: {
-          CurrentProgress = input.ReadUInt32();
+          Progress = input.ReadUInt32();
           break;
         }
         case 64: {

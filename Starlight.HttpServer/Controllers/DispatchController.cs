@@ -43,14 +43,7 @@ namespace Starlight.HttpServer.Controllers
                 DesignDataUrl = "https://autopatchos.starrails.com/design_data/V1.1Live/output_4468581_a0ba6b9e03",
                 ResultMessage = "OK",
                 ServerName = "annen",
-                OBCBJOHAOAK = true,
-                EFBEPICCKNP = true,
-                IHEDNHBBOFA = true,
-                IOFJNPOMBFC = true,
-                EOOKHNELFEH = true,
-                FAAJKEEIMMD = true,
-                HODGOGLIJOI = true,
-                IOIFFEJFGGC = true
+                EOOKHNELFEH = true //useTcp
             };
 
             var base64 = Convert.ToBase64String(_dispatch.ToByteArray());

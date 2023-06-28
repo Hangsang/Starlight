@@ -43,14 +43,8 @@ namespace Starlight.GameServer.Services
                 Opcode.PlayerLoginScRsp,
                 new PlayerLoginScRsp
                 {
-                    PlayerInfo = plr.PlayerBasicInfo,
-                    Stamina = plr.PlayerBasicInfo.Stamina,
-#if DEBUG
-                    Version = "4365933-V1.1Live",
-                    Platform = "hoyoverse_PC",
-                    CurTimezone = 1,
-                    CurEpoch = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds()
-#endif
+                    BasicInfo = plr.PlayerBasicInfo,
+                    Stamina = plr.PlayerBasicInfo.Stamina
                 });
         }
 

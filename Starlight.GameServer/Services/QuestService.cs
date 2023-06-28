@@ -25,12 +25,10 @@ namespace Starlight.GameServer.Services
             await session.SendAsync(Opcode.GetQuestDataScRsp, a);
         }
 
-        /*
         [Handler(Opcode.GetQuestRecordCsReq)]
         public static async Task OnGetQuestRecord(Session session, Memory<byte> _)
         {
             await session.SendCmdId(Opcode.GetQuestRecordScRsp);
         }
-        */
     }
 }

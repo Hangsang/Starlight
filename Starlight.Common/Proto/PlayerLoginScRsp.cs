@@ -22,21 +22,21 @@ public static partial class PlayerLoginScRspReflection {
   static PlayerLoginScRspReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChZQbGF5ZXJMb2dpblNjUnNwLnByb3RvIugBChBQbGF5ZXJMb2dpblNjUnNw",
-          "Eg8KB1ZlcnNpb24YDyABKAkSEAoIQ3VyRXBvY2gYByABKAQSEwoLQ3VyVGlt",
-          "ZXpvbmUYBSABKAUSEwoLQk5OT01JQkRIQUEYCyABKA0SFAoMUmFuZG9tTnVt",
-          "YmVyGA0gASgEEiQKClBsYXllckluZm8YDCABKAsyEC5QbGF5ZXJCYXNpY0lu",
-          "Zm8SDwoHU3RhbWluYRgOIAEoDRITCgtGS0tHTk1FTU9GSxgJIAEoCBITCgtI",
-          "TkVBQ0FMR0ZLRRgIIAEoCBIQCghQbGF0Zm9ybRgEIAEoCSKYAQoPUGxheWVy",
-          "QmFzaWNJbmZvEhAKCG5pY2tOYW1lGAEgASgJEg0KBWxldmVsGAIgASgNEhIK",
-          "CmN1cnJlbnRFeHAYAyABKA0SDwoHc3RhbWluYRgEIAEoDRINCgVtQ29pbhgF",
-          "IAEoDRINCgVoQ29pbhgGIAEoDRINCgVzQ29pbhgHIAEoDRISCgp3b3JsZExl",
-          "dmVsGAggASgNYgZwcm90bzM="));
+          "ChZQbGF5ZXJMb2dpblNjUnNwLnByb3RvIvsBChBQbGF5ZXJMb2dpblNjUnNw",
+          "EhYKDmJzX2Jpbl92ZXJzaW9uGA8gASgJEhsKE3NlcnZlcl90aW1lc3RhbXBf",
+          "bXMYByABKAQSGwoTY3VyX3NlcnZlcl90aW1lem9uZRgFIAEoBRIPCgdyZXRj",
+          "b2RlGAsgASgNEhQKDGxvZ2luX3JhbmRvbRgNIAEoBBIkCgpiYXNpY19pbmZv",
+          "GAwgASgLMhAuUGxheWVyQmFzaWNJbmZvEg8KB3N0YW1pbmEYDiABKA0SEwoL",
+          "aXNOZXdQbGF5ZXIYCSABKAgSDwoHaXNSZWxheRgIIAEoCBIRCglzaWduYXR1",
+          "cmUYBCABKAkikgEKD1BsYXllckJhc2ljSW5mbxIQCghuaWNrbmFtZRgBIAEo",
+          "CRINCgVsZXZlbBgCIAEoDRILCgNleHAYAyABKA0SDwoHc3RhbWluYRgEIAEo",
+          "DRINCgVtY29pbhgFIAEoDRINCgVoY29pbhgGIAEoDRINCgVzY29pbhgHIAEo",
+          "DRITCgt3b3JsZF9sZXZlbBgIIAEoDWIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerLoginScRsp), global::PlayerLoginScRsp.Parser, new[]{ "Version", "CurEpoch", "CurTimezone", "BNNOMIBDHAA", "RandomNumber", "PlayerInfo", "Stamina", "FKKGNMEMOFK", "HNEACALGFKE", "Platform" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerBasicInfo), global::PlayerBasicInfo.Parser, new[]{ "NickName", "Level", "CurrentExp", "Stamina", "MCoin", "HCoin", "SCoin", "WorldLevel" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerLoginScRsp), global::PlayerLoginScRsp.Parser, new[]{ "BsBinVersion", "ServerTimestampMs", "CurServerTimezone", "Retcode", "LoginRandom", "BasicInfo", "Stamina", "IsNewPlayer", "IsRelay", "Signature" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::PlayerBasicInfo), global::PlayerBasicInfo.Parser, new[]{ "Nickname", "Level", "Exp", "Stamina", "Mcoin", "Hcoin", "Scoin", "WorldLevel" }, null, null, null, null)
         }));
   }
   #endregion
@@ -77,16 +77,16 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public PlayerLoginScRsp(PlayerLoginScRsp other) : this() {
-    version_ = other.version_;
-    curEpoch_ = other.curEpoch_;
-    curTimezone_ = other.curTimezone_;
-    bNNOMIBDHAA_ = other.bNNOMIBDHAA_;
-    randomNumber_ = other.randomNumber_;
-    playerInfo_ = other.playerInfo_ != null ? other.playerInfo_.Clone() : null;
+    bsBinVersion_ = other.bsBinVersion_;
+    serverTimestampMs_ = other.serverTimestampMs_;
+    curServerTimezone_ = other.curServerTimezone_;
+    retcode_ = other.retcode_;
+    loginRandom_ = other.loginRandom_;
+    basicInfo_ = other.basicInfo_ != null ? other.basicInfo_.Clone() : null;
     stamina_ = other.stamina_;
-    fKKGNMEMOFK_ = other.fKKGNMEMOFK_;
-    hNEACALGFKE_ = other.hNEACALGFKE_;
-    platform_ = other.platform_;
+    isNewPlayer_ = other.isNewPlayer_;
+    isRelay_ = other.isRelay_;
+    signature_ = other.signature_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -96,79 +96,79 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
     return new PlayerLoginScRsp(this);
   }
 
-  /// <summary>Field number for the "Version" field.</summary>
-  public const int VersionFieldNumber = 15;
-  private string version_ = "";
+  /// <summary>Field number for the "bs_bin_version" field.</summary>
+  public const int BsBinVersionFieldNumber = 15;
+  private string bsBinVersion_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public string Version {
-    get { return version_; }
+  public string BsBinVersion {
+    get { return bsBinVersion_; }
     set {
-      version_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      bsBinVersion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
-  /// <summary>Field number for the "CurEpoch" field.</summary>
-  public const int CurEpochFieldNumber = 7;
-  private ulong curEpoch_;
+  /// <summary>Field number for the "server_timestamp_ms" field.</summary>
+  public const int ServerTimestampMsFieldNumber = 7;
+  private ulong serverTimestampMs_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public ulong CurEpoch {
-    get { return curEpoch_; }
+  public ulong ServerTimestampMs {
+    get { return serverTimestampMs_; }
     set {
-      curEpoch_ = value;
+      serverTimestampMs_ = value;
     }
   }
 
-  /// <summary>Field number for the "CurTimezone" field.</summary>
-  public const int CurTimezoneFieldNumber = 5;
-  private int curTimezone_;
+  /// <summary>Field number for the "cur_server_timezone" field.</summary>
+  public const int CurServerTimezoneFieldNumber = 5;
+  private int curServerTimezone_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public int CurTimezone {
-    get { return curTimezone_; }
+  public int CurServerTimezone {
+    get { return curServerTimezone_; }
     set {
-      curTimezone_ = value;
+      curServerTimezone_ = value;
     }
   }
 
-  /// <summary>Field number for the "BNNOMIBDHAA" field.</summary>
-  public const int BNNOMIBDHAAFieldNumber = 11;
-  private uint bNNOMIBDHAA_;
+  /// <summary>Field number for the "retcode" field.</summary>
+  public const int RetcodeFieldNumber = 11;
+  private uint retcode_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint BNNOMIBDHAA {
-    get { return bNNOMIBDHAA_; }
+  public uint Retcode {
+    get { return retcode_; }
     set {
-      bNNOMIBDHAA_ = value;
+      retcode_ = value;
     }
   }
 
-  /// <summary>Field number for the "RandomNumber" field.</summary>
-  public const int RandomNumberFieldNumber = 13;
-  private ulong randomNumber_;
+  /// <summary>Field number for the "login_random" field.</summary>
+  public const int LoginRandomFieldNumber = 13;
+  private ulong loginRandom_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public ulong RandomNumber {
-    get { return randomNumber_; }
+  public ulong LoginRandom {
+    get { return loginRandom_; }
     set {
-      randomNumber_ = value;
+      loginRandom_ = value;
     }
   }
 
-  /// <summary>Field number for the "PlayerInfo" field.</summary>
-  public const int PlayerInfoFieldNumber = 12;
-  private global::PlayerBasicInfo playerInfo_;
+  /// <summary>Field number for the "basic_info" field.</summary>
+  public const int BasicInfoFieldNumber = 12;
+  private global::PlayerBasicInfo basicInfo_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public global::PlayerBasicInfo PlayerInfo {
-    get { return playerInfo_; }
+  public global::PlayerBasicInfo BasicInfo {
+    get { return basicInfo_; }
     set {
-      playerInfo_ = value;
+      basicInfo_ = value;
     }
   }
 
-  /// <summary>Field number for the "Stamina" field.</summary>
+  /// <summary>Field number for the "stamina" field.</summary>
   public const int StaminaFieldNumber = 14;
   private uint stamina_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -180,39 +180,45 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
     }
   }
 
-  /// <summary>Field number for the "FKKGNMEMOFK" field.</summary>
-  public const int FKKGNMEMOFKFieldNumber = 9;
-  private bool fKKGNMEMOFK_;
+  /// <summary>Field number for the "isNewPlayer" field.</summary>
+  public const int IsNewPlayerFieldNumber = 9;
+  private bool isNewPlayer_;
+  /// <summary>
+  ///FKKGNMEMOFK
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public bool FKKGNMEMOFK {
-    get { return fKKGNMEMOFK_; }
+  public bool IsNewPlayer {
+    get { return isNewPlayer_; }
     set {
-      fKKGNMEMOFK_ = value;
+      isNewPlayer_ = value;
     }
   }
 
-  /// <summary>Field number for the "HNEACALGFKE" field.</summary>
-  public const int HNEACALGFKEFieldNumber = 8;
-  private bool hNEACALGFKE_;
+  /// <summary>Field number for the "isRelay" field.</summary>
+  public const int IsRelayFieldNumber = 8;
+  private bool isRelay_;
+  /// <summary>
+  ///HNEACALGFKE
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public bool HNEACALGFKE {
-    get { return hNEACALGFKE_; }
+  public bool IsRelay {
+    get { return isRelay_; }
     set {
-      hNEACALGFKE_ = value;
+      isRelay_ = value;
     }
   }
 
-  /// <summary>Field number for the "Platform" field.</summary>
-  public const int PlatformFieldNumber = 4;
-  private string platform_ = "";
+  /// <summary>Field number for the "signature" field.</summary>
+  public const int SignatureFieldNumber = 4;
+  private string signature_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public string Platform {
-    get { return platform_; }
+  public string Signature {
+    get { return signature_; }
     set {
-      platform_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      signature_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
@@ -231,16 +237,16 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (Version != other.Version) return false;
-    if (CurEpoch != other.CurEpoch) return false;
-    if (CurTimezone != other.CurTimezone) return false;
-    if (BNNOMIBDHAA != other.BNNOMIBDHAA) return false;
-    if (RandomNumber != other.RandomNumber) return false;
-    if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
+    if (BsBinVersion != other.BsBinVersion) return false;
+    if (ServerTimestampMs != other.ServerTimestampMs) return false;
+    if (CurServerTimezone != other.CurServerTimezone) return false;
+    if (Retcode != other.Retcode) return false;
+    if (LoginRandom != other.LoginRandom) return false;
+    if (!object.Equals(BasicInfo, other.BasicInfo)) return false;
     if (Stamina != other.Stamina) return false;
-    if (FKKGNMEMOFK != other.FKKGNMEMOFK) return false;
-    if (HNEACALGFKE != other.HNEACALGFKE) return false;
-    if (Platform != other.Platform) return false;
+    if (IsNewPlayer != other.IsNewPlayer) return false;
+    if (IsRelay != other.IsRelay) return false;
+    if (Signature != other.Signature) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -248,16 +254,16 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public override int GetHashCode() {
     int hash = 1;
-    if (Version.Length != 0) hash ^= Version.GetHashCode();
-    if (CurEpoch != 0UL) hash ^= CurEpoch.GetHashCode();
-    if (CurTimezone != 0) hash ^= CurTimezone.GetHashCode();
-    if (BNNOMIBDHAA != 0) hash ^= BNNOMIBDHAA.GetHashCode();
-    if (RandomNumber != 0UL) hash ^= RandomNumber.GetHashCode();
-    if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
+    if (BsBinVersion.Length != 0) hash ^= BsBinVersion.GetHashCode();
+    if (ServerTimestampMs != 0UL) hash ^= ServerTimestampMs.GetHashCode();
+    if (CurServerTimezone != 0) hash ^= CurServerTimezone.GetHashCode();
+    if (Retcode != 0) hash ^= Retcode.GetHashCode();
+    if (LoginRandom != 0UL) hash ^= LoginRandom.GetHashCode();
+    if (basicInfo_ != null) hash ^= BasicInfo.GetHashCode();
     if (Stamina != 0) hash ^= Stamina.GetHashCode();
-    if (FKKGNMEMOFK != false) hash ^= FKKGNMEMOFK.GetHashCode();
-    if (HNEACALGFKE != false) hash ^= HNEACALGFKE.GetHashCode();
-    if (Platform.Length != 0) hash ^= Platform.GetHashCode();
+    if (IsNewPlayer != false) hash ^= IsNewPlayer.GetHashCode();
+    if (IsRelay != false) hash ^= IsRelay.GetHashCode();
+    if (Signature.Length != 0) hash ^= Signature.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -276,45 +282,45 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (Platform.Length != 0) {
+    if (Signature.Length != 0) {
       output.WriteRawTag(34);
-      output.WriteString(Platform);
+      output.WriteString(Signature);
     }
-    if (CurTimezone != 0) {
+    if (CurServerTimezone != 0) {
       output.WriteRawTag(40);
-      output.WriteInt32(CurTimezone);
+      output.WriteInt32(CurServerTimezone);
     }
-    if (CurEpoch != 0UL) {
+    if (ServerTimestampMs != 0UL) {
       output.WriteRawTag(56);
-      output.WriteUInt64(CurEpoch);
+      output.WriteUInt64(ServerTimestampMs);
     }
-    if (HNEACALGFKE != false) {
+    if (IsRelay != false) {
       output.WriteRawTag(64);
-      output.WriteBool(HNEACALGFKE);
+      output.WriteBool(IsRelay);
     }
-    if (FKKGNMEMOFK != false) {
+    if (IsNewPlayer != false) {
       output.WriteRawTag(72);
-      output.WriteBool(FKKGNMEMOFK);
+      output.WriteBool(IsNewPlayer);
     }
-    if (BNNOMIBDHAA != 0) {
+    if (Retcode != 0) {
       output.WriteRawTag(88);
-      output.WriteUInt32(BNNOMIBDHAA);
+      output.WriteUInt32(Retcode);
     }
-    if (playerInfo_ != null) {
+    if (basicInfo_ != null) {
       output.WriteRawTag(98);
-      output.WriteMessage(PlayerInfo);
+      output.WriteMessage(BasicInfo);
     }
-    if (RandomNumber != 0UL) {
+    if (LoginRandom != 0UL) {
       output.WriteRawTag(104);
-      output.WriteUInt64(RandomNumber);
+      output.WriteUInt64(LoginRandom);
     }
     if (Stamina != 0) {
       output.WriteRawTag(112);
       output.WriteUInt32(Stamina);
     }
-    if (Version.Length != 0) {
+    if (BsBinVersion.Length != 0) {
       output.WriteRawTag(122);
-      output.WriteString(Version);
+      output.WriteString(BsBinVersion);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -326,45 +332,45 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (Platform.Length != 0) {
+    if (Signature.Length != 0) {
       output.WriteRawTag(34);
-      output.WriteString(Platform);
+      output.WriteString(Signature);
     }
-    if (CurTimezone != 0) {
+    if (CurServerTimezone != 0) {
       output.WriteRawTag(40);
-      output.WriteInt32(CurTimezone);
+      output.WriteInt32(CurServerTimezone);
     }
-    if (CurEpoch != 0UL) {
+    if (ServerTimestampMs != 0UL) {
       output.WriteRawTag(56);
-      output.WriteUInt64(CurEpoch);
+      output.WriteUInt64(ServerTimestampMs);
     }
-    if (HNEACALGFKE != false) {
+    if (IsRelay != false) {
       output.WriteRawTag(64);
-      output.WriteBool(HNEACALGFKE);
+      output.WriteBool(IsRelay);
     }
-    if (FKKGNMEMOFK != false) {
+    if (IsNewPlayer != false) {
       output.WriteRawTag(72);
-      output.WriteBool(FKKGNMEMOFK);
+      output.WriteBool(IsNewPlayer);
     }
-    if (BNNOMIBDHAA != 0) {
+    if (Retcode != 0) {
       output.WriteRawTag(88);
-      output.WriteUInt32(BNNOMIBDHAA);
+      output.WriteUInt32(Retcode);
     }
-    if (playerInfo_ != null) {
+    if (basicInfo_ != null) {
       output.WriteRawTag(98);
-      output.WriteMessage(PlayerInfo);
+      output.WriteMessage(BasicInfo);
     }
-    if (RandomNumber != 0UL) {
+    if (LoginRandom != 0UL) {
       output.WriteRawTag(104);
-      output.WriteUInt64(RandomNumber);
+      output.WriteUInt64(LoginRandom);
     }
     if (Stamina != 0) {
       output.WriteRawTag(112);
       output.WriteUInt32(Stamina);
     }
-    if (Version.Length != 0) {
+    if (BsBinVersion.Length != 0) {
       output.WriteRawTag(122);
-      output.WriteString(Version);
+      output.WriteString(BsBinVersion);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -376,35 +382,35 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public int CalculateSize() {
     int size = 0;
-    if (Version.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Version);
+    if (BsBinVersion.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(BsBinVersion);
     }
-    if (CurEpoch != 0UL) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(CurEpoch);
+    if (ServerTimestampMs != 0UL) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ServerTimestampMs);
     }
-    if (CurTimezone != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(CurTimezone);
+    if (CurServerTimezone != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(CurServerTimezone);
     }
-    if (BNNOMIBDHAA != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BNNOMIBDHAA);
+    if (Retcode != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
     }
-    if (RandomNumber != 0UL) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RandomNumber);
+    if (LoginRandom != 0UL) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt64Size(LoginRandom);
     }
-    if (playerInfo_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
+    if (basicInfo_ != null) {
+      size += 1 + pb::CodedOutputStream.ComputeMessageSize(BasicInfo);
     }
     if (Stamina != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Stamina);
     }
-    if (FKKGNMEMOFK != false) {
+    if (IsNewPlayer != false) {
       size += 1 + 1;
     }
-    if (HNEACALGFKE != false) {
+    if (IsRelay != false) {
       size += 1 + 1;
     }
-    if (Platform.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Platform);
+    if (Signature.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Signature);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -418,38 +424,38 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
     if (other == null) {
       return;
     }
-    if (other.Version.Length != 0) {
-      Version = other.Version;
+    if (other.BsBinVersion.Length != 0) {
+      BsBinVersion = other.BsBinVersion;
     }
-    if (other.CurEpoch != 0UL) {
-      CurEpoch = other.CurEpoch;
+    if (other.ServerTimestampMs != 0UL) {
+      ServerTimestampMs = other.ServerTimestampMs;
     }
-    if (other.CurTimezone != 0) {
-      CurTimezone = other.CurTimezone;
+    if (other.CurServerTimezone != 0) {
+      CurServerTimezone = other.CurServerTimezone;
     }
-    if (other.BNNOMIBDHAA != 0) {
-      BNNOMIBDHAA = other.BNNOMIBDHAA;
+    if (other.Retcode != 0) {
+      Retcode = other.Retcode;
     }
-    if (other.RandomNumber != 0UL) {
-      RandomNumber = other.RandomNumber;
+    if (other.LoginRandom != 0UL) {
+      LoginRandom = other.LoginRandom;
     }
-    if (other.playerInfo_ != null) {
-      if (playerInfo_ == null) {
-        PlayerInfo = new global::PlayerBasicInfo();
+    if (other.basicInfo_ != null) {
+      if (basicInfo_ == null) {
+        BasicInfo = new global::PlayerBasicInfo();
       }
-      PlayerInfo.MergeFrom(other.PlayerInfo);
+      BasicInfo.MergeFrom(other.BasicInfo);
     }
     if (other.Stamina != 0) {
       Stamina = other.Stamina;
     }
-    if (other.FKKGNMEMOFK != false) {
-      FKKGNMEMOFK = other.FKKGNMEMOFK;
+    if (other.IsNewPlayer != false) {
+      IsNewPlayer = other.IsNewPlayer;
     }
-    if (other.HNEACALGFKE != false) {
-      HNEACALGFKE = other.HNEACALGFKE;
+    if (other.IsRelay != false) {
+      IsRelay = other.IsRelay;
     }
-    if (other.Platform.Length != 0) {
-      Platform = other.Platform;
+    if (other.Signature.Length != 0) {
+      Signature = other.Signature;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -467,38 +473,38 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 34: {
-          Platform = input.ReadString();
+          Signature = input.ReadString();
           break;
         }
         case 40: {
-          CurTimezone = input.ReadInt32();
+          CurServerTimezone = input.ReadInt32();
           break;
         }
         case 56: {
-          CurEpoch = input.ReadUInt64();
+          ServerTimestampMs = input.ReadUInt64();
           break;
         }
         case 64: {
-          HNEACALGFKE = input.ReadBool();
+          IsRelay = input.ReadBool();
           break;
         }
         case 72: {
-          FKKGNMEMOFK = input.ReadBool();
+          IsNewPlayer = input.ReadBool();
           break;
         }
         case 88: {
-          BNNOMIBDHAA = input.ReadUInt32();
+          Retcode = input.ReadUInt32();
           break;
         }
         case 98: {
-          if (playerInfo_ == null) {
-            PlayerInfo = new global::PlayerBasicInfo();
+          if (basicInfo_ == null) {
+            BasicInfo = new global::PlayerBasicInfo();
           }
-          input.ReadMessage(PlayerInfo);
+          input.ReadMessage(BasicInfo);
           break;
         }
         case 104: {
-          RandomNumber = input.ReadUInt64();
+          LoginRandom = input.ReadUInt64();
           break;
         }
         case 112: {
@@ -506,7 +512,7 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
           break;
         }
         case 122: {
-          Version = input.ReadString();
+          BsBinVersion = input.ReadString();
           break;
         }
       }
@@ -525,38 +531,38 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 34: {
-          Platform = input.ReadString();
+          Signature = input.ReadString();
           break;
         }
         case 40: {
-          CurTimezone = input.ReadInt32();
+          CurServerTimezone = input.ReadInt32();
           break;
         }
         case 56: {
-          CurEpoch = input.ReadUInt64();
+          ServerTimestampMs = input.ReadUInt64();
           break;
         }
         case 64: {
-          HNEACALGFKE = input.ReadBool();
+          IsRelay = input.ReadBool();
           break;
         }
         case 72: {
-          FKKGNMEMOFK = input.ReadBool();
+          IsNewPlayer = input.ReadBool();
           break;
         }
         case 88: {
-          BNNOMIBDHAA = input.ReadUInt32();
+          Retcode = input.ReadUInt32();
           break;
         }
         case 98: {
-          if (playerInfo_ == null) {
-            PlayerInfo = new global::PlayerBasicInfo();
+          if (basicInfo_ == null) {
+            BasicInfo = new global::PlayerBasicInfo();
           }
-          input.ReadMessage(PlayerInfo);
+          input.ReadMessage(BasicInfo);
           break;
         }
         case 104: {
-          RandomNumber = input.ReadUInt64();
+          LoginRandom = input.ReadUInt64();
           break;
         }
         case 112: {
@@ -564,7 +570,7 @@ public sealed partial class PlayerLoginScRsp : pb::IMessage<PlayerLoginScRsp>
           break;
         }
         case 122: {
-          Version = input.ReadString();
+          BsBinVersion = input.ReadString();
           break;
         }
       }
@@ -608,13 +614,13 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public PlayerBasicInfo(PlayerBasicInfo other) : this() {
-    nickName_ = other.nickName_;
+    nickname_ = other.nickname_;
     level_ = other.level_;
-    currentExp_ = other.currentExp_;
+    exp_ = other.exp_;
     stamina_ = other.stamina_;
-    mCoin_ = other.mCoin_;
-    hCoin_ = other.hCoin_;
-    sCoin_ = other.sCoin_;
+    mcoin_ = other.mcoin_;
+    hcoin_ = other.hcoin_;
+    scoin_ = other.scoin_;
     worldLevel_ = other.worldLevel_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
@@ -625,15 +631,15 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
     return new PlayerBasicInfo(this);
   }
 
-  /// <summary>Field number for the "nickName" field.</summary>
-  public const int NickNameFieldNumber = 1;
-  private string nickName_ = "";
+  /// <summary>Field number for the "nickname" field.</summary>
+  public const int NicknameFieldNumber = 1;
+  private string nickname_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public string NickName {
-    get { return nickName_; }
+  public string Nickname {
+    get { return nickname_; }
     set {
-      nickName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      nickname_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
@@ -649,15 +655,15 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
     }
   }
 
-  /// <summary>Field number for the "currentExp" field.</summary>
-  public const int CurrentExpFieldNumber = 3;
-  private uint currentExp_;
+  /// <summary>Field number for the "exp" field.</summary>
+  public const int ExpFieldNumber = 3;
+  private uint exp_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint CurrentExp {
-    get { return currentExp_; }
+  public uint Exp {
+    get { return exp_; }
     set {
-      currentExp_ = value;
+      exp_ = value;
     }
   }
 
@@ -673,43 +679,43 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
     }
   }
 
-  /// <summary>Field number for the "mCoin" field.</summary>
-  public const int MCoinFieldNumber = 5;
-  private uint mCoin_;
+  /// <summary>Field number for the "mcoin" field.</summary>
+  public const int McoinFieldNumber = 5;
+  private uint mcoin_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint MCoin {
-    get { return mCoin_; }
+  public uint Mcoin {
+    get { return mcoin_; }
     set {
-      mCoin_ = value;
+      mcoin_ = value;
     }
   }
 
-  /// <summary>Field number for the "hCoin" field.</summary>
-  public const int HCoinFieldNumber = 6;
-  private uint hCoin_;
+  /// <summary>Field number for the "hcoin" field.</summary>
+  public const int HcoinFieldNumber = 6;
+  private uint hcoin_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint HCoin {
-    get { return hCoin_; }
+  public uint Hcoin {
+    get { return hcoin_; }
     set {
-      hCoin_ = value;
+      hcoin_ = value;
     }
   }
 
-  /// <summary>Field number for the "sCoin" field.</summary>
-  public const int SCoinFieldNumber = 7;
-  private uint sCoin_;
+  /// <summary>Field number for the "scoin" field.</summary>
+  public const int ScoinFieldNumber = 7;
+  private uint scoin_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public uint SCoin {
-    get { return sCoin_; }
+  public uint Scoin {
+    get { return scoin_; }
     set {
-      sCoin_ = value;
+      scoin_ = value;
     }
   }
 
-  /// <summary>Field number for the "worldLevel" field.</summary>
+  /// <summary>Field number for the "world_level" field.</summary>
   public const int WorldLevelFieldNumber = 8;
   private uint worldLevel_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -736,13 +742,13 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (NickName != other.NickName) return false;
+    if (Nickname != other.Nickname) return false;
     if (Level != other.Level) return false;
-    if (CurrentExp != other.CurrentExp) return false;
+    if (Exp != other.Exp) return false;
     if (Stamina != other.Stamina) return false;
-    if (MCoin != other.MCoin) return false;
-    if (HCoin != other.HCoin) return false;
-    if (SCoin != other.SCoin) return false;
+    if (Mcoin != other.Mcoin) return false;
+    if (Hcoin != other.Hcoin) return false;
+    if (Scoin != other.Scoin) return false;
     if (WorldLevel != other.WorldLevel) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
@@ -751,13 +757,13 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public override int GetHashCode() {
     int hash = 1;
-    if (NickName.Length != 0) hash ^= NickName.GetHashCode();
+    if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
     if (Level != 0) hash ^= Level.GetHashCode();
-    if (CurrentExp != 0) hash ^= CurrentExp.GetHashCode();
+    if (Exp != 0) hash ^= Exp.GetHashCode();
     if (Stamina != 0) hash ^= Stamina.GetHashCode();
-    if (MCoin != 0) hash ^= MCoin.GetHashCode();
-    if (HCoin != 0) hash ^= HCoin.GetHashCode();
-    if (SCoin != 0) hash ^= SCoin.GetHashCode();
+    if (Mcoin != 0) hash ^= Mcoin.GetHashCode();
+    if (Hcoin != 0) hash ^= Hcoin.GetHashCode();
+    if (Scoin != 0) hash ^= Scoin.GetHashCode();
     if (WorldLevel != 0) hash ^= WorldLevel.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
@@ -777,33 +783,33 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (NickName.Length != 0) {
+    if (Nickname.Length != 0) {
       output.WriteRawTag(10);
-      output.WriteString(NickName);
+      output.WriteString(Nickname);
     }
     if (Level != 0) {
       output.WriteRawTag(16);
       output.WriteUInt32(Level);
     }
-    if (CurrentExp != 0) {
+    if (Exp != 0) {
       output.WriteRawTag(24);
-      output.WriteUInt32(CurrentExp);
+      output.WriteUInt32(Exp);
     }
     if (Stamina != 0) {
       output.WriteRawTag(32);
       output.WriteUInt32(Stamina);
     }
-    if (MCoin != 0) {
+    if (Mcoin != 0) {
       output.WriteRawTag(40);
-      output.WriteUInt32(MCoin);
+      output.WriteUInt32(Mcoin);
     }
-    if (HCoin != 0) {
+    if (Hcoin != 0) {
       output.WriteRawTag(48);
-      output.WriteUInt32(HCoin);
+      output.WriteUInt32(Hcoin);
     }
-    if (SCoin != 0) {
+    if (Scoin != 0) {
       output.WriteRawTag(56);
-      output.WriteUInt32(SCoin);
+      output.WriteUInt32(Scoin);
     }
     if (WorldLevel != 0) {
       output.WriteRawTag(64);
@@ -819,33 +825,33 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (NickName.Length != 0) {
+    if (Nickname.Length != 0) {
       output.WriteRawTag(10);
-      output.WriteString(NickName);
+      output.WriteString(Nickname);
     }
     if (Level != 0) {
       output.WriteRawTag(16);
       output.WriteUInt32(Level);
     }
-    if (CurrentExp != 0) {
+    if (Exp != 0) {
       output.WriteRawTag(24);
-      output.WriteUInt32(CurrentExp);
+      output.WriteUInt32(Exp);
     }
     if (Stamina != 0) {
       output.WriteRawTag(32);
       output.WriteUInt32(Stamina);
     }
-    if (MCoin != 0) {
+    if (Mcoin != 0) {
       output.WriteRawTag(40);
-      output.WriteUInt32(MCoin);
+      output.WriteUInt32(Mcoin);
     }
-    if (HCoin != 0) {
+    if (Hcoin != 0) {
       output.WriteRawTag(48);
-      output.WriteUInt32(HCoin);
+      output.WriteUInt32(Hcoin);
     }
-    if (SCoin != 0) {
+    if (Scoin != 0) {
       output.WriteRawTag(56);
-      output.WriteUInt32(SCoin);
+      output.WriteUInt32(Scoin);
     }
     if (WorldLevel != 0) {
       output.WriteRawTag(64);
@@ -861,26 +867,26 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public int CalculateSize() {
     int size = 0;
-    if (NickName.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(NickName);
+    if (Nickname.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Nickname);
     }
     if (Level != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Level);
     }
-    if (CurrentExp != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CurrentExp);
+    if (Exp != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Exp);
     }
     if (Stamina != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Stamina);
     }
-    if (MCoin != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MCoin);
+    if (Mcoin != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Mcoin);
     }
-    if (HCoin != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HCoin);
+    if (Hcoin != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Hcoin);
     }
-    if (SCoin != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SCoin);
+    if (Scoin != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Scoin);
     }
     if (WorldLevel != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(WorldLevel);
@@ -897,26 +903,26 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
     if (other == null) {
       return;
     }
-    if (other.NickName.Length != 0) {
-      NickName = other.NickName;
+    if (other.Nickname.Length != 0) {
+      Nickname = other.Nickname;
     }
     if (other.Level != 0) {
       Level = other.Level;
     }
-    if (other.CurrentExp != 0) {
-      CurrentExp = other.CurrentExp;
+    if (other.Exp != 0) {
+      Exp = other.Exp;
     }
     if (other.Stamina != 0) {
       Stamina = other.Stamina;
     }
-    if (other.MCoin != 0) {
-      MCoin = other.MCoin;
+    if (other.Mcoin != 0) {
+      Mcoin = other.Mcoin;
     }
-    if (other.HCoin != 0) {
-      HCoin = other.HCoin;
+    if (other.Hcoin != 0) {
+      Hcoin = other.Hcoin;
     }
-    if (other.SCoin != 0) {
-      SCoin = other.SCoin;
+    if (other.Scoin != 0) {
+      Scoin = other.Scoin;
     }
     if (other.WorldLevel != 0) {
       WorldLevel = other.WorldLevel;
@@ -937,7 +943,7 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 10: {
-          NickName = input.ReadString();
+          Nickname = input.ReadString();
           break;
         }
         case 16: {
@@ -945,7 +951,7 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
           break;
         }
         case 24: {
-          CurrentExp = input.ReadUInt32();
+          Exp = input.ReadUInt32();
           break;
         }
         case 32: {
@@ -953,15 +959,15 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
           break;
         }
         case 40: {
-          MCoin = input.ReadUInt32();
+          Mcoin = input.ReadUInt32();
           break;
         }
         case 48: {
-          HCoin = input.ReadUInt32();
+          Hcoin = input.ReadUInt32();
           break;
         }
         case 56: {
-          SCoin = input.ReadUInt32();
+          Scoin = input.ReadUInt32();
           break;
         }
         case 64: {
@@ -984,7 +990,7 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 10: {
-          NickName = input.ReadString();
+          Nickname = input.ReadString();
           break;
         }
         case 16: {
@@ -992,7 +998,7 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
           break;
         }
         case 24: {
-          CurrentExp = input.ReadUInt32();
+          Exp = input.ReadUInt32();
           break;
         }
         case 32: {
@@ -1000,15 +1006,15 @@ public sealed partial class PlayerBasicInfo : pb::IMessage<PlayerBasicInfo>
           break;
         }
         case 40: {
-          MCoin = input.ReadUInt32();
+          Mcoin = input.ReadUInt32();
           break;
         }
         case 48: {
-          HCoin = input.ReadUInt32();
+          Hcoin = input.ReadUInt32();
           break;
         }
         case 56: {
-          SCoin = input.ReadUInt32();
+          Scoin = input.ReadUInt32();
           break;
         }
         case 64: {

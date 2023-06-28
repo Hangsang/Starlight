@@ -8,14 +8,21 @@ using Starlight.Common.Unsorted;
 using Starlight.Common.Utils;
 using Starlight.Database;
 using Starlight.Database.Repositories;
+using System.Reflection;
 
 namespace Starlight.GameServer;
 
 internal class GameServer
 {
+    #if DEBUG
+    private const string Title = "Starlight Game Server (DEBUG)";
+    #else
+    private const string Title = "Starlight Game Server (RELEASE)";
+    #endif
+
     private static async Task Main()
     {
-        Console.Title = "Honkai: Star Rail - Game Server";
+        Console.Title = Title;
 
         Log.Logger = new LoggerConfiguration()
             .Enrich.With<ContextEnricher>()
@@ -37,12 +44,12 @@ internal class GameServer
                 UID = 1,
                 PlayerBasicInfo = new PlayerBasicInfo
                 {
-                    NickName = "hecker",
+                    Nickname = "hecker",
                     Level = 70,
                     WorldLevel = 6,
                     Stamina = 1337,
-                    HCoin = 999999, //Jades
-                    MCoin = 999999 //Credits
+                    Hcoin = 999999, //Jades
+                    Mcoin = 999999 //Credits
                 }
             });
         }
@@ -57,8 +64,9 @@ internal class GameServer
         SetBootstrap(GetServices<Bootstrap>());
         await GetBootstrap().BindAsync();
 
-        while (true)
+        while (true) {
             Console.ReadLine();
+        }
     }
 
     private static T GetServices<T>()
@@ -66,6 +74,7 @@ internal class GameServer
         return ServiceProvider.GetService<T>();
     }
 
+    //???
     private static Bootstrap bootstrap;
 
     private static Bootstrap GetBootstrap()
