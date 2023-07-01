@@ -1,5 +1,5 @@
 ﻿using Starlight.Common.Packet;
-using static Starlight.Common.Unsorted.Constants;
+using static Starlight.Common.Constants;
 
 namespace Starlight.Common.Attributes;
 

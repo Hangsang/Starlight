@@ -12,7 +12,7 @@ namespace Starlight.GameServer.Services
             nameof(GachaService));
 
         [Handler(Opcode.GetGachaInfoCsReq)]
-        public static async Task OnGetGachaInfo(Session session, Memory<byte> _)
+        public static async ValueTask OnGetGachaInfo(Session session, Memory<byte> _)
         {
             await session.SendCmdId(Opcode.GetGachaInfoScRsp);
         }

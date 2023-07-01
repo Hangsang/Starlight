@@ -21,27 +21,16 @@ namespace Starlight.Common.Network.Netty
             session.DeRegister();
         }
 
-        public async Task ChannelRead(Connection session, object output)
+        public void ChannelRead(Connection session, object output)
         {
-            if (session == null)
-                return;
-
-            if (session.mConnection == null || session.mConnection.mKicked || !session.Channel.Active)
-                return;
-
-            if (output is HsrPacket message)
-            {
+            if (output is HsrPacket message) {
                 PacketProcessor.Invoke(message, session);
-            }
-            else
-            {
-                await session.mConnection.KickAsync(true);
             }
         }
 
         public void ExceptionCaught(Connection session, Exception exception)
         {
-            Logger.Error($"Exception in NettyServerHandler {session.RemoteAddress}");
+            Logger.Error($"Exception in NettyServerHandler {exception.Message} {session.RemoteAddress}");
             session?.mConnection.KickAsync(true);
         }
     }

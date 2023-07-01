@@ -1,24 +1,23 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Starlight.Common;
+using Starlight.Common.Entities;
 using Starlight.Common.Interfaces;
 using Starlight.Common.Network;
 using Starlight.Common.Network.Netty;
-using Starlight.Common.Unsorted;
 using Starlight.Common.Utils;
 using Starlight.Database;
 using Starlight.Database.Repositories;
-using System.Reflection;
 
 namespace Starlight.GameServer;
 
-internal class GameServer
+internal class Program
 {
-    #if DEBUG
+#if DEBUG
     private const string Title = "Starlight Game Server (DEBUG)";
-    #else
+#else
     private const string Title = "Starlight Game Server (RELEASE)";
-    #endif
+#endif
 
     private static async Task Main()
     {
@@ -34,14 +33,15 @@ internal class GameServer
 #endif
             .CreateLogger();
 
-        Driver.Start($"mongodb://127.0.0.1:27017", Log.ForContext(Serilog.Core.Constants.SourceContextPropertyName, "MongoDB"));
+        Driver.Start($"mongodb://127.0.0.1:27017");
 
         var a = await PlayerRepository.CountAll();
         if (a == 0)
         {
-            await PlayerRepository.InsertOne(new Player
+            await PlayerRepository.InsertOne(new PlayerEntity
             {
                 UID = 1,
+                Username = "Hang",
                 PlayerBasicInfo = new PlayerBasicInfo
                 {
                     Nickname = "hecker",
@@ -64,7 +64,8 @@ internal class GameServer
         SetBootstrap(GetServices<Bootstrap>());
         await GetBootstrap().BindAsync();
 
-        while (true) {
+        while (true)
+        {
             Console.ReadLine();
         }
     }

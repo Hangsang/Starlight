@@ -3,7 +3,7 @@ using Starlight.Common.Attributes;
 using Starlight.Common.Network;
 using Starlight.Common.Packet;
 using Starlight.Database.Repositories;
-using static Starlight.Common.Unsorted.Constants;
+using static Starlight.Common.Constants;
 
 namespace Starlight.GameServer.Services
 {
@@ -14,11 +14,11 @@ namespace Starlight.GameServer.Services
             nameof(LoginService));
 
         [Handler(Opcode.PlayerGetTokenCsReq, SessionState.Ignored)]
-        public static async Task OnPlayerGetToken(Session connection, Memory<byte> payload)
+        public static async ValueTask OnPlayerGetToken(Session connection, Memory<byte> payload)
         {
-            var cplrtoken = PlayerGetTokenCsReq.Parser.ParseFrom(payload.Span);
-            if (cplrtoken == null)
-                return;
+            //var cplrtoken = PlayerGetTokenCsReq.Parser.ParseFrom(payload.Span);
+            //if (cplrtoken == null)
+            //    return; //Won't work for now bcs broken http
 
             var plr = await PlayerRepository.FirstOrDefault(x => x.UID == 1);
             if (plr == null)
@@ -28,16 +28,16 @@ namespace Starlight.GameServer.Services
             if (plr.Banned)
                 splrtoken.MValue = 1013;
 
-            connection.mPlayer = plr;
+            connection.Player = plr;
             splrtoken.UID = plr.UID;
 
             await connection.SendAsync(Opcode.PlayerGetTokenScRsp, splrtoken);
         }
 
         [Handler(Opcode.PlayerLoginCsReq)]
-        public static async Task OnPlayerLogin(Session connection, Memory<byte> _)
+        public static async ValueTask OnPlayerLogin(Session connection, Memory<byte> _)
         {
-            var plr = connection.mPlayer;
+            var plr = connection.Player;
 
             await connection.SendAsync(
                 Opcode.PlayerLoginScRsp,
@@ -49,9 +49,9 @@ namespace Starlight.GameServer.Services
         }
 
         [Handler(Opcode.GetLevelRewardTakenListCsReq)]
-        public static async Task OnGetLevelRewardTakenList(Session session, Memory<byte> _)
+        public static async ValueTask OnGetLevelRewardTakenList(Session session, Memory<byte> _)
         {
-            //await session.SendCmdId(Opcode.GetLevelRewardTakenListScRsp);
+            await session.SendCmdId(Opcode.GetLevelRewardTakenListScRsp);
         }
     }
 }

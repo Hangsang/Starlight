@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Starlight.Common\Starlight.Common.csproj" />
+    <ProjectReference Include="..\Starlight.Database\Starlight.Database.csproj" />
   </ItemGroup>
 
 </Project>

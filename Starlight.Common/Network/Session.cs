@@ -1,5 +1,7 @@
-﻿using Google.Protobuf;
+﻿using DotNetty.Common.Utilities;
+using Google.Protobuf;
 using Serilog;
+using Starlight.Common.Entities;
 using Starlight.Common.Packet;
 using System.Net;
 
@@ -12,7 +14,7 @@ namespace Starlight.Common.Network
             nameof(Session));
 
         public Connection mConnection { get; set; }
-        public Player mPlayer { get; set; }
+        public PlayerEntity Player { get; set; }
         public EndPoint Address => mConnection.RemoteAddress;
         public bool mKicked { get; set; }
 
@@ -26,9 +28,10 @@ namespace Starlight.Common.Network
             if (!mConnection.IsWritable || !mConnection.IsActive || mKicked)
                 return;
 
+            var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
+
             try
             {
-                var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
                 //var size = message.CalculateSize();
                 var mData = message.ToByteArray();
 
@@ -42,6 +45,7 @@ namespace Starlight.Common.Network
                 mPooledBuffer.WriteShort(0x52C8);
 
                 await mConnection.Channel.WriteAndFlushAsync(mPooledBuffer);
+                mPooledBuffer.SafeRelease();
             }
             catch (Exception ex)
             {
@@ -49,6 +53,7 @@ namespace Starlight.Common.Network
             }
             finally
             {
+                mPooledBuffer.SafeRelease();
             }
         }
 
@@ -57,15 +62,20 @@ namespace Starlight.Common.Network
             if (!mConnection.IsWritable || !mConnection.IsActive || mKicked)
                 return;
 
+            var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
+
             try
             {
-                var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
                 mPooledBuffer.WriteBytes(buffer);
                 await mConnection.Channel.WriteAndFlushAsync(mPooledBuffer);
             }
             catch (Exception ex)
             {
                 Logger.Error(ex.Message);
+            }
+            finally
+            {
+                mPooledBuffer.SafeRelease();
             }
         }
 
@@ -74,10 +84,10 @@ namespace Starlight.Common.Network
             if (!mConnection.IsWritable || !mConnection.IsActive || mKicked)
                 return;
 
+            var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
+
             try
             {
-                var mPooledBuffer = mConnection.Channel.Allocator.Buffer();
-
                 mPooledBuffer.WriteShort(0x9D74);
                 mPooledBuffer.WriteShort(0xC714);
                 mPooledBuffer.WriteShort((ushort)opcode);
@@ -91,6 +101,10 @@ namespace Starlight.Common.Network
             catch (Exception ex)
             {
                 Logger.Error(ex.Message);
+            }
+            finally
+            {
+                mPooledBuffer.SafeRelease();
             }
         }
 

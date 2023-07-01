@@ -5,11 +5,11 @@ using System.Collections.Immutable;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Starlight.Common.Unsorted
+namespace Starlight.Common
 {
     public sealed class MessageFactory : Singleton<MessageFactory>
     {
-        private ImmutableDictionary<Opcode, (HandlerAttribute, HandlerDelegate)> clientMessageHandlers;
+        private ImmutableDictionary<Opcode, (HandlerAttribute, HandlerDelegate)> _clientMessageHandlers;
 
         public void Initialize()
         {
@@ -45,12 +45,12 @@ namespace Starlight.Common.Unsorted
                         messageHandlers.Add(attribute.Opcode, (attribute, lambda.Compile()));
                 }
 
-            clientMessageHandlers = messageHandlers.ToImmutable();
+            _clientMessageHandlers = messageHandlers.ToImmutable();
         }
 
         public (HandlerAttribute attribute, HandlerDelegate @delegate) GetMessageInformation(Opcode opcode)
         {
-            clientMessageHandlers.TryGetValue(opcode,
+            _clientMessageHandlers.TryGetValue(opcode,
                                               out (HandlerAttribute attribute, HandlerDelegate @delegate)
                                                   handler);
             return handler;

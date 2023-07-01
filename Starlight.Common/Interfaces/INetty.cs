@@ -8,7 +8,7 @@ namespace Starlight.Common.Interfaces
 
         void ChannelInactive(Connection session);
 
-        Task ChannelRead(Connection session, object output);
+        void ChannelRead(Connection session, object output);
 
         void ExceptionCaught(Connection session, Exception exception);
     }

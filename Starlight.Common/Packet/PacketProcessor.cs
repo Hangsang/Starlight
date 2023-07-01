@@ -1,6 +1,5 @@
 ﻿using Serilog;
 using Starlight.Common.Network;
-using Starlight.Common.Unsorted;
 
 namespace Starlight.Common.Packet
 {

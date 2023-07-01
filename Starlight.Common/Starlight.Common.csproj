@@ -10,8 +10,14 @@
     <PackageReference Include="DotNetty.Codecs" Version="0.7.5" />
     <PackageReference Include="DotNetty.Handlers" Version="0.7.5" />
     <PackageReference Include="Google.Protobuf" Version="3.23.3" />
+    <PackageReference Include="Grpc.Tools" Version="2.56.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="MongoDB.Bson" Version="2.20.0" />
     <PackageReference Include="Serilog" Version="3.0.1" />
+    
+    <Protobuf Include="Proto/*.proto" ProtoRoot="Proto/" GrpcServices="None" />
   </ItemGroup>
-
+  
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace Starlight.Common.Unsorted
+﻿namespace Starlight.Common
 {
     public class Constants
     {

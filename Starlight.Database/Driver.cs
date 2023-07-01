@@ -9,12 +9,12 @@ namespace Starlight.Database
     {
         private static ILogger Logger { get; set; }
 
-        public static void Start(string connection, ILogger logger)
+        public static void Start(string connection)
         {
             Mongo.Client = new MongoClient(connection);
             Mongo.Database = Mongo.Client.GetDatabase("starrail");
 
-            Logger = logger;
+            Logger = Log.ForContext(Serilog.Core.Constants.SourceContextPropertyName, "MongoDB");
 
             InitializeRepositories();
         }

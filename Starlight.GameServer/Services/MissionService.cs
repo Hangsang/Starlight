@@ -12,7 +12,7 @@ namespace Starlight.GameServer.Services
             nameof(MissionService));
 
         [Handler(Opcode.GetMissionStatusCsReq)]
-        public static async Task OnGetMissionStatus(Session session, Memory<byte> payload)
+        public static async ValueTask OnGetMissionStatus(Session session, Memory<byte> payload)
         {
             var request = GetMissionStatusCsReq.Parser.ParseFrom(payload.Span);
             if (request == null)

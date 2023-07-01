@@ -12,7 +12,7 @@ namespace Starlight.GameServer.Services
             nameof(QuestService));
 
         [Handler(Opcode.GetQuestDataCsReq)]
-        public static async Task OnGetQuestData(Session session, Memory<byte> _)
+        public static async ValueTask OnGetQuestData(Session session, Memory<byte> _)
         {
             var a = new GetQuestDataScRsp();
             a.MDANJKEGONF.Add(new QuestData
@@ -26,7 +26,7 @@ namespace Starlight.GameServer.Services
         }
 
         [Handler(Opcode.GetQuestRecordCsReq)]
-        public static async Task OnGetQuestRecord(Session session, Memory<byte> _)
+        public static async ValueTask OnGetQuestRecord(Session session, Memory<byte> _)
         {
             await session.SendCmdId(Opcode.GetQuestRecordScRsp);
         }

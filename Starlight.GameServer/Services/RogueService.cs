@@ -12,7 +12,7 @@ namespace Starlight.GameServer.Services
             nameof(RogueService));
 
         [Handler(Opcode.GetRogueScoreRewardInfoCsReq)]
-        public static async Task OnGetRogueScoreRewardInfo(Session session, Memory<byte> _)
+        public static async ValueTask OnGetRogueScoreRewardInfo(Session session, Memory<byte> _)
         {
             await session.SendCmdId(Opcode.GetRogueScoreRewardInfoScRsp);
         }

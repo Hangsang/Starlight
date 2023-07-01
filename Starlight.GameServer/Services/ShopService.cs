@@ -12,7 +12,7 @@ namespace Starlight.GameServer.Services
             nameof(ShopService));
 
         [Handler(Opcode.QueryProductInfoCsReq)]
-        public static async Task OnQueryProductInfo(Session session, Memory<byte> _)
+        public static async ValueTask OnQueryProductInfo(Session session, Memory<byte> _)
         {
             await session.SendCmdId(Opcode.QueryProductInfoScRsp);
         }

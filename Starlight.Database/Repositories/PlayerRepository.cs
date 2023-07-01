@@ -1,13 +1,13 @@
-﻿using Starlight.Common;
+﻿using Starlight.Common.Entities;
 using Starlight.Common.Interfaces;
 
 namespace Starlight.Database.Repositories
 {
-    public class PlayerRepository : BaseRepository<Player>, IRepository
+    public class PlayerRepository : BaseRepository<PlayerEntity>, IRepository
     {
         public void Start()
         {
-            Collection = Mongo.Database.GetCollection<Player>("players");
+            Collection = Mongo.Database.GetCollection<PlayerEntity>("players");
         }
     }
 }

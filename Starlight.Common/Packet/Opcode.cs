@@ -1,6 +1,6 @@
 ﻿namespace Starlight.Common.Packet;
 
-public enum Opcode : ushort
+public enum Opcode : ushort //1.1 OS/REL
 {
     None = 0,
     ClientDownloadDataNotify = 64,

@@ -9,5 +9,4 @@ public class HsrHeader
     public uint TailMagic;
 
     public const int Size = 12;
-    public const int PacketTailLen = 4;
 }
