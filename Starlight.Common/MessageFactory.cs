@@ -9,7 +9,7 @@ namespace Starlight.Common
 {
     public sealed class MessageFactory : Singleton<MessageFactory>
     {
-        private ImmutableDictionary<Opcode, (HandlerAttribute, HandlerDelegate)> _clientMessageHandlers;
+        private ImmutableDictionary<Opcode, (HandlerAttribute, HandlerDelegate)>? _clientMessageHandlers;
 
         public void Initialize()
         {

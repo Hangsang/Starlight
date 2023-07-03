@@ -1,4 +1,6 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using Starlight.Common.Entities;
 using Starlight.Common.Interfaces;
 using System.Linq.Expressions;
 

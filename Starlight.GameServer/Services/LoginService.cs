@@ -18,7 +18,7 @@ namespace Starlight.GameServer.Services
         {
             //var cplrtoken = PlayerGetTokenCsReq.Parser.ParseFrom(payload.Span);
             //if (cplrtoken == null)
-            //    return; //Won't work for now bcs broken http
+            //    return;
 
             var plr = await PlayerRepository.FirstOrDefault(x => x.UID == 1);
             if (plr == null)

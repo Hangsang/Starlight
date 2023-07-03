@@ -16,5 +16,11 @@ namespace Starlight.GameServer.Services
         {
             await session.SendCmdId(Opcode.GetRogueScoreRewardInfoScRsp);
         }
+
+        [Handler(Opcode.GetRogueHandbookDataCsReq)]
+        public static async ValueTask OnGetRogueHandBookData(Session session, Memory<byte> _)
+        {
+            await session.SendCmdId(Opcode.GetRogueHandbookDataScRsp);
+        }
     }
 }

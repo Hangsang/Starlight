@@ -32,7 +32,7 @@ namespace Starlight.GameServer.Services
             }
             foreach (var _main in request.MainMissionIdList)
             {
-                response.FinishedMainMissionIdList.Add(_main);
+                response.UnfinishedMainMissionIdList.Add(_main);
             }
 
             await session.SendAsync(Opcode.GetMissionStatusScRsp, response);

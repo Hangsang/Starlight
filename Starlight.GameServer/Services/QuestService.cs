@@ -19,7 +19,7 @@ namespace Starlight.GameServer.Services
             {
                 CurrentProgress = 1,
                 AchievedTime = 1684181546,
-                Id = 4092335,
+                Id = 4040702,
                 Status = QuestStatus.QuestClose
             });
             await session.SendAsync(Opcode.GetQuestDataScRsp, a);

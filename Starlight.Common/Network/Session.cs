@@ -45,7 +45,6 @@ namespace Starlight.Common.Network
                 mPooledBuffer.WriteShort(0x52C8);
 
                 await mConnection.Channel.WriteAndFlushAsync(mPooledBuffer);
-                mPooledBuffer.SafeRelease();
             }
             catch (Exception ex)
             {

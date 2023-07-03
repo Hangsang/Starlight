@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Starlight.Database.Repositories;
 using Starlight.HttpServer.Models;
+using static Starlight.Database.Repositories.PlayerRepository;
 
 namespace Starlight.HttpServer.Endpoints
 {
@@ -15,7 +16,7 @@ namespace Starlight.HttpServer.Endpoints
             app.MapPost("/hkrpg_global/combo/granter/login/v2/login", OnGranterLogin);
         }
 
-        private static async Task OnShieldLogin(HttpContext ctx)
+        private static async Task OnShieldLogin(HttpContext ctx) //HoYoverse Login Window
         {
             var reader = new StreamReader(ctx.Request.Body);
             var data = JsonConvert.DeserializeObject<ShieldLoginBody>(await reader.ReadToEndAsync()) ?? throw new ArgumentException();
@@ -35,12 +36,22 @@ namespace Starlight.HttpServer.Endpoints
             }
             else
             {
-                rsp.Data.Account = new ShieldLoginResponse.ShieldLoginResponseData.ShieldLoginResponseDataAccount
+                var mToken = Guid.NewGuid().ToString();
+
+                if (await PlayerRepository.Update(plr.Id, UpdateType.Token, mToken))
                 {
-                    Uid = plr.UID,
-                    Name = data.Account,
-                    Token = "1234567890"
-                };
+                    rsp.Data.Account = new ShieldLoginResponse.ShieldLoginResponseData.ShieldLoginResponseDataAccount
+                    {
+                        Uid = plr.UID,
+                        Name = data.Account,
+                        Token = mToken
+                    };
+                }
+                else
+                {
+                    rsp.Retcode = -202;
+                    rsp.Message = "Server internal error";
+                }
             }
 
             await ctx.Response.WriteAsJsonAsync(rsp);
@@ -71,12 +82,12 @@ namespace Starlight.HttpServer.Endpoints
             });
         }
 
-        private static async Task OnShieldVerify(HttpContext ctx)
+        private static async Task OnShieldVerify(HttpContext ctx) //When user is already logged in before
         {
             StreamReader reader = new(ctx.Request.Body);
             var data = JsonConvert.DeserializeObject<ShieldVerifyBody>(await reader.ReadToEndAsync()) ?? throw new ArgumentException();
 
-            var plr = await PlayerRepository.FirstOrDefault(x => x.UID == int.Parse(data.Uid));
+            var plr = await PlayerRepository.FirstOrDefault(x => x.Token == data.Token);
             if (plr == null)
                 return;
 
@@ -90,33 +101,8 @@ namespace Starlight.HttpServer.Endpoints
                     {
                         Uid = plr.UID,
                         Name = plr.Username,
-                        Email = "",
-                        Mobile = "",
-                        IsEmailVerify = "0",
-                        Realname = "",
-                        IdentityCard = "",
-                        Token = "1234567890",
-                        SafeMobile = "",
-                        FacebookName = "",
-                        GoogleName = "",
-                        TwitterName = "",
-                        GameCenterName = "",
-                        AppleName = "",
-                        SonyName = "",
-                        TapName = "",
-                        Country = "US",
-                        ReactivateTicket = "",
-                        AreaCode = "**",
-                        DeviceGrantTicket = "",
-                        SteamName = "",
-                        UnmaskedEmail = "",
-                        UnmaskedEmailType = 0
-                    },
-                    DeviceGrantRequired = false,
-                    SafeMoblieRequired = false,
-                    RealpersonRequired = false,
-                    ReactivateRequired = false,
-                    RealnameOperation = "None"
+                        Token = plr.Token,   
+                    }
                 }
             };
 

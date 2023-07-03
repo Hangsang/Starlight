@@ -33,5 +33,17 @@ public enum Opcode : ushort //1.1 OS/REL
     GetAllLineupScRsp = 759,
     GetCurLineupCsReq = 739,
     GetCurLineupScRsp = 784,
-    FriendListScRsp = 2919
+    GetFriendListInfoCsReq = 2969,
+    GetFriendListInfoScRsp = 2919,
+    GetRogueHandbookDataCsReq = 1858,
+    GetRogueHandbookDataScRsp = 1824,
+    GetBagCsReq = 569,
+    GetBagScRsp = 519,
+    GetCurSceneInfoCsReq = 1488,
+    GetCurSceneInfoScRsp = 1499,
+    PlayerLoginFinishCsReq = 23,
+    PlayerLoginFinishScRsp = 66,
+    GetCurBattleInfoCsReq = 187,
+    GetCurBattleInfoScRsp = 179,
+
 }

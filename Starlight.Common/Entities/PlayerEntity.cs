@@ -8,6 +8,7 @@ namespace Starlight.Common.Entities
         public ObjectId Id { get; set; }
         public uint UID { get; set; }
         public string Username { get; set; }
+        public string Token { get; set; }
         public bool Banned { get; set; }
         public PlayerBasicInfo PlayerBasicInfo { get; set; }
     }
